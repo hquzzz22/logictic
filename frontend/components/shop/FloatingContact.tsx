@@ -56,7 +56,7 @@ export default function FloatingContact() {
 
           {/* Messenger */}
           <a
-            href={messenger?.id || 'https://m.me/nongsanshop'}
+            href={messenger?.id || 'https://m.me/spmt'}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-white rounded-full shadow-lg border border-border pl-4 pr-5 py-2.5 hover:shadow-xl transition-all group"
@@ -92,17 +92,6 @@ export default function FloatingContact() {
           </svg>
         )}
       </button>
-
-      {/* Pulse animation */}
-      <style jsx>{`
-        @keyframes bounce-gentle {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-4px); }
-        }
-        .animate-bounce-gentle {
-          animation: bounce-gentle 2s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 }

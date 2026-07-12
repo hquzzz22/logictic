@@ -2,56 +2,52 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Package, Users, DollarSign, ShoppingBag, TrendingUp, Clock } from 'lucide-react';
+import { Users, FileText, Mail, TrendingUp, Anchor } from 'lucide-react';
 import api from '@/lib/api';
 
 interface DashboardStats {
-  totalRevenue: number;
-  totalOrders: number;
-  pendingOrders: number;
-  totalProducts: number;
+  totalPosts: number;
   totalUsers: number;
+  totalContacts: number;
 }
 
-interface Order {
+interface Contact {
   _id: string;
-  shippingAddress: { fullName: string };
-  totalPrice: number;
-  isPaid: boolean;
-  isDelivered: boolean;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
   createdAt: string;
 }
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState<DashboardStats>({
-    totalRevenue: 0,
-    totalOrders: 0,
-    pendingOrders: 0,
-    totalProducts: 0,
+    totalPosts: 0,
     totalUsers: 0,
+    totalContacts: 0,
   });
-  const [recentOrders, setRecentOrders] = useState<Order[]>([]);
+  const [recentContacts, setRecentContacts] = useState<Contact[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [orderStatsRes, ordersRes, productsRes, usersRes] = await Promise.all([
-          api.get('/orders/stats'),
-          api.get('/orders'),
-          api.get('/products'),
-          api.get('/users'),
+        const [postsRes, usersRes, contactsRes] = await Promise.all([
+          api.get('/posts').catch(() => ({ data: [] })),
+          api.get('/users').catch(() => ({ data: [] })),
+          api.get('/contacts').catch(() => ({ data: [] })),
         ]);
 
         setStats({
-          totalRevenue: orderStatsRes.data.totalRevenue,
-          totalOrders: orderStatsRes.data.totalOrders,
-          pendingOrders: orderStatsRes.data.pendingOrders,
-          totalProducts: productsRes.data.length,
-          totalUsers: usersRes.data.length,
+          totalPosts: Array.isArray(postsRes.data) ? postsRes.data.length : 0,
+          totalUsers: Array.isArray(usersRes.data) ? usersRes.data.length : 0,
+          totalContacts: Array.isArray(contactsRes.data) ? contactsRes.data.length : 0,
         });
 
-        setRecentOrders(ordersRes.data.slice(0, 5));
+        // Assuming contacts are ordered by latest or we just sort them here
+        const contacts = Array.isArray(contactsRes.data) ? contactsRes.data : [];
+        const sortedContacts = contacts.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        setRecentContacts(sortedContacts.slice(0, 5));
       } catch (err) {
         console.error('Lỗi tải dashboard:', err);
       } finally {
@@ -64,43 +60,27 @@ export default function AdminDashboard() {
 
   const statCards = [
     {
-      name: 'Tổng doanh thu',
-      value: stats.totalRevenue.toLocaleString('vi-VN') + 'đ',
-      icon: DollarSign,
+      name: 'Yêu cầu liên hệ / Báo giá',
+      value: stats.totalContacts.toString(),
+      icon: Mail,
+      color: 'text-[#e62c26]',
+      bg: 'bg-[#ffe4e2]',
+      href: '/admin/contacts',
+    },
+    {
+      name: 'Bài viết / Tin tức',
+      value: stats.totalPosts.toString(),
+      icon: FileText,
       color: 'text-green-600',
       bg: 'bg-green-100',
-      href: '/admin/orders',
+      href: '/admin/posts',
     },
     {
-      name: 'Tổng đơn hàng',
-      value: stats.totalOrders.toString(),
-      icon: ShoppingBag,
-      color: 'text-blue-600',
-      bg: 'bg-blue-100',
-      href: '/admin/orders',
-    },
-    {
-      name: 'Chờ giao hàng',
-      value: stats.pendingOrders.toString(),
-      icon: Clock,
-      color: 'text-orange-600',
-      bg: 'bg-orange-100',
-      href: '/admin/orders',
-    },
-    {
-      name: 'Sản phẩm',
-      value: stats.totalProducts.toString(),
-      icon: Package,
-      color: 'text-purple-600',
-      bg: 'bg-purple-100',
-      href: '/admin/products',
-    },
-    {
-      name: 'Khách hàng',
+      name: 'Người dùng',
       value: stats.totalUsers.toString(),
       icon: Users,
-      color: 'text-pink-600',
-      bg: 'bg-pink-100',
+      color: 'text-purple-600',
+      bg: 'bg-purple-100',
       href: '/admin/users',
     },
   ];
@@ -108,30 +88,41 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-[#e62c26] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
     <div className="space-y-6">
+      {/* Banner */}
+      <div className="bg-stone-900 rounded-lg p-8 text-white relative overflow-hidden shadow-lg">
+        <div className="absolute top-0 right-0 p-8 opacity-10">
+          <Anchor className="w-32 h-32" />
+        </div>
+        <h1 className="text-2xl font-black mb-2 tracking-wide uppercase">Chào mừng trở lại!</h1>
+        <p className="text-stone-300 font-light max-w-2xl">
+          Tổng quan tình hình hoạt động của Superman Transport. Quản lý yêu cầu vận chuyển, tin tức và người dùng từ bảng điều khiển này.
+        </p>
+      </div>
+
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
         {statCards.map((item) => {
           const Icon = item.icon;
           return (
             <Link
               key={item.name}
               href={item.href}
-              className="bg-white overflow-hidden shadow-sm rounded-lg border hover:shadow-md transition-shadow"
+              className="bg-white overflow-hidden shadow-sm rounded-lg border border-stone-200 hover:border-[#ff9b96] hover:shadow-md transition-all group"
             >
               <div className="p-5 flex items-center">
-                <div className={`flex-shrink-0 rounded-md p-3 ${item.bg}`}>
-                  <Icon className={`h-6 w-6 ${item.color}`} />
+                <div className={`flex-shrink-0 rounded-xl p-3 ${item.bg} group-hover:scale-110 transition-transform`}>
+                  <Icon className={`h-7 w-7 ${item.color}`} />
                 </div>
-                <div className="ml-4 w-0 flex-1">
-                  <dt className="text-xs font-medium text-muted-foreground truncate">{item.name}</dt>
-                  <dd className="text-xl font-bold text-foreground mt-1">{item.value}</dd>
+                <div className="ml-5 w-0 flex-1">
+                  <dt className="text-sm font-medium text-stone-500 truncate uppercase tracking-wider">{item.name}</dt>
+                  <dd className="text-2xl font-black text-stone-900 mt-1">{item.value}</dd>
                 </div>
               </div>
             </Link>
@@ -139,59 +130,45 @@ export default function AdminDashboard() {
         })}
       </div>
 
-      {/* Recent Orders */}
-      <div className="bg-white shadow-sm rounded-lg border">
-        <div className="p-6 flex items-center justify-between border-b">
-          <h2 className="text-lg font-semibold text-foreground flex items-center">
-            <TrendingUp className="h-5 w-5 mr-2 text-primary" />
-            Đơn hàng gần đây
+      {/* Recent Contacts */}
+      <div className="bg-white shadow-sm rounded-lg border border-stone-200">
+        <div className="p-6 flex items-center justify-between border-b border-stone-100">
+          <h2 className="text-lg font-bold text-stone-900 flex items-center">
+            <TrendingUp className="h-5 w-5 mr-2 text-[#e62c26]" />
+            Yêu cầu liên hệ mới nhất
           </h2>
-          <Link href="/admin/orders" className="text-sm text-primary hover:underline font-medium">
+          <Link href="/admin/contacts" className="text-sm text-[#e62c26] hover:text-brand-800 font-bold uppercase tracking-wider">
             Xem tất cả
           </Link>
         </div>
 
-        {recentOrders.length === 0 ? (
-          <div className="text-center py-12 text-muted-foreground">
-            Chưa có đơn hàng nào
+        {recentContacts.length === 0 ? (
+          <div className="text-center py-16 text-stone-400 font-medium">
+            Chưa có yêu cầu liên hệ nào
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-border">
-              <thead className="bg-muted/30">
+            <table className="min-w-full divide-y divide-stone-100">
+              <thead className="bg-stone-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Mã đơn</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Khách hàng</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Tổng tiền</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Thanh toán</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Giao hàng</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Ngày đặt</th>
+                  <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Khách hàng</th>
+                  <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Email</th>
+                  <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Chủ đề</th>
+                  <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Ngày gửi</th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-border">
-                {recentOrders.map((order) => (
-                  <tr key={order._id} className="hover:bg-muted/20 transition-colors">
-                    <td className="px-6 py-4 text-sm font-mono text-primary">
-                      <Link href={`/admin/orders/${order._id}`} className="hover:underline">
-                        #{order._id.slice(-8).toUpperCase()}
-                      </Link>
-                    </td>
-                    <td className="px-6 py-4 text-sm text-foreground">{order.shippingAddress.fullName}</td>
-                    <td className="px-6 py-4 text-sm font-semibold text-foreground">
-                      {order.totalPrice.toLocaleString('vi-VN')}đ
-                    </td>
+              <tbody className="bg-white divide-y divide-stone-100">
+                {recentContacts.map((contact) => (
+                  <tr key={contact._id} className="hover:bg-[#fff0ef]/50 transition-colors">
+                    <td className="px-6 py-4 text-sm font-bold text-stone-900">{contact.name}</td>
+                    <td className="px-6 py-4 text-sm text-stone-600">{contact.email}</td>
                     <td className="px-6 py-4">
-                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${order.isPaid ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
-                        {order.isPaid ? 'Đã thanh toán' : 'Chưa thanh toán'}
+                      <span className="inline-flex px-3 py-1 text-xs font-bold rounded-full bg-[#ffe4e2] text-brand-700">
+                        {contact.subject}
                       </span>
                     </td>
-                    <td className="px-6 py-4">
-                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${order.isDelivered ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
-                        {order.isDelivered ? 'Đã giao' : 'Chờ giao'}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-sm text-muted-foreground">
-                      {new Date(order.createdAt).toLocaleDateString('vi-VN')}
+                    <td className="px-6 py-4 text-sm text-stone-500 font-medium">
+                      {new Date(contact.createdAt).toLocaleDateString('vi-VN')}
                     </td>
                   </tr>
                 ))}

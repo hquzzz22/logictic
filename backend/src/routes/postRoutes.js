@@ -4,6 +4,7 @@ const {
   getPosts,
   getAdminPosts,
   getPostBySlug,
+  getPostById,
   createPost,
   updatePost,
   deletePost,
@@ -15,8 +16,9 @@ router.get('/admin', protect, admin, getAdminPosts);
 
 router.route('/').get(getPosts).post(protect, admin, createPost);
 
-// /:id cho PUT/DELETE (dùng MongoDB _id)
+// /:id cho GET/PUT/DELETE (dùng MongoDB _id)
 router.route('/:id')
+  .get(protect, admin, getPostById)
   .put(protect, admin, updatePost)
   .delete(protect, admin, deletePost);
 

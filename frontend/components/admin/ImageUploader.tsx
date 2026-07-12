@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Upload, X, ImageIcon, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import api from '@/lib/api';
+import { getImageUrl } from '@/lib/utils';
 
 interface ImageUploaderProps {
   /** URL ảnh hiện tại (single) */
@@ -105,7 +106,7 @@ export default function ImageUploader({
           <div className="relative w-28 h-28 rounded-xl border-2 border-dashed border-border bg-stone-50 flex items-center justify-center overflow-hidden flex-shrink-0">
             {value ? (
               <>
-                <Image src={value} alt="preview" fill className="object-cover rounded-xl" />
+                <img src={getImageUrl(value)} alt="preview" className="w-full h-full object-cover rounded-xl" />
                 <button
                   type="button"
                   onClick={() => removeImage(value)}
@@ -167,7 +168,7 @@ export default function ImageUploader({
         <div className="flex flex-wrap gap-3 mb-3">
           {values.map((url, i) => (
             <div key={i} className="relative w-20 h-20 rounded-lg overflow-hidden border border-border group">
-              <Image src={url} alt={`ảnh ${i + 1}`} fill className="object-cover" />
+              <img src={getImageUrl(url)} alt={`ảnh ${i + 1}`} className="w-full h-full object-cover" />
               <button
                 type="button"
                 onClick={() => removeImage(url)}

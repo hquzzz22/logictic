@@ -2,10 +2,9 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { Plus, Edit, Trash2, X, Eye, EyeOff } from 'lucide-react';
+import { Plus, Edit, Trash2, Eye, EyeOff } from 'lucide-react';
 import { toast } from 'sonner';
 import api from '@/lib/api';
-import ImageUploader from '@/components/admin/ImageUploader';
 
 interface Post {
   _id: string;
@@ -18,15 +17,9 @@ interface Post {
   author?: { name: string };
 }
 
-const emptyForm = { title: '', slug: '', content: '', image: '', isPublished: true };
-
 export default function AdminPosts() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
-  const [editingPost, setEditingPost] = useState<Post | null>(null);
-  const [form, setForm] = useState(emptyForm);
-  const [saving, setSaving] = useState(false);
 
   const fetchPosts = useCallback(async () => {
     try {
@@ -42,57 +35,6 @@ export default function AdminPosts() {
   useEffect(() => {
     fetchPosts();
   }, [fetchPosts]);
-
-  const openCreate = () => {
-    setEditingPost(null);
-    setForm(emptyForm);
-    setShowModal(true);
-  };
-
-  const openEdit = (post: Post) => {
-    setEditingPost(post);
-    setForm({
-      title: post.title,
-      slug: post.slug,
-      content: post.content,
-      image: post.image || '',
-      isPublished: post.isPublished,
-    });
-    setShowModal(true);
-  };
-
-  const handleTitleChange = (title: string) => {
-    const slug = title
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/đ/g, 'd')
-      .replace(/[^a-z0-9\s-]/g, '')
-      .trim()
-      .replace(/\s+/g, '-');
-    setForm((f) => ({ ...f, title, slug: editingPost ? f.slug : slug }));
-  };
-
-  const handleSave = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSaving(true);
-    try {
-      if (editingPost) {
-        await api.put(`/posts/${editingPost._id}`, form);
-        toast.success('Đã cập nhật bài viết');
-      } else {
-        await api.post('/posts', form);
-        toast.success('Đã thêm bài viết mới');
-      }
-      setShowModal(false);
-      fetchPosts();
-    } catch (err: unknown) {
-      const error = err as { response?: { data?: { message?: string } } };
-      toast.error(error.response?.data?.message || 'Có lỗi xảy ra');
-    } finally {
-      setSaving(false);
-    }
-  };
 
   const handleDelete = async (id: string, title: string) => {
     if (!confirm(`Xóa bài viết "${title}"?`)) return;
@@ -173,12 +115,12 @@ export default function AdminPosts() {
                         >
                           {post.isPublished ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
                         </button>
-                        <button
-                          onClick={() => openEdit(post)}
-                          className="inline-flex items-center px-2 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100 transition-colors"
+                        <Link
+                          href={`/admin/posts/edit/${post._id}`}
+                          className="inline-flex items-center px-2 py-1.5 text-xs font-medium text-[#e62c26] bg-[#fff0ef] rounded-md hover:bg-[#ffe4e2] transition-colors"
                         >
                           <Edit className="h-3.5 w-3.5" />
-                        </button>
+                        </Link>
                         <button
                           onClick={() => handleDelete(post._id, post.title)}
                           className="inline-flex items-center px-2 py-1.5 text-xs font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100 transition-colors"
@@ -195,91 +137,6 @@ export default function AdminPosts() {
         )}
       </div>
 
-      {/* Modal */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between p-6 border-b">
-              <h2 className="text-xl font-bold text-foreground">
-                {editingPost ? 'Chỉnh sửa bài viết' : 'Thêm bài viết mới'}
-              </h2>
-              <button onClick={() => setShowModal(false)} className="text-muted-foreground hover:text-foreground">
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            <form onSubmit={handleSave} className="p-6 space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1">Tiêu đề *</label>
-                <input
-                  type="text"
-                  required
-                  value={form.title}
-                  onChange={(e) => handleTitleChange(e.target.value)}
-                  className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
-                  placeholder="Tiêu đề bài viết"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1">Slug *</label>
-                <input
-                  type="text"
-                  required
-                  value={form.slug}
-                  onChange={(e) => setForm((f) => ({ ...f, slug: e.target.value }))}
-                  className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
-                  placeholder="tieu-de-bai-viet"
-                />
-              </div>
-              <ImageUploader
-                label="Ảnh bìa bài viết"
-                value={form.image}
-                onChange={(url) => setForm((f) => ({ ...f, image: url }))}
-              />
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1">Nội dung *</label>
-                <textarea
-                  required
-                  rows={8}
-                  value={form.content}
-                  onChange={(e) => setForm((f) => ({ ...f, content: e.target.value }))}
-                  className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
-                  placeholder="Nội dung bài viết..."
-                />
-              </div>
-              <div className="flex items-center space-x-3">
-                <input
-                  type="checkbox"
-                  id="isPublished"
-                  checked={form.isPublished}
-                  onChange={(e) => setForm((f) => ({ ...f, isPublished: e.target.checked }))}
-                  className="h-4 w-4 text-primary rounded border-gray-300"
-                />
-                <label htmlFor="isPublished" className="text-sm font-medium text-foreground">
-                  Xuất bản ngay
-                </label>
-              </div>
-
-              <div className="flex justify-end space-x-3 pt-4 border-t">
-                <button
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                  className="px-4 py-2 text-sm font-medium text-foreground border border-border rounded-lg hover:bg-muted transition-colors"
-                >
-                  Hủy
-                </button>
-                <button
-                  type="submit"
-                  disabled={saving}
-                  className="px-6 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-70"
-                >
-                  {saving ? 'Đang lưu...' : editingPost ? 'Cập nhật' : 'Thêm mới'}
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

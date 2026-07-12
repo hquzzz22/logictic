@@ -93,7 +93,7 @@ export default function AdminPostCategories() {
                     <td className="px-6 py-4 text-sm font-mono text-muted-foreground">{c.slug}</td>
                     <td className="px-6 py-4 text-sm text-muted-foreground max-w-xs truncate">{c.description || '—'}</td>
                     <td className="px-6 py-4 text-right space-x-2">
-                      <button onClick={() => openEdit(c)} className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100"><Edit className="h-3.5 w-3.5 mr-1" />Sửa</button>
+                      <button onClick={() => openEdit(c)} className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-[#e62c26] bg-[#fff0ef] rounded-md hover:bg-[#ffe4e2]"><Edit className="h-3.5 w-3.5 mr-1" />Sửa</button>
                       <button onClick={() => handleDelete(c._id, c.name)} className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100"><Trash2 className="h-3.5 w-3.5 mr-1" />Xóa</button>
                     </td>
                   </tr>

@@ -101,8 +101,8 @@ export default function VideoUploader({ value, onChange }: VideoUploaderProps) {
     <div className="border-2 border-dashed border-border rounded-xl p-8 bg-muted/10">
       <div className="text-center">
         {/* Icon */}
-        <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Video className="h-7 w-7 text-blue-600" />
+        <div className="w-14 h-14 bg-[#ffe4e2] rounded-full flex items-center justify-center mx-auto mb-4">
+          <Video className="h-7 w-7 text-[#e62c26]" />
         </div>
 
         <h4 className="font-bold text-foreground mb-1">Thêm video vào bài viết</h4>
@@ -126,7 +126,7 @@ export default function VideoUploader({ value, onChange }: VideoUploaderProps) {
           <button
             type="button"
             onClick={() => inputRef.current?.click()}
-            className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-colors shadow-md"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#e62c26] text-white font-medium rounded-full hover:bg-brand-700 transition-colors shadow-md"
           >
             <Upload className="h-4 w-4" />
             Tải video lên

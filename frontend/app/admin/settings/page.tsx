@@ -14,7 +14,7 @@ interface ContactButtons {
 const defaultButtons: ContactButtons = {
   phone: { label: '0123 456 789', number: '0123456789', enabled: true },
   zalo: { label: 'Chat Zalo', id: 'https://zalo.me/0123456789', enabled: true },
-  messenger: { label: 'Messenger', id: 'https://m.me/nongsanshop', enabled: true },
+  messenger: { label: 'Messenger', id: 'https://m.me/spmt', enabled: true },
 };
 
 export default function AdminSettings() {
@@ -73,7 +73,7 @@ export default function AdminSettings() {
             </div>
           )}
           {buttons.zalo.enabled && (
-            <div className="bg-blue-600 text-white font-bold h-11 rounded-full flex items-center justify-center gap-1.5 text-xs">
+            <div className="bg-[#e62c26] text-white font-bold h-11 rounded-full flex items-center justify-center gap-1.5 text-xs">
               <img src="/logo_zalo.png" alt="Zalo" className="h-5 w-5 object-contain" /> {buttons.zalo.label}
             </div>
           )}
@@ -116,7 +116,7 @@ export default function AdminSettings() {
       <div className="bg-white border border-border rounded-2xl p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-bold text-foreground flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center"><img src="/logo_zalo.png" alt="" className="h-5 w-5 object-contain" /></div>
+            <div className="w-8 h-8 bg-[#ffe4e2] rounded-lg flex items-center justify-center"><img src="/logo_zalo.png" alt="" className="h-5 w-5 object-contain" /></div>
             Zalo
           </h3>
           <label className="flex items-center gap-2 cursor-pointer">
@@ -156,12 +156,12 @@ export default function AdminSettings() {
           <div>
             <label className="block text-sm font-medium text-foreground mb-1">Link Messenger (dán link đầy đủ)</label>
             <input type="text" value={buttons.messenger.id} onChange={(e) => setButtons({ ...buttons, messenger: { ...buttons.messenger, id: e.target.value } })}
-              className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="https://m.me/nongsanshop" />
+              className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="https://m.me/spmt" />
           </div>
           <div>
             <label className="block text-sm font-medium text-foreground mb-1">Text hiển thị trên nút</label>
             <input type="text" value={buttons.messenger.id} onChange={(e) => setButtons({ ...buttons, messenger: { ...buttons.messenger, id: e.target.value } })}
-              className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="https://m.me/nongsanshop" />
+              className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="https://m.me/spmt" />
           </div>
         </div>
       </div>

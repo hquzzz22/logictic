@@ -1,0 +1,805 @@
+{
+  "Navigation": {
+    "home": "Trang Chủ",
+    "services": "Dịch Vụ",
+    "about": "Về Chúng Tôi",
+    "tracking": "Tra Cứu",
+    "contact": "Liên Hệ",
+    "blog": "Tin Tức",
+    "requestQuote": "Nhận Báo Giá",
+    "language": "Ngôn Ngữ"
+  },
+  "Homepage": {
+    "Hero": {
+      "subtitle": "Vận Tải Superman",
+      "slides": {
+        "0": {
+          "title": "CHUYÊN GIA GOM HÀNG TOÀN CẦU",
+          "highlight": "GIẢI PHÁP LCL",
+          "desc": "Tối ưu hóa chuỗi cung ứng của bạn với dịch vụ vận tải hàng lẻ cao cấp của chúng tôi tới hơn 100 quốc gia trên toàn thế giới."
+        },
+        "1": {
+          "title": "NHANH CHÓNG & ĐÁNG TIN CẬY",
+          "highlight": "VẬN TẢI HÀNG KHÔNG",
+          "desc": "Khi thời gian là yếu tố cốt lõi, giải pháp vận tải hàng không của chúng tôi sẽ đảm bảo hàng hóa của bạn đến nơi an toàn và đúng lịch trình."
+        },
+        "2": {
+          "title": "TRỌN GÓI & XUYÊN SUỐT",
+          "highlight": "CHUỖI CUNG ỨNG",
+          "desc": "Từ lưu kho đến vận tải nội địa và thủ tục hải quan, chúng tôi sẽ lo liệu mọi khâu trong hành trình logistics của bạn."
+        }
+      },
+      "buttons": {
+        "getQuote": "Nhận Báo Giá Miễn Phí",
+        "ourStory": "Câu Chuyện Của Chúng Tôi"
+      }
+    },
+    "Tracking": {
+      "title": "Tra Cứu Lô Hàng",
+      "placeholder": "Nhập mã HBL, MBL hoặc số Container...",
+      "button": "Tra Cứu",
+      "alert": "Vui lòng nhập mã vận đơn để tra cứu"
+    },
+    "Stats": {
+      "countries": "Quốc Gia Phục Vụ",
+      "shipments": "Lô Hàng / Năm",
+      "delivery": "Giao Hàng Đúng Hẹn",
+      "partners": "Đối Tác Toàn Cầu"
+    },
+    "Consolidation": {
+      "tag": "Tại sao chọn Superman?",
+      "title": "Chúng tôi chuyên nghiệp về gom hàng, không chỉ đơn thuần là vận tải.",
+      "desc": "Superman được xây dựng dành cho các doanh nghiệp cần phương thức vận chuyển nhanh chóng, tinh gọn và thông minh. Dù bạn đang nhập các kiện hàng nhỏ lẻ (LCL) hay thu gom từ nhiều nhà cung cấp, chúng tôi đều biến tất cả thành một quy trình giao hàng liền mạch.",
+      "link": "Nhận báo giá miễn phí",
+      "features": {
+        "0": {
+          "title": "Đóng Gói An Toàn",
+          "desc": "Chúng tôi đảm bảo hàng hóa của bạn được đóng gói chuyên nghiệp, tối ưu hóa không gian và giảm thiểu rủi ro hư hỏng trong quá trình vận chuyển."
+        },
+        "1": {
+          "title": "Giao Hàng Đúng Hẹn",
+          "desc": "Với lịch tàu khởi hành cố định hàng tuần và đội ngũ vận hành chủ động, chúng tôi luôn giữ cho tiến độ giao hàng của bạn đi đúng hướng — không có sự cố bất ngờ."
+        },
+        "2": {
+          "title": "Vận Chuyển Toàn Cầu",
+          "desc": "Superman vận chuyển đến hơn 100 quốc gia với mạng lưới đại lý và kho bãi uy tín phủ khắp Châu Á, Bắc Mỹ, Châu Âu và nhiều khu vực khác."
+        },
+        "3": {
+          "title": "Tốc Độ Tối Đa",
+          "desc": "Nhờ dịch vụ LCL của chúng tôi, bạn có thể xuất khẩu hàng hóa ngay khi vừa hoàn thành — giải pháp tối ưu cho khối lượng nhỏ, tần suất đi hàng dày."
+        }
+      }
+    },
+    "Services": {
+      "tag": "Dịch Vụ Của Chúng Tôi",
+      "title": "Hỗ trợ toàn diện cho các dịch vụ vận tải và gom hàng quốc tế.",
+      "items": {
+        "0": {
+          "title": "Gom Hàng Lẻ (Master Consolidation)",
+          "desc": "Kết hợp hàng hóa từ nhiều nhà cung cấp khác nhau thành một lô hàng chung tối ưu nhất."
+        },
+        "1": {
+          "title": "Vận Tải Hàng Không",
+          "desc": "Giải pháp vận chuyển hàng không nhanh chóng, đáng tin cậy cho các lô hàng khẩn cấp."
+        },
+        "2": {
+          "title": "Vận Tải Đường Biển",
+          "desc": "Tối ưu chi phí cho các lô hàng khối lượng lớn qua các tuyến đường biển toàn cầu."
+        },
+        "3": {
+          "title": "Vận Tải Nội Địa",
+          "desc": "Dịch vụ vận tải đường bộ linh hoạt, hỗ trợ lấy hàng và giao nhận tận nơi."
+        },
+        "4": {
+          "title": "Dịch Vụ Lưu Kho",
+          "desc": "Bảo quản an toàn và đóng container chuyên nghiệp tại các điểm tập kết hàng."
+        },
+        "5": {
+          "title": "Thủ Tục Hải Quan",
+          "desc": "Giải quyết thủ tục thông quan nhanh chóng, chính xác bởi đội ngũ chuyên gia được cấp phép."
+        }
+      }
+    },
+    "CtaBanner": {
+      "title": "Bắt Đầu Tối Ưu Chi Phí Ngay Hôm Nay",
+      "desc": "Chúng tôi tự hào là đối tác cung cấp dịch vụ vận tải và logistics hàng đầu, đồng hành cùng doanh nghiệp bạn trên mọi tuyến đường.",
+      "button": "Nhận Báo Giá Miễn Phí"
+    },
+    "Industries": {
+      "tag": "Ngành Nghề",
+      "title": "Giải Pháp Chuyên Biệt Cho Từng Ngành Hàng.",
+      "items": {
+        "0": {
+          "title": "Nội Thất & Đồ Trang Trí",
+          "desc": "Chúng tôi giúp các nhà xuất khẩu nội thất vận chuyển hàng hóa cồng kềnh hiệu quả thông qua việc gom hàng LCL tối ưu và sắp xếp container cẩn thận."
+        },
+        "1": {
+          "title": "Thời Trang & May Mặc",
+          "desc": "Lịch trình đi hàng linh hoạt, tần suất cao cho các sản phẩm bắt trend — chúng tôi cung cấp dịch vụ gom hàng thiết kế riêng cho các thương hiệu thời trang và nhà máy sản xuất."
+        },
+        "2": {
+          "title": "Điện Tử & Linh Kiện",
+          "desc": "Vận chuyển an toàn, có khả năng theo dõi liên tục cho các linh kiện giá trị cao với quy trình xử lý cẩn thận và cập nhật thông tin theo thời gian thực."
+        },
+        "3": {
+          "title": "Thực Phẩm & Đồ Uống (Đồ Khô)",
+          "desc": "Chúng tôi quản lý trọn gói giấy tờ tuân thủ, khử trùng và lưu kho an toàn ở nhiệt độ tiêu chuẩn cho thực phẩm đóng gói khô và đồ uống."
+        },
+        "4": {
+          "title": "Dụng Cụ & Thiết Bị Công Nghiệp",
+          "desc": "Đối với các kiện hàng nặng và có kích thước không theo tiêu chuẩn, chúng tôi cung cấp giải pháp chèn lót thông minh và đóng gói an toàn từ các khu công nghiệp khắp Châu Á."
+        },
+        "5": {
+          "title": "Thương Mại Điện Tử & Bán Lẻ",
+          "desc": "Chúng tôi hỗ trợ các nhà bán hàng trực tuyến với dịch vụ gom hàng từ nhiều nhà cung cấp, dán nhãn và giao hàng quốc tế tận nơi (Door-to-Door)."
+        }
+      }
+    },
+    "Benefits": {
+      "title": "Lợi Ích Khi Đồng Hành Cùng Chúng Tôi.",
+      "items": {
+        "0": {
+          "title": "Tối Ưu Chi Phí",
+          "desc": "Chia sẻ không gian container, cắt giảm lãng phí."
+        },
+        "1": {
+          "title": "Hiệu Quả Vượt Trội",
+          "desc": "Một lô hàng, một bộ chứng từ, một hóa đơn duy nhất."
+        },
+        "2": {
+          "title": "Kiểm Soát Dễ Dàng",
+          "desc": "Nền tảng của chúng tôi cung cấp cập nhật lộ trình theo thời gian thực."
+        },
+        "3": {
+          "title": "Điều Phối Đơn Giản",
+          "desc": "Chúng tôi thay bạn quản lý trực tiếp các nhà cung cấp."
+        },
+        "4": {
+          "title": "Lịch Trình Linh Hoạt",
+          "desc": "Chuyến tàu khởi hành đều đặn hàng tuần từ các cảng lớn tại Châu Á."
+        }
+      }
+    },
+    "Advantage": {
+      "tag": "Lợi Thế Từ Superman",
+      "title": "TẠI SAO CÁC THƯƠNG HIỆU HÀNG ĐẦU LẠI TIN TƯỞNG MẠNG LƯỚI CỦA CHÚNG TÔI.",
+      "qualityTitle": "Đảm Bảo Chất Lượng",
+      "qualityDesc": "Chứng nhận ISO 9001:2015",
+      "tabs": {
+        "0": {
+          "title": "Đóng Gói An Toàn & Chuyên Nghiệp",
+          "desc": "Chúng tôi đảm bảo hàng hóa của bạn được đóng gói và chèn lót chuyên nghiệp nhằm tối đa hóa không gian và giảm thiểu rủi ro hư hỏng trong quá trình vận chuyển."
+        },
+        "1": {
+          "title": "Lịch Trình Cố Định Hàng Tuần",
+          "desc": "Với lịch khởi hành cố định hàng tuần và một đội ngũ vận hành năng động, chúng tôi luôn giữ cho tiến trình giao hàng của bạn đi đúng quỹ đạo — tuyệt đối không có sự cố bất ngờ."
+        },
+        "2": {
+          "title": "Mạng Lưới Phủ Sóng Toàn Cầu",
+          "desc": "Superman nhận vận chuyển đến hơn 100 quốc gia với hệ thống đại lý và kho bãi uy tín trải dài khắp Châu Á, Bắc Mỹ, Châu Âu và nhiều nơi khác."
+        },
+        "3": {
+          "title": "Bảng Giá Minh Bạch",
+          "desc": "Không có chi phí ẩn. Chúng tôi cung cấp các báo giá rõ ràng, được liệt kê chi tiết từng khoản mục để bạn luôn biết chính xác mình đang chi trả cho điều gì."
+        }
+      }
+    },
+    "Contact": {
+      "formTitle": "Bạn Có Nhu Cầu Tư Vấn?",
+      "name": "Họ và tên*",
+      "phone": "Số điện thoại*",
+      "email": "Email*",
+      "city": "Thành phố*",
+      "message": "Nội dung tin nhắn",
+      "submit": "Gửi Tin Nhắn",
+      "tag": "KẾT NỐI VỚI CHÚNG TÔI",
+      "title": "Chúng tôi sẽ chăm lo trọn vẹn việc vận tải cho doanh nghiệp của bạn.",
+      "desc": "Superman có bề dày kinh nghiệm trong việc xử lý các thủ tục và chứng từ cần thiết cho việc xuất nhập khẩu của bạn. Chúng tôi phối hợp chặt chẽ với các trạm trung chuyển quốc tế nhằm đảm bảo lô hàng của bạn đến nơi an toàn tuyệt đối mà không gặp bất kỳ sự chậm trễ nào.",
+      "office": "Văn phòng Hồ Chí Minh",
+      "address": "Tầng 10, Tòa nhà Tài Chính, số 32-32B-34-34A Bạch Đằng 2, Phường 2, Quận Tân Bình, TP. Hồ Chí Minh, Việt Nam"
+    },
+    "PremiumCta": {
+      "tag": "Hãy hợp tác cùng nhau",
+      "title": "BẠN ĐÃ SẴN SÀNG TỐI ƯU HÓA CHIẾN LƯỢC LOGISTICS CỦA MÌNH CHƯA?",
+      "desc": "Hãy liên hệ ngay với các chuyên gia của chúng tôi để nhận báo giá thiết kế riêng và khám phá cách Superman Transport giúp bạn tiết kiệm tối đa thời gian lẫn tiền bạc.",
+      "button": "Nhận Báo Giá Ngay"
+    }
+  },
+  "AboutUs": {
+    "Hero": {
+      "title": "Về Chúng Tôi",
+      "subtitle": "Đối Tác Đáng Tin Cậy Trong Dịch Vụ Gom Hàng Đường Biển"
+    },
+    "Intro": {
+      "title": "Về Chúng Tôi",
+      "paragraphs": {
+        "0": "Từ thuở ban đầu, chúng tôi bắt đầu với một ước mơ định hình một doanh nghiệp Việt Nam chuyên cung cấp và thúc đẩy các dịch vụ logistics đáng tin cậy trên toàn cầu, được thúc đẩy bởi chất lượng dịch vụ, chuyên môn nhân sự và công nghệ hiện đại. Cùng chung niềm đam mê logistics, các nhà sáng lập có tầm nhìn đã tụ họp và khởi xướng ước mơ giản dị của riêng mình là xây dựng một nhà cung cấp dịch vụ logistics xuất sắc, đề cao sự chuyên nghiệp, độ tin cậy, sự tận tâm và trách nhiệm với khách hàng, điều đã tạo nên sự khác biệt của chúng tôi.",
+        "1": "Sau đó, Superman Transport được thành lập vào tháng 12 năm 2024 với văn phòng đầu tiên tại Thành phố Hồ Chí Minh. Khởi đầu với dịch vụ gom hàng lẻ đường biển (LCL), hiện tại Superman Transport cam kết cung cấp chủ yếu các dịch vụ logistics tích hợp và hiện đại, từ Đại lý hải quan, vận tải hàng không, hàng nguyên container, vận tải đa phương thức, đường sắt, giao hàng tận nơi (door to door), hàng quá khổ quá tải, đến các dịch vụ gia tăng như lưu kho, đóng gói, dán nhãn....",
+        "2": "Các dịch vụ của Superman Transport được cá nhân hóa để phù hợp với từng yêu cầu của khách hàng, qua đó tối đa hóa lợi ích, tính hiệu quả và độ tin cậy cho chuỗi cung ứng, tăng cường tính toàn diện và tạo ra giá trị gia tăng cho khách hàng. Mỗi thành viên tại Superman Transport đều trân trọng từng lô hàng mà khách hàng tin tưởng giao phó, và chúng tôi luôn xem khó khăn của khách hàng như của chính mình để không ngừng nỗ lực và thiết kế các giải pháp phù hợp, hợp lý, tư vấn giúp khách hàng tối ưu hóa chuỗi giá trị.",
+        "3": "Superman Transport không chỉ triển khai các dịch vụ logistics toàn cầu từ và đến các địa điểm nơi chúng tôi có văn phòng, mà còn từ các quốc gia thứ ba đến các quốc gia khác, nhờ vào mạng lưới đối tác đáng tin cậy trải khắp 100 quốc gia và vùng lãnh thổ."
+      }
+    },
+    "Stats": {
+      "items": {
+        "0": {
+          "num": "6,920",
+          "title": "Lô hàng được gom.",
+          "desc": "Hàng ngàn đơn hàng được tối ưu hóa thông qua các giải pháp LCL thông minh."
+        },
+        "1": {
+          "num": "126",
+          "title": "Quốc gia được phủ sóng.",
+          "desc": "Vươn tầm toàn cầu đến hơn 120+ điểm đến từ Châu Á vươn ra thế giới."
+        },
+        "2": {
+          "num": "478",
+          "title": "Tấn hàng hóa.",
+          "desc": "Hàng hóa được xử lý và vận chuyển an toàn qua mạng lưới đường biển toàn cầu."
+        }
+      }
+    },
+    "VisionMission": {
+      "vision": {
+        "title": "TẦM NHÌN",
+        "desc": "Superman Transport phấn đấu trở thành Tập đoàn Logistics Toàn cầu đáng tin cậy, tạo ra giá trị cho xã hội và con người."
+      },
+      "mission": {
+        "title": "SỨ MỆNH",
+        "desc": "Sứ mệnh của Superman Transport là mang đến cho khách hàng các giải pháp logistics hiện đại, tích hợp dựa trên sự sáng tạo và tối ưu hóa liên tục các nguồn lực của chúng tôi thông qua đội ngũ - Những chiến binh Siêu đẳng (Super warriors)."
+      }
+    },
+    "CoreValues": {
+      "title": "GIÁ TRỊ CỐT LÕI:",
+      "items": {
+        "0": "Tinh thần đồng đội",
+        "1": "Đam mê sự hoàn hảo",
+        "2": "Chính trực",
+        "3": "Trách nhiệm",
+        "4": "Đổi mới"
+      }
+    },
+    "Partners": {
+      "title": "Đối tác hàng không & hàng hải chủ chốt"
+    },
+    "Progress": {
+      "title": "Tối ưu hóa chuỗi logistics từ A đến Z giúp nâng cao năng lực cạnh tranh cho doanh nghiệp của bạn",
+      "items": {
+        "0": { "label": "Vận tải hàng không", "value": "85%" },
+        "1": { "label": "Vận tải đường biển", "value": "97%" },
+        "2": { "label": "Phân phối & Vận tải đường bộ", "value": "92%" }
+      }
+    },
+    "Cta": {
+      "tag": "TÓM TẮT NGẮN GỌN",
+      "title": "Luôn Có Mặt Để Đáp Ứng Mọi Nhu Cầu Kinh Doanh Của Bạn.",
+      "desc": "Chúng tôi ở đây không phải để thay thế đội ngũ hiện tại của bạn — chúng tôi ở đây để củng cố nó. Hãy để chúng tôi lo liệu mảng logistics để bạn có thể tập trung phát triển công việc kinh doanh của mình.",
+      "button": "Nhận Báo Giá Miễn Phí"
+    }
+  },
+  "ContactUs": {
+    "Hero": {
+      "title": "Liên Hệ Ngay!"
+    },
+    "Form": {
+      "title": "Bạn cần hỗ trợ hoặc báo giá?",
+      "name": "Họ và tên*",
+      "phone": "Số điện thoại*",
+      "email": "Email*",
+      "city": "Thành phố*",
+      "message": "Nội dung tin nhắn",
+      "submit": "Gửi Tin Nhắn",
+      "sending": "Đang gửi...",
+      "success": "Đã gửi tin nhắn thành công! Chúng tôi sẽ liên hệ lại sớm nhất.",
+      "error": "Có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại."
+    },
+    "Info": {
+      "tag": "GIỮ LIÊN LẠC VỚI CHÚNG TÔI",
+      "title": "Chúng tôi lo liệu mọi vấn đề vận tải cho doanh nghiệp của bạn.",
+      "desc": "Superman có nhiều kinh nghiệm trong việc xử lý các thủ tục và chứng từ xuất nhập khẩu. Chúng tôi làm việc với tất cả các trạm trung chuyển quốc tế để đảm bảo hàng hóa của bạn được vận chuyển an toàn, không chậm trễ.",
+      "location": "Hồ Chí Minh",
+      "address": "Tầng 10, Tòa nhà Financial, 32-32B-34-34A Bạch Đằng 2, Phường 2, Tân Bình, TP.HCM, Việt Nam",
+      "email": "info@spmt.com.vn",
+      "phone": "(+84) 28 36207585/587"
+    },
+    "Cta": {
+      "tag": "TÓM TẮT NGẮN GỌN",
+      "title": "Sẵn Sàng Hỗ Trợ Mọi Nhu Cầu Kinh Doanh Của Bạn.",
+      "desc": "Ngừng lo lắng về các vấn đề vận chuyển. Hãy tập trung vào kinh doanh, để chúng tôi cung cấp sự hỗ trợ mà bạn xứng đáng."
+    }
+  },
+  "MasterConsolidation": {
+    "Hero": {
+      "title": "Gom Hàng Lẻ (Master Consolidation)"
+    },
+    "SubNav": {
+      "masterConsolidation": "Gom Hàng Lẻ",
+      "airFreight": "Đường Không",
+      "seaFreight": "Đường Biển",
+      "inlandTrucking": "Vận Tải Nội Địa",
+      "warehousing": "Lưu Kho",
+      "customBrokerage": "Hải Quan"
+    },
+    "Intro": {
+      "title": "Gom Hàng Lẻ (Master Consolidation):",
+      "desc": "Nhằm tạo ra những sản phẩm cạnh tranh và thuận tiện cho khách hàng, ngay từ khi thành lập, chúng tôi đã xác định dịch vụ LCL là một trong những thế mạnh cốt lõi. Hiện nay, chúng tôi xử lý các lô hàng LCL đường biển trực tiếp từ/đến Việt Nam và Mỹ, Trung Quốc, Thái Lan, Hàn Quốc, Nhật Bản, Hồng Kông, Singapore, Đài Loan, Châu Âu. Chúng tôi đang có kế hoạch mở rộng dịch vụ ra toàn cầu trong thời gian sớm nhất."
+    },
+    "Accordion": {
+      "tag": "Tại Sao?",
+      "title": "Tại sao chọn Gom Hàng Lẻ?",
+      "items": {
+        "0": {
+          "title": "1. Thu gom từ nhiều nhà cung cấp",
+          "desc": "Chúng tôi thu gom hàng hóa từ nhiều nhà máy, thành phố hoặc thậm chí các quốc gia khác nhau trên khắp Châu Á — và đưa về kho gom hàng của chúng tôi."
+        },
+        "1": {
+          "title": "2. Lưu kho tập trung",
+          "desc": "Hàng hóa của bạn được tiếp nhận, dán nhãn, lưu trữ và chuẩn bị tại các cơ sở an toàn của chúng tôi trước khi đóng vào một container xuất khẩu hoàn chỉnh."
+        },
+        "2": {
+          "title": "3. Một Vận Đơn (Bill of Lading) Duy Nhất",
+          "desc": "Chúng tôi gộp tất cả hàng hóa dưới một House B/L, giảm thiểu thủ tục hải quan và độ phức tạp khi thông quan nhập khẩu tại điểm đến."
+        },
+        "3": {
+          "title": "4. Tiết Kiệm Chi Phí Vận Chuyển",
+          "desc": "Bạn chỉ trả tiền cho những gì bạn sử dụng — thay vì nhiều lô hàng LCL riêng lẻ, chúng tôi gom lại thành một container để giảm chi phí trên mỗi đơn vị hàng."
+        },
+        "4": {
+          "title": "5. Chứng Từ Đơn Giản Hơn",
+          "desc": "Một bộ chứng từ, một tờ khai hải quan, một hóa đơn. Sạch sẽ và đơn giản."
+        }
+      }
+    },
+    "Tables": {
+      "title1": "LCL EXPORT SERVICES FROM HO CHI MINH",
+      "title2": "LCL EXPORT SERVICES FROM HAI PHONG",
+      "title3": "LCL IMPORT SERVICES TO HO CHI MINH / HAI PHONG"
+    },
+    "Cards": {
+      "left": {
+        "title": "Phù Hợp Cho",
+        "items": {
+          "0": "Nhà nhập khẩu mua hàng từ nhiều nhà cung cấp",
+          "1": "Các thương hiệu E-commerce hoặc D2C cần gom SKU",
+          "2": "Công ty thương mại xử lý hàng hóa từ nhiều nguồn",
+          "3": "Doanh nghiệp mở rộng từ LCL lên FCL linh hoạt"
+        }
+      },
+      "middle": {
+        "title": "Loại Hàng Hóa Xử Lý",
+        "items": {
+          "0": "Đồ Nội thất & Trang trí nhà cửa",
+          "1": "Hàng May mặc & Thời trang",
+          "2": "Điện tử & Linh kiện",
+          "3": "Thực phẩm & Đồ uống (hàng khô)",
+          "4": "Máy móc & Thiết bị Công nghiệp",
+          "5": "Hàng hóa Bán lẻ & Thương mại điện tử"
+        }
+      },
+      "right": {
+        "title": "Dịch Vụ Gia Tăng",
+        "items": {
+          "0": "Dán nhãn, mã vạch, đóng pallet hàng hóa",
+          "1": "Kiểm tra chất lượng khi hàng về kho",
+          "2": "Đóng gói lại hoặc theo yêu cầu đặc biệt từng SKU",
+          "3": "Bảo hiểm hàng hóa và hỗ trợ chứng từ"
+        }
+      }
+    },
+    "Cta": {
+      "tag": "Gom Hàng Lẻ",
+      "title": "Quá nhiều nhà cung cấp? Hãy gộp chung thành một lô hàng.",
+      "desc": "Chúng tôi đơn giản hóa các lô hàng từ nhiều nhà cung cấp thành một container đồng nhất.",
+      "button": "Nhận Báo Giá Miễn Phí"
+    }
+  },
+  "AirFreight": {
+    "Hero": {
+      "title": "Vận Tải Hàng Không"
+    },
+    "SubNav": {
+      "masterConsolidation": "Gom Hàng Lẻ",
+      "airFreight": "Đường Không",
+      "seaFreight": "Đường Biển",
+      "inlandTrucking": "Vận Tải Nội Địa",
+      "warehousing": "Lưu Kho",
+      "customBrokerage": "Hải Quan"
+    },
+    "Intro": {
+      "title": "Vận Tải Hàng Không:",
+      "desc": "Superman Transport cung cấp dịch vụ vận tải hàng không cho mọi loại hàng hóa từ/đến bất cứ đâu trên thế giới, mang đến dịch vụ đáng tin cậy và kịp thời cho khách hàng. Không chỉ cung cấp dịch vụ vận tải hàng không từ các sân bay Tân Sơn Nhất (SGN), Nội Bài (HAN), Đà Nẵng (DAD) đi tất cả các sân bay trên toàn cầu, chúng tôi còn cung cấp dịch vụ nhập khẩu hàng hóa từ các sân bay trên thế giới về các sân bay lớn tại Việt Nam. Chúng tôi cam kết với khách hàng luôn đảm bảo thời gian vận chuyển với chi phí và dịch vụ tốt nhất."
+    },
+    "Accordion": {
+      "tag": "Tại sao?",
+      "title": "Tại sao chọn Vận Tải Hàng Không Superman?",
+      "items": {
+        "0": {
+          "title": "1. Chuyên gia Vận tải Hàng không & Chuyển phát nhanh",
+          "desc": "Đội ngũ chuyên gia vận tải hàng không tận tâm của chúng tôi đảm bảo xử lý nhanh chóng, an toàn và tuân thủ tuyệt đối cho các kiện hàng khẩn cấp của bạn."
+        },
+        "1": {
+          "title": "2. Cước phí Vận tải Hàng không Cạnh tranh",
+          "desc": "Nhờ mối quan hệ chiến lược với các hãng hàng không lớn, chúng tôi thương lượng được các mức giá ưu đãi nhất cho khách hàng mà không làm giảm chất lượng dịch vụ."
+        },
+        "2": {
+          "title": "3. Chuyến bay Hàng ngày & Hàng tuần từ Châu Á",
+          "desc": "Với lịch trình khởi hành dày đặc, chúng tôi mang lại sự linh hoạt tuyệt đối để phù hợp với tiến độ sản xuất và hạn chót giao hàng của bạn."
+        },
+        "3": {
+          "title": "4. Báo giá Vận tải Hàng không Minh bạch",
+          "desc": "Không có chi phí ẩn. Chúng tôi cung cấp báo giá minh bạch, chi tiết từng khoản mục để bạn luôn kiểm soát được chi phí trên từng chặng đường."
+        },
+        "4": {
+          "title": "5. Theo dõi hành trình từ đầu đến cuối",
+          "desc": "Luôn nắm bắt thông tin với khả năng theo dõi lộ trình lô hàng theo thời gian thực từ lúc rời khỏi kho xưởng cho đến khi đến điểm đích cuối cùng."
+        }
+      }
+    },
+    "Cards": {
+      "left": {
+        "title": "Hàng hóa chúng tôi vận chuyển",
+        "items": {
+          "0": "Điện tử & Bán dẫn",
+          "1": "May mặc & Giày dép (Thời trang nhanh)",
+          "2": "Vật tư Y tế & Dược phẩm",
+          "3": "Máy móc & Thiết bị Công nghiệp",
+          "4": "Hàng giá trị cao (đồng hồ, trang sức, laptop)"
+        }
+      },
+      "middle": {
+        "title": "Tùy chọn Dịch vụ Hàng không",
+        "items": {
+          "0": "Từ sân bay đến sân bay",
+          "1": "Giao hàng tận nơi (Door-to-Door)",
+          "2": "Từ cửa đến sân bay",
+          "3": "Dịch vụ gom hàng hoặc chuyển phát nhanh",
+          "4": "Chuyến bay thuê bao (Charter Flights theo yêu cầu)"
+        }
+      },
+      "right": {
+        "title": "Dịch vụ Hỗ trợ",
+        "items": {
+          "0": "Lấy hàng & giao hàng nội địa (xe tải)",
+          "1": "Lưu kho & lưu bãi tạm thời",
+          "2": "Bảo hiểm hàng hóa",
+          "3": "Đóng gói & dán nhãn",
+          "4": "Đại lý hải quan"
+        }
+      }
+    },
+    "Cta": {
+      "tag": "Vận Tải Hàng Không",
+      "title": "Cần giao hàng vào ngày mai? Chúng tôi có cánh bay.",
+      "desc": "Superman giao nhận các kiện hàng khẩn cấp của bạn với tốc độ, an toàn và độ chính xác toàn cầu.",
+      "button": "Nhận Báo Giá Miễn Phí"
+    }
+  },
+  "SeaFreight": {
+    "Hero": {
+      "title": "Vận Tải Đường Biển"
+    },
+    "SubNav": {
+      "masterConsolidation": "Gom Hàng Lẻ",
+      "airFreight": "Đường Không",
+      "seaFreight": "Đường Biển",
+      "inlandTrucking": "Vận Tải Nội Địa",
+      "warehousing": "Lưu Kho",
+      "customBrokerage": "Hải Quan"
+    },
+    "Intro": {
+      "title": "Vận Tải Đường Biển",
+      "desc": "Được vận hành như dịch vụ cốt lõi đầu tiên cùng với LCL, dịch vụ vận tải đường biển của chúng tôi phủ sóng toàn cầu. Chúng tôi cung cấp các giải pháp vận chuyển cho hàng hóa đóng container, hàng rời, hàng quá khổ, quá tải từ và đến mọi nơi trên thế giới. Trải qua nhiều năm, chúng tôi đã xây dựng mối quan hệ đối tác thực sự với hầu hết các hãng tàu trên thị trường như ONE, Maersk, Yang Ming, Evergreen, COSCO, Hyundai, OOCL, Hapag-Lloyd, Wan Hai, KMTC, SITC, CMA-CGM, MSC... Superman Transport ký kết nhiều hợp đồng với các hãng tàu, đặc biệt là các tuyến đường dài, qua đó cho phép chúng tôi liên tục cung cấp cho bạn các dịch vụ ổn định, chất lượng cao với mức giá phải chăng.<br/><br/>Các tuyến đường thế mạnh của chúng tôi là Nội Á, Châu Âu, Bắc Mỹ, Úc, Châu Phi.<br/><br/>Các mặt hàng chính: Hàng may mặc và dệt may, giày dép, điện tử, nội thất, thép, vật liệu cho nhà máy, hàng tiêu dùng, hàng dự án, xe cộ, nông sản, thực phẩm và vật liệu xây dựng.<br/><br/><strong>Thành viên của:</strong> VLA, JC Trans, WCA"
+    },
+    "Accordion": {
+      "tag": "Tại sao?",
+      "title": "Tại sao chọn Vận Tải Đường Biển Superman?",
+      "items": {
+        "0": {
+          "title": "1. Chuyên gia LCL & Gom hàng người mua",
+          "desc": "Chúng tôi chuyên về LCL (Hàng lẻ), cho phép bạn vận chuyển các khối lượng nhỏ thường xuyên mà không phải trả tiền cho không gian container không sử dụng."
+        },
+        "1": {
+          "title": "2. Cước FCL Cạnh Tranh",
+          "desc": "Đối với khối lượng lớn hơn, chúng tôi cung cấp dịch vụ Hàng nguyên container với các hợp đồng vận chuyển trực tiếp và lịch trình khởi hành hàng tuần."
+        },
+        "2": {
+          "title": "3. Khởi hành Hàng tuần từ Châu Á",
+          "desc": "Các chuyến đi thường xuyên và đáng tin cậy từ Việt Nam, Trung Quốc, Thái Lan & Indonesia đến hơn 100 cảng toàn cầu."
+        },
+        "3": {
+          "title": "4. Bảng giá Minh bạch",
+          "desc": "Báo giá trả trước, chi tiết từng khoản — không có phí ẩn. Chọn tuyến đường và mức độ dịch vụ phù hợp với ngân sách và thời gian của bạn."
+        },
+        "4": {
+          "title": "5. Theo dõi hành trình từ đầu đến cuối",
+          "desc": "Nhận thông tin đầy đủ về tình trạng lô hàng của bạn, bao gồm nhận hàng tại kho, xếp hàng, khởi hành, thông quan và giao hàng."
+        }
+      }
+    },
+    "Cards": {
+      "left": {
+        "title": "Dịch vụ Vận tải Biển",
+        "items": {
+          "0": "Vận chuyển LCL & FCL",
+          "1": "Gom hàng người mua (Buyer's consolidation)",
+          "2": "Giao nhận từ cảng tới cảng & từ cửa tới cửa",
+          "3": "Khởi hành hàng tuần từ Châu Á",
+          "4": "Cross-docking & chuyển tải"
+        }
+      },
+      "middle": {
+        "title": "Loại Hàng Hóa Xử Lý",
+        "items": {
+          "0": "Nội thất & Trang trí nhà cửa",
+          "1": "May mặc & Thời trang",
+          "2": "Điện tử & Linh kiện",
+          "3": "Thực phẩm & Đồ uống (hàng khô)",
+          "4": "Máy móc & Thiết bị Công nghiệp",
+          "5": "Hàng bán lẻ & Thương mại điện tử"
+        }
+      },
+      "right": {
+        "title": "Dịch vụ Hỗ trợ",
+        "items": {
+          "0": "Điều phối hàng hóa từ nhà cung cấp",
+          "1": "Gom hàng & đóng hàng tại kho",
+          "2": "Khai báo VGM & chuẩn bị SI",
+          "3": "Thông quan hải quan ở cả hai đầu",
+          "4": "Bảo hiểm hàng hóa & hỗ trợ chứng từ"
+        }
+      }
+    },
+    "Cta": {
+      "tag": "Vận Tải Đường Biển",
+      "title": "Vận chuyển thông minh bắt đầu từ những container thông minh.",
+      "desc": "Hãy để chúng tôi xử lý các lô hàng FCL hoặc LCL của bạn với các chuyến tàu hàng tuần và mạng lưới toàn cầu.",
+      "button": "Nhận Báo Giá Miễn Phí"
+    }
+  },
+  "InlandTrucking": {
+    "Hero": {
+      "title": "Vận Tải Nội Địa"
+    },
+    "SubNav": {
+      "masterConsolidation": "Gom Hàng Lẻ",
+      "airFreight": "Đường Không",
+      "seaFreight": "Đường Biển",
+      "inlandTrucking": "Vận Tải Nội Địa",
+      "warehousing": "Lưu Kho",
+      "customBrokerage": "Hải Quan"
+    },
+    "Intro": {
+      "title": "Vận Tải Nội Địa:",
+      "desc": "Chúng tôi thu xếp các dịch vụ vận chuyển nguyên container, nguyên chuyến xe tải, hàng lẻ, dịch vụ phân phối từ các sân bay quốc tế và cảng biển đến các khu công nghiệp và trung tâm phân phối trên toàn quốc."
+    },
+    "Accordion": {
+      "tag": "Tại sao?",
+      "title": "Tại sao chọn Dịch vụ Vận tải Nội địa của chúng tôi?",
+      "items": {
+        "0": {
+          "title": "1. Nhận hàng từ nhà máy đến cảng",
+          "desc": "Chúng tôi lấy hàng trực tiếp từ nhà cung cấp của bạn và giao đến kho của chúng tôi hoặc cảng xuất khẩu, giúp bạn tiết kiệm thời gian và công sức điều phối."
+        },
+        "1": {
+          "title": "2. Giao hàng chặng cuối (Last-Mile Delivery)",
+          "desc": "Từ cảng đích đến các trung tâm phân phối, nhà bán lẻ hoặc người tiêu dùng cuối cùng — chúng tôi xử lý việc giao hàng chặng cuối với tốc độ và sự cẩn thận."
+        },
+        "2": {
+          "title": "3. Vận chuyển Container & Xử lý tại CFS",
+          "desc": "Chúng tôi quản lý việc nhận/giao nguyên container (FCL), hoặc giao hàng từ CFS (LCL) đến kho để chia lẻ hàng hóa."
+        },
+        "3": {
+          "title": "4. Đa dạng phương tiện vận chuyển",
+          "desc": "Từ xe tải nhỏ đến xe container 20/40ft — chúng tôi sắp xếp phương tiện vận chuyển dựa trên khối lượng, trọng lượng hàng hóa và điều kiện giao hàng."
+        },
+        "4": {
+          "title": "5. Đúng hẹn & Được theo dõi",
+          "desc": "Đội xe và các đối tác của chúng tôi cung cấp hệ thống theo dõi GPS và cam kết giao hàng đúng hạn, ngay cả trong các mùa cao điểm."
+        }
+      }
+    },
+    "Cards": {
+      "left": {
+        "title": "Các trường hợp sử dụng",
+        "items": {
+          "0": "Lấy hàng từ nhiều nhà cung cấp để gom hàng",
+          "1": "Giao hàng nội địa từ cảng đến kho",
+          "2": "Vận chuyển container đến/từ CFS, ICD hoặc kho ngoại quan",
+          "3": "Chuyển tải giữa các phương thức: biển, hàng không, đường bộ"
+        }
+      },
+      "middle": {
+        "title": "Loại Hàng Hóa Xử Lý",
+        "items": {
+          "0": "Nội thất & Trang trí nhà cửa",
+          "1": "May mặc & Thời trang",
+          "2": "Điện tử & Linh kiện",
+          "3": "Thực phẩm & Đồ uống (hàng khô)",
+          "4": "Máy móc & Thiết bị Công nghiệp",
+          "5": "Hàng bán lẻ & Thương mại điện tử"
+        }
+      },
+      "right": {
+        "title": "Dịch vụ Hỗ trợ",
+        "items": {
+          "0": "Dịch vụ nâng hạ (Lift-on/Lift-off)",
+          "1": "Điều phối tài xế & xếp lịch lấy hàng",
+          "2": "Đóng gói, đóng pallet và quấn màng co (theo yêu cầu)",
+          "3": "Dịch vụ hậu cần trả vỏ container rỗng"
+        }
+      }
+    },
+    "Cta": {
+      "tag": "Phân phối & Vận tải",
+      "title": "Từ nhà máy đến cảng. Từ cảng đến khách hàng của bạn.",
+      "desc": "Chúng tôi quản lý các chuyến hàng nội địa với tốc độ và độ tin cậy tuyệt đối.",
+      "button": "Nhận Báo Giá Miễn Phí"
+    }
+  },
+  "Warehousing": {
+    "Hero": {
+      "title": "Lưu Kho",
+      "desc": "Tại Superman Logistics, các kho bãi của chúng tôi tiếp nhận, lưu trữ, phân loại và đóng hàng của bạn — đảm bảo hàng hóa luôn sẵn sàng xuất khẩu, an toàn và được gom cẩn thận."
+    },
+    "SubNav": {
+      "masterConsolidation": "Gom Hàng Lẻ",
+      "airFreight": "Đường Không",
+      "seaFreight": "Đường Biển",
+      "inlandTrucking": "Vận Tải Nội Địa",
+      "warehousing": "Lưu Kho",
+      "customBrokerage": "Hải Quan"
+    },
+    "Accordion": {
+      "tag": "Tại sao?",
+      "title": "Tại sao chọn Dịch vụ Lưu kho Superman?",
+      "items": {
+        "0": {
+          "title": "1. Xử lý hàng hóa từ nhiều nhà cung cấp",
+          "desc": "Tiếp nhận và lưu trữ hàng hóa từ nhiều nhà cung cấp theo một kế hoạch giao hàng chung — lý tưởng cho việc gom hàng của người mua."
+        },
+        "1": {
+          "title": "2. Lưu kho ngắn hạn & Cross-Docking",
+          "desc": "Không gian linh hoạt để lưu giữ hàng hóa trước khi xếp hàng, cùng với dịch vụ cross-docking cho các lịch trình xuất hàng khẩn cấp."
+        },
+        "2": {
+          "title": "3. Đóng hàng & Xếp dỡ chuyên nghiệp",
+          "desc": "Đội ngũ của chúng tôi đảm bảo container được đóng hàng dựa trên trọng lượng, thể tích và tính dễ vỡ của hàng hóa nhằm ngăn ngừa hư hỏng và tối đa hóa không gian."
+        },
+        "3": {
+          "title": "4. Theo dõi & Quản lý tồn kho",
+          "desc": "Chúng tôi ghi nhận mọi mặt hàng được nhận và xếp dỡ, mang đến cho bạn sự minh bạch và kiểm soát hoàn toàn trước khi xuất khẩu."
+        },
+        "4": {
+          "title": "5. Dịch vụ Giá trị gia tăng",
+          "desc": "Các dịch vụ dán nhãn, dán mã vạch, đóng pallet, đóng gói lại, quấn màng co và kiểm tra sản phẩm tùy chọn — phục vụ theo yêu cầu."
+        }
+      }
+    },
+    "Cards": {
+      "left": {
+        "title": "Dịch vụ dành cho ai?",
+        "items": {
+          "0": "Nhà nhập khẩu gom hàng từ 2-10 nhà cung cấp",
+          "1": "Nhà xuất khẩu cần không gian chuẩn bị trước khi giao",
+          "2": "Người bán thương mại điện tử tập kết hàng (SKU)",
+          "3": "Thương nhân xử lý hàng theo mùa hoặc hàng hỗn hợp"
+        }
+      },
+      "middle": {
+        "title": "Loại Hàng Hóa Xử Lý",
+        "items": {
+          "0": "Nội thất & Trang trí nhà cửa",
+          "1": "May mặc & Thời trang",
+          "2": "Điện tử & Linh kiện",
+          "3": "Thực phẩm & Đồ uống (hàng khô)",
+          "4": "Máy móc & Thiết bị Công nghiệp",
+          "5": "Hàng bán lẻ & Thương mại điện tử"
+        }
+      },
+      "right": {
+        "title": "Dịch vụ Hỗ trợ",
+        "items": {
+          "0": "Đóng hàng vào container (FCL & LCL)",
+          "1": "Xử lý hàng CFS và chuyển tải",
+          "2": "Kiểm soát chất lượng & kiểm định hàng hóa",
+          "3": "Đóng gói & dán nhãn theo yêu cầu",
+          "4": "Tùy chọn kiểm soát nhiệt độ (theo yêu cầu)"
+        }
+      }
+    },
+    "Cta": {
+      "tag": "Lưu Kho",
+      "title": "Cần lưu trữ an toàn trước khi khởi hành?",
+      "desc": "Chúng tôi nhận, lưu trữ, dán nhãn và đóng hàng — luôn sẵn sàng khi bạn cần.",
+      "button": "Nhận Báo Giá Miễn Phí"
+    }
+  },
+  "CustomBrokerage": {
+    "Hero": {
+      "title": "Hải Quan"
+    },
+    "SubNav": {
+      "masterConsolidation": "Gom Hàng Lẻ",
+      "airFreight": "Đường Không",
+      "seaFreight": "Đường Biển",
+      "inlandTrucking": "Vận Tải Nội Địa",
+      "warehousing": "Lưu Kho",
+      "customBrokerage": "Hải Quan"
+    },
+    "Intro": {
+      "title": "Dịch vụ Hải Quan:",
+      "desc": "Khai báo hải quan là vấn đề quan trọng nhất đối với khách hàng tại Việt Nam cũng như ở các quốc gia khác. Đội ngũ chuyên gia tận tâm và đáng tin cậy của chúng tôi, với kiến thức và nhiều thập kỷ kinh nghiệm thực tế, đặc biệt là cam kết về tính toàn vẹn, đảm bảo tư vấn và giải phóng lô hàng của bạn càng sớm càng tốt. Thường mất khoảng 6 đến 8 giờ làm việc kể từ khi máy bay hạ cánh đối với hàng không và 2 ngày làm việc kể từ khi dỡ hàng khỏi tàu đối với đường biển, với điều kiện thông tin đầy đủ được cung cấp chính xác và kịp thời.<br/><br/>Hơn nữa, đội ngũ của chúng tôi có khả năng tư vấn cho khách hàng một cách nhanh chóng và chính xác trong việc khai báo, trung thực, hợp lý đồng thời tận dụng các chính sách ưu đãi của Nhà nước, nhằm bảo vệ lợi ích của nhà nhập khẩu và xuất khẩu và giảm bớt khó khăn cho nhân viên hải quan.<br/><br/>Trên nền tảng kết nối số hóa và EDI, chúng tôi đảm bảo hàng hóa của bạn được giải phóng nhanh chóng và trôi chảy.",
+      "points": {
+        "0": "Tư vấn thuế quan",
+        "1": "Tư vấn thủ tục",
+        "2": "Kiểm tra hải quan",
+        "3": "Giấy phép và phê duyệt",
+        "4": "Đăng ký C/O",
+        "5": "Hoàn thuế"
+      }
+    },
+    "Accordion": {
+      "tag": "Tại sao?",
+      "title": "Tại sao chọn Superman cho Dịch vụ Hải quan?",
+      "items": {
+        "0": {
+          "title": "1. Đại lý được cấp phép & Chuyên gia nội bộ",
+          "desc": "Đội ngũ của chúng tôi bao gồm các đại lý hải quan được chứng nhận với kiến thức sâu rộng về các quy định trong nước và quốc tế, đảm bảo tuân thủ nghiêm ngặt và tránh các khoản phạt tốn kém."
+        },
+        "1": {
+          "title": "2. Hỗ trợ Chứng từ Toàn diện",
+          "desc": "Từ hóa đơn thương mại đến chứng nhận xuất xứ phức tạp, chúng tôi quản lý mọi giấy tờ cần thiết, cho phép bạn tập trung vào hoạt động kinh doanh cốt lõi của mình."
+        },
+        "2": {
+          "title": "3. Thông quan Nhanh chóng",
+          "desc": "Thông qua các hệ thống xử lý ưu tiên (như VNACCS) và mối quan hệ chặt chẽ với cơ quan cảng, chúng tôi đẩy nhanh tiến độ thông quan hàng hóa của bạn để giảm thiểu sự chậm trễ."
+        },
+        "3": {
+          "title": "4. Tuân thủ Đa Quốc gia",
+          "desc": "Chúng tôi xử lý các yêu cầu hải quan trên nhiều thị trường toàn cầu khác nhau, thích ứng trơn tru với các thay đổi về thuế quan, hạn ngạch và hiệp định thương mại ở Bắc Mỹ, Châu Âu và Châu Á."
+        },
+        "4": {
+          "title": "5. Một Đối tác cho Mọi Dịch vụ",
+          "desc": "Tích hợp dịch vụ thông quan với các dịch vụ giao nhận vận tải và lưu kho của chúng tôi để tạo ra một giải pháp chuỗi cung ứng thống nhất, xuyên suốt từ điểm đi đến điểm đến."
+        }
+      }
+    },
+    "Cards": {
+      "left": {
+        "title": "Dành cho ai?",
+        "items": {
+          "0": "Nhà xuất khẩu không chắc chắn về chứng từ",
+          "1": "Nhà nhập khẩu cần thông quan DDP/DDU",
+          "2": "Thương hiệu E-commerce gửi hàng đi nhiều nước",
+          "3": "Doanh nghiệp xử lý hàng hóa bị kiểm soát"
+        }
+      },
+      "middle": {
+        "title": "Phạm vi & Năng lực",
+        "items": {
+          "0": "Chứng từ xuất khẩu (Châu Á: VN, TQ, Thái Lan, Indo)",
+          "1": "Thông quan nhập khẩu (Mỹ, Canada, EU, UAE, Úc...)",
+          "2": "C/O Form E, D, AK, v.v.",
+          "3": "Khai báo hải quan điện tử (VNACCS, China E-port...)",
+          "4": "Tư vấn mã HS & dự báo thuế",
+          "5": "Xử lý hàng nguy hiểm (DG) & hàng hạn chế"
+        }
+      },
+      "right": {
+        "title": "Dịch vụ Giá trị gia tăng",
+        "items": {
+          "0": "Giấy chứng nhận xuất xứ & hợp pháp hóa",
+          "1": "Khử trùng & giấy chứng nhận kiểm dịch",
+          "2": "Bảo hiểm & khai báo giá trị hàng hóa",
+          "3": "Hỗ trợ kiểm toán & lưu trữ chứng từ",
+          "4": "Điều phối kiểm tra trước khi xếp hàng"
+        }
+      }
+    },
+    "Cta": {
+      "tag": "Hải Quan",
+      "title": "Đừng để chứng từ làm chậm trễ tiến độ của bạn.",
+      "desc": "Hãy để các chuyên gia của chúng tôi xử lý thủ tục hải quan từ đầu đến cuối.",
+      "button": "Nhận Báo Giá Miễn Phí"
+    }
+  }
+}

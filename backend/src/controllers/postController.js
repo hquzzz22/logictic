@@ -53,6 +53,23 @@ const getPostBySlug = async (req, res, next) => {
   }
 };
 
+// @desc    Get post by ID
+// @route   GET /api/posts/:id
+// @access  Private/Admin
+const getPostById = async (req, res, next) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (post) {
+      res.json(post);
+    } else {
+      res.status(404);
+      throw new Error('Không tìm thấy bài viết');
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
 // @desc    Create a post
 // @route   POST /api/posts
 // @access  Private/Admin
@@ -150,6 +167,7 @@ module.exports = {
   getPosts,
   getAdminPosts,
   getPostBySlug,
+  getPostById,
   createPost,
   updatePost,
   deletePost,

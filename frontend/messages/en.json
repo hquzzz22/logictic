@@ -1,0 +1,805 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "tracking": "Tracking",
+    "contact": "Contact",
+    "blog": "Blog",
+    "requestQuote": "Request a Quote",
+    "language": "Language"
+  },
+  "Homepage": {
+    "Hero": {
+      "subtitle": "Superman Transport",
+      "slides": {
+        "0": {
+          "title": "GLOBAL CONSOLIDATION EXPERTS",
+          "highlight": "LCL SOLUTIONS",
+          "desc": "Streamline your supply chain with our premium Less-than-Container Load services to over 100 countries worldwide."
+        },
+        "1": {
+          "title": "FAST & RELIABLE",
+          "highlight": "AIR FREIGHT",
+          "desc": "When time is of the essence, our air cargo solutions ensure your goods arrive safely and on schedule."
+        },
+        "2": {
+          "title": "END-TO-END",
+          "highlight": "SUPPLY CHAIN",
+          "desc": "From warehousing to inland trucking and customs brokerage, we handle every step of your logistics journey."
+        }
+      },
+      "buttons": {
+        "getQuote": "Get a Free Quote",
+        "ourStory": "Our Story"
+      }
+    },
+    "Tracking": {
+      "title": "Track your shipment",
+      "placeholder": "Enter HBL, MBL or Container No...",
+      "button": "Track",
+      "alert": "Please enter a tracking number"
+    },
+    "Stats": {
+      "countries": "Countries Served",
+      "shipments": "Shipments / Year",
+      "delivery": "On-Time Delivery",
+      "partners": "Global Partners"
+    },
+    "Consolidation": {
+      "tag": "Why choose Superman?",
+      "title": "We specialize in consolidation, not just logistics.",
+      "desc": "Superman is built for businesses that want fast, lean, and smart shipping. Whether you are importing small LCL cargo or collecting from multiple suppliers, we transform it all into a seamless delivery process.",
+      "link": "Get a free quote",
+      "features": {
+        "0": {
+          "title": "Safe Packaging",
+          "desc": "We ensure your goods are professionally packed, optimizing space and minimizing damage during transit."
+        },
+        "1": {
+          "title": "On-time Delivery",
+          "desc": "With fixed weekly departure schedules and a proactive operations team, we keep your delivery on track — no surprises."
+        },
+        "2": {
+          "title": "Global Shipping",
+          "desc": "Superman ships to over 100 countries with a trusted network of agents and warehouses across Asia, North America, Europe, and more."
+        },
+        "3": {
+          "title": "Fastest Delivery",
+          "desc": "Thanks to our LCL service, you can export goods as soon as they are ready — small volumes, frequent trips."
+        }
+      }
+    },
+    "Services": {
+      "tag": "Our Services",
+      "title": "We provide full assistance in freight and consolidation logistics.",
+      "items": {
+        "0": {
+          "title": "Master Consolidation",
+          "desc": "Combine goods from multiple suppliers into one optimized shipment."
+        },
+        "1": {
+          "title": "Air Freight",
+          "desc": "Fast and reliable air cargo solutions for time-sensitive shipments."
+        },
+        "2": {
+          "title": "Sea Freight",
+          "desc": "Cost-effective shipping for large volumes via global sea routes."
+        },
+        "3": {
+          "title": "Inland Trucking",
+          "desc": "Flexible road freight services for pickup and final delivery support."
+        },
+        "4": {
+          "title": "Warehousing",
+          "desc": "Secure storage and professional container stuffing at origin hubs."
+        },
+        "5": {
+          "title": "Custom Brokerage",
+          "desc": "Hassle-free customs clearance handled by licensed professionals."
+        }
+      }
+    },
+    "CtaBanner": {
+      "title": "Start Save Your Money Today",
+      "desc": "Vehicles traveling on these networks may include of the trucks, watercraft world wide services provider.",
+      "button": "Get a Free Quote"
+    },
+    "Industries": {
+      "tag": "Industries",
+      "title": "Tailored Solutions for Every Industry.",
+      "items": {
+        "0": {
+          "title": "Furniture & Home Décor",
+          "desc": "We help furniture exporters ship bulky but lightweight goods efficiently through optimized LCL consolidation and careful container stuffing."
+        },
+        "1": {
+          "title": "Fashion & Garments",
+          "desc": "Flexible, frequent shipments for fast-moving SKUs — we serve fashion brands, manufacturers, and traders with tailored consolidation services."
+        },
+        "2": {
+          "title": "Electronics & Components",
+          "desc": "Secure and trackable movement of high-value components and devices with careful handling and real-time visibility."
+        },
+        "3": {
+          "title": "Food & Beverage (Dry Goods)",
+          "desc": "We manage compliance documents, fumigation, and temperature-safe storage for dry packaged foods and beverages."
+        },
+        "4": {
+          "title": "Tools & Industrial Equipment",
+          "desc": "For heavy and irregular-sized cargo, we offer smart stuffing and safe packing from trusted industrial zones across Asia."
+        },
+        "5": {
+          "title": "E-commerce & Retail",
+          "desc": "We support online sellers and fulfillment companies with multi-supplier consolidation, labeling, and door-to-door international delivery."
+        }
+      }
+    },
+    "Benefits": {
+      "title": "Benefits for Your Business.",
+      "items": {
+        "0": {
+          "title": "Lower Shipping Costs",
+          "desc": "Share container space, cut waste"
+        },
+        "1": {
+          "title": "Higher Efficiency",
+          "desc": "One shipment, one document, one invoice"
+        },
+        "2": {
+          "title": "Better Control",
+          "desc": "Our platform offers real-time updates"
+        },
+        "3": {
+          "title": "Easier Coordination",
+          "desc": "We manage your suppliers for you"
+        },
+        "4": {
+          "title": "Flexible Shipping",
+          "desc": "Weekly sailings from major Asian port"
+        }
+      }
+    },
+    "Advantage": {
+      "tag": "The Superman Advantage",
+      "title": "WHY LEADING BRANDS TRUST OUR NETWORK.",
+      "qualityTitle": "Guaranteed Quality",
+      "qualityDesc": "ISO 9001:2015 Certified",
+      "tabs": {
+        "0": {
+          "title": "Safe & Professional Packing",
+          "desc": "We ensure your cargo is professionally packed and positioned to maximize space and minimize damage during transit."
+        },
+        "1": {
+          "title": "Fixed Weekly Departures",
+          "desc": "With fixed weekly departures and a proactive operations team, we keep your delivery timeline on track — no surprises."
+        },
+        "2": {
+          "title": "Global Coverage",
+          "desc": "Superman ships to over 100 countries with trusted agents and warehouses across Asia, North America, Europe, and beyond."
+        },
+        "3": {
+          "title": "Transparent Pricing",
+          "desc": "No hidden fees. We provide clear, itemized quotes so you know exactly what you are paying for every segment."
+        }
+      }
+    },
+    "Contact": {
+      "formTitle": "Need to Make an Enquiry?",
+      "name": "Your name*",
+      "phone": "Phone*",
+      "email": "Email*",
+      "city": "City*",
+      "message": "Your Message",
+      "submit": "Submit Message",
+      "tag": "GET IN TOUCH WITH US",
+      "title": "We take care about transportation for your business.",
+      "desc": "Superman has experience in handling the formalities and documentation required for your imports and exports. We work with all international station to guarantee that your load will safely reach without any delays.",
+      "office": "Ho Chi Minh",
+      "address": "10th Floor, Financial Building 32-32B-34-34A Bach Dang 2, Tan Son Hoa Ward, Ho Chi Minh City, Vietnam"
+    },
+    "PremiumCta": {
+      "tag": "Let's work together",
+      "title": "READY TO OPTIMIZE YOUR LOGISTICS STRATEGY?",
+      "desc": "Contact our experts today to get a customized quote and discover how Superman Transport can save you time and money.",
+      "button": "Request a Quote Now"
+    }
+  },
+  "AboutUs": {
+    "Hero": {
+      "title": "About Us",
+      "subtitle": "Your Trusted Partner in Sea Freight Consolidation"
+    },
+    "Intro": {
+      "title": "About Us",
+      "paragraphs": {
+        "0": "In the dawn of time, we began with a dream to shape a Vietnam enterprise providing and promoting world-wide reliable logistics services driven by service quality, personnel expertise and state-of-the-art technology. Being of like-mind in passion for logistics, visionary founders were gathering and initiating their own simple dream of building up a logistics provider to deliver excellent services giving prominence to professionalism, dependability, dedication and responsibility to customers, what set us apart from the similarity.",
+        "1": "Then Superman Transport was formed in Dec 2024 with the first office in Ho Chi Minh City. Started with sea freight LCL service, now Superman Transport is pledged to offer mostly integrated and modern logistics services ranging from Custom broker, air freight, containerized shipment, multi-modal transportation, railway, door to door, oversized and over-weighted cargo, and value-added services like warehousing, packaging, labelling....",
+        "2": "Superman Transport services are personalized to gear every single demand of our customer, that ultimately maximize your benefit, effectiveness, reliability to supply chain, intensifying comprehensiveness and creating added values to customers. Each member in Superman Transport treasures any shipment which customers trust in us, and we always regard the customer's problem as our own to keep our effort and to engineer suitable and reasonable solutions, advising customer to have the value chain optimized.",
+        "3": "Superman Transport not only deploys global logistics services from and to locations where our offices are situated but also from third countries to others, thanks to our network of reliable partners across 100 countries and territories."
+      }
+    },
+    "Stats": {
+      "items": {
+        "0": {
+          "num": "6,920",
+          "title": "Shipments Consolidated.",
+          "desc": "Thousands of orders optimized through smart LCL and buyer consolidation."
+        },
+        "1": {
+          "num": "126",
+          "title": "Countries covered.",
+          "desc": "Global reach across 120+ destinations from Asia to the world."
+        },
+        "2": {
+          "num": "478",
+          "title": "Tons of goods.",
+          "desc": "Cargo handled and moved safely across our global sea freight network."
+        }
+      }
+    },
+    "VisionMission": {
+      "vision": {
+        "title": "VISION",
+        "desc": "Superman Transport strives to be a reliable Global Logistics Group, creating value for society and its people."
+      },
+      "mission": {
+        "title": "MISSION",
+        "desc": "The mission of Superman Transport is to offer our customers modern, integrated logistics solutions based on the creativity and on the continuous optimization of our resources through our team - Super warriors."
+      }
+    },
+    "CoreValues": {
+      "title": "CORE VALUES:",
+      "items": {
+        "0": "Teamwork",
+        "1": "Passion for Excellence",
+        "2": "Integrity",
+        "3": "Accountability",
+        "4": "Innovation"
+      }
+    },
+    "Partners": {
+      "title": "Key Ocean & Air Carriers"
+    },
+    "Progress": {
+      "title": "Optimizing logistics chain from A to Z to increase your business competitiveness",
+      "items": {
+        "0": { "label": "Air Freight", "value": "85%" },
+        "1": { "label": "Ocean Freight", "value": "97%" },
+        "2": { "label": "Trucking Distribution", "value": "92%" }
+      }
+    },
+    "Cta": {
+      "tag": "A SHORT BRIEF",
+      "title": "Always Present to Satisfy Your Every Business Need.",
+      "desc": "We aren't here to replace your existing team — we're here to reinforce it. Let us handle the logistics so you can focus on growing your business.",
+      "button": "Get Free Quote"
+    }
+  },
+  "ContactUs": {
+    "Hero": {
+      "title": "Contact Us!"
+    },
+    "Form": {
+      "title": "Need to Make an Enquiry?",
+      "name": "Your name*",
+      "phone": "Phone*",
+      "email": "Email*",
+      "city": "City*",
+      "message": "Your Message",
+      "submit": "Submit Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! We will get back to you shortly.",
+      "error": "Failed to send message. Please try again."
+    },
+    "Info": {
+      "tag": "GET IN TOUCH WITH US",
+      "title": "We take care about transportation for your business.",
+      "desc": "Superman has experience in handling the formalities and documentation required for your imports and exports. We work with all international station to guarantee that your load will safely reach without any delays.",
+      "location": "Ho Chi Minh",
+      "address": "10th Floor, Financial Building 32-32B-34-34A Bach Dang 2, Tan Son Hoa Ward, Ho Chi Minh City, Vietnam",
+      "email": "info@spmt.com.vn",
+      "phone": "(+84) 28 36207585/587"
+    },
+    "Cta": {
+      "tag": "A SHORT BRIEF",
+      "title": "Here to Help Your Every Business Need.",
+      "desc": "Stop worrying about any shipping problems. Focus on your business. Let us provide the support you deserve."
+    }
+  },
+  "MasterConsolidation": {
+    "Hero": {
+      "title": "Master Consolidation"
+    },
+    "SubNav": {
+      "masterConsolidation": "Master Consolidation",
+      "airFreight": "Air Freight",
+      "seaFreight": "Sea Freight",
+      "inlandTrucking": "Inland Trucking",
+      "warehousing": "Warehousing",
+      "customBrokerage": "Custom Brokerage"
+    },
+    "Intro": {
+      "title": "Master Consolidation:",
+      "desc": "In order to create competitive products convenient to customers, right from the establishment, we set up LCL service as one of our strengths. Today we handle direct LCL sea freight shipments from/to Vietnam and The US, China, Thailand, Korea, Japan, Hong Kong, Singapore, Taiwan, Europe. We have plan to expand services to worldwide as soon as."
+    },
+    "Accordion": {
+      "tag": "Why?",
+      "title": "Why Master Consolidation?",
+      "items": {
+        "0": {
+          "title": "1. Multi-Supplier Pickup",
+          "desc": "We collect cargo from various factories, cities, or even countries across Asia — and bring it to our consolidation warehouse."
+        },
+        "1": {
+          "title": "2. Centralized Warehousing",
+          "desc": "Your goods are received, labeled, stored, and prepared at our secure facilities before stuffing into one export-ready container."
+        },
+        "2": {
+          "title": "3. Single Bill of Lading",
+          "desc": "We group all goods under one house B/L, minimizing customs procedures and import clearance complexity at destination."
+        },
+        "3": {
+          "title": "4. Reduced Freight Cost",
+          "desc": "You only pay for what you use — instead of multiple LCL shipments, we consolidate into a single container to reduce per-unit cost."
+        },
+        "4": {
+          "title": "5. Easier Documentation",
+          "desc": "One set of documents, one customs entry, one invoice. Clean and simple."
+        }
+      }
+    },
+    "Tables": {
+      "title1": "LCL EXPORT SERVICES FROM HO CHI MINH",
+      "title2": "LCL EXPORT SERVICES FROM HAI PHONG",
+      "title3": "LCL IMPORT SERVICES TO HO CHI MINH / HAI PHONG"
+    },
+    "Cards": {
+      "left": {
+        "title": "Ideal For",
+        "items": {
+          "0": "Importers sourcing from multiple suppliers",
+          "1": "E-commerce or D2C brands consolidating SKUs",
+          "2": "Trading companies handling multi-origin cargo",
+          "3": "Businesses scaling from LCL to FCL with flexibility"
+        }
+      },
+      "middle": {
+        "title": "Types of Cargo We Handle",
+        "items": {
+          "0": "Furniture & Home Decor",
+          "1": "Garments & Fashion Goods",
+          "2": "Electronics & Components",
+          "3": "Food & Beverages (dry cargo)",
+          "4": "Machinery & Industrial Equipment",
+          "5": "Retail & E-commerce Merchandise"
+        }
+      },
+      "right": {
+        "title": "Add-On Services",
+        "items": {
+          "0": "Cargo labeling, barcoding, palletizing",
+          "1": "Quality check on arrival at warehouse",
+          "2": "Repacking or special instructions per SKU",
+          "3": "Cargo insurance and documentation support"
+        }
+      }
+    },
+    "Cta": {
+      "tag": "Master Consolidation",
+      "title": "Too many suppliers? Let's make it one shipment.",
+      "desc": "We simplify multi-supplier shipments into one seamless container.",
+      "button": "Get a Free Quote"
+    }
+  },
+  "AirFreight": {
+    "Hero": {
+      "title": "Air Freight"
+    },
+    "SubNav": {
+      "masterConsolidation": "Master Consolidation",
+      "airFreight": "Air Freight",
+      "seaFreight": "Sea Freight",
+      "inlandTrucking": "Inland Trucking",
+      "warehousing": "Warehousing",
+      "customBrokerage": "Custom Brokerage"
+    },
+    "Intro": {
+      "title": "Air Freight:",
+      "desc": "Superman Transport provides air freight services for all types of goods from/to anywhere in the world, providing reliable and timely service to our customers. Not only providing air freight services from Tan Son Nhat (SGN), Noi Bai (HAN), Da Nang (DAD) airports to all airports worldwide, but also provide import cargo services from airports around the world to major airports in Vietnam. We are committed to our customers that we always ensure the shipping time with the best cost and services."
+    },
+    "Accordion": {
+      "tag": "Why?",
+      "title": "Why Choose Superman Air Freight?",
+      "items": {
+        "0": {
+          "title": "1. Air Freight & Express Cargo Specialists",
+          "desc": "Our dedicated team of air freight specialists ensures rapid, secure, and compliant handling of your most time-sensitive cargo."
+        },
+        "1": {
+          "title": "2. Competitive Air Freight Rates",
+          "desc": "Leveraging our strong relationships with major airlines, we negotiate the most favorable rates for our clients without compromising on service quality."
+        },
+        "2": {
+          "title": "3. Daily & Weekly Flights from Asia",
+          "desc": "With frequent scheduled departures, we offer unparalleled flexibility to match your production schedules and delivery deadlines."
+        },
+        "3": {
+          "title": "4. Transparent Air Cargo Pricing",
+          "desc": "No hidden fees. We provide clear, itemized quotations so you know exactly what you are paying for every step of the journey."
+        },
+        "4": {
+          "title": "5. End-to-End Tracking",
+          "desc": "Stay informed with real-time visibility of your shipment from the moment it leaves your facility until it reaches its final destination."
+        }
+      }
+    },
+    "Cards": {
+      "left": {
+        "title": "What We Can Move via Air",
+        "items": {
+          "0": "Electronics & Semiconductors",
+          "1": "Apparel & Footwear (Fast Fashion)",
+          "2": "Medical & Pharma Supplies",
+          "3": "Machinery & Industrial Equipment",
+          "4": "High-value items (watches, jewelry, laptops)"
+        }
+      },
+      "middle": {
+        "title": "Air Freight Service Options",
+        "items": {
+          "0": "Airport-to-Airport",
+          "1": "Door-to-Door",
+          "2": "Door-to-Airport",
+          "3": "Consolidated or Express Service",
+          "4": "Charter Flights (on demand)"
+        }
+      },
+      "right": {
+        "title": "Supporting Services",
+        "items": {
+          "0": "Local pickup & delivery (trucking)",
+          "1": "Warehousing & temporary storage",
+          "2": "Cargo insurance",
+          "3": "Packaging & labeling",
+          "4": "Customs brokerage"
+        }
+      }
+    },
+    "Cta": {
+      "tag": "Air Freight",
+      "title": "Need it there tomorrow? We've got wings.",
+      "desc": "Superman delivers your urgent cargo with speed, safety, and global precision.",
+      "button": "Get a Free Quote"
+    }
+  },
+  "SeaFreight": {
+    "Hero": {
+      "title": "Sea Freight"
+    },
+    "SubNav": {
+      "masterConsolidation": "Master Consolidation",
+      "airFreight": "Air Freight",
+      "seaFreight": "Sea Freight",
+      "inlandTrucking": "Inland Trucking",
+      "warehousing": "Warehousing",
+      "customBrokerage": "Custom Brokerage"
+    },
+    "Intro": {
+      "title": "Sea Freight",
+      "desc": "Operated as the first service together with LCL, sea freight service world-wide. We accommodate shipping solutions for containerized shipment, break bulk, oversized, over-weighted cargo from and to every corner of the globe. Over years, we are engaged in truly partnership with most of shipping lines on the market such as One, Meark Lines, YangMing, Evergreen, Cosco, Huyndai, OOCL, Hapagllloyd, Wanhai, KMTC, SITC, CMA-CGM, MSC... SupermanTransport enters into several contracts with liners, particularly for longroutes, thereby enabling us to consistently provide you with services of stability, high quality and affordable rates.<br/><br/>Our advantageous routes are Intra Asia, EU, North America, Australia, Africa, respectively.<br/><br/>Main commodities: Garment and textile, footwear, electronics, furniture, steel, materials for factories, consumer goods, project cargo, vehicles, farm produces, food and construction materials.<br/><br/><strong>Member of:</strong> VLA, JC Trans, WCA"
+    },
+    "Accordion": {
+      "tag": "Why?",
+      "title": "Why Choose Superman Ocean Freight?",
+      "items": {
+        "0": {
+          "title": "1. LCL & Buyer's Consolidation Experts",
+          "desc": "We specialize in LCL (Less-than-Container Load), enabling you to ship smaller volumes frequently without paying for unused container space."
+        },
+        "1": {
+          "title": "2. Competitive FCL Rates",
+          "desc": "For larger volumes, we provide Full Container Load services with direct carrier contracts and scheduled weekly sailings."
+        },
+        "2": {
+          "title": "3. Weekly Departures from Asia",
+          "desc": "Frequent and reliable sailings from Vietnam, China, Thailand & Indonesia to 100+ global ports."
+        },
+        "3": {
+          "title": "4. Transparent Pricing",
+          "desc": "Upfront, itemized quotes — no hidden fees. Choose the route and service level that fits your budget and timeline."
+        },
+        "4": {
+          "title": "5. End-to-End Tracking",
+          "desc": "Get full visibility into your shipment status, including warehouse receipt, loading, sailing, customs clearance, and delivery."
+        }
+      }
+    },
+    "Cards": {
+      "left": {
+        "title": "Our Ocean Freight Services",
+        "items": {
+          "0": "LCL & FCL shipping",
+          "1": "Buyer's consolidation",
+          "2": "Port-to-port & door-to-door delivery",
+          "3": "Weekly sailings from Asia",
+          "4": "Cross-docking & transloading"
+        }
+      },
+      "middle": {
+        "title": "Types of Cargo We Handle",
+        "items": {
+          "0": "Furniture & Home Decor",
+          "1": "Garments & Fashion Goods",
+          "2": "Electronics & Components",
+          "3": "Food & Beverages (dry cargo)",
+          "4": "Machinery & Industrial Equipment",
+          "5": "Retail & E-commerce Merchandise"
+        }
+      },
+      "right": {
+        "title": "Supporting Services",
+        "items": {
+          "0": "Supplier cargo coordination",
+          "1": "Consolidation & warehouse stuffing",
+          "2": "VGM submission & SI preparation",
+          "3": "Customs clearance at both ends",
+          "4": "Cargo insurance & documentation support"
+        }
+      }
+    },
+    "Cta": {
+      "tag": "Ocean Freight",
+      "title": "Smart shipping starts with smarter containers.",
+      "desc": "Let us handle your FCL or LCL cargo with weekly sailings and global reach.",
+      "button": "Get a Free Quote"
+    }
+  },
+  "InlandTrucking": {
+    "Hero": {
+      "title": "Inland Trucking"
+    },
+    "SubNav": {
+      "masterConsolidation": "Master Consolidation",
+      "airFreight": "Air Freight",
+      "seaFreight": "Sea Freight",
+      "inlandTrucking": "Inland Trucking",
+      "warehousing": "Warehousing",
+      "customBrokerage": "Custom Brokerage"
+    },
+    "Intro": {
+      "title": "Inland Trucking:",
+      "desc": "We arrange full container, full truck load, less than truckload, distribution services from international airports and sea ports to industrial zones and distribution centers nationwide."
+    },
+    "Accordion": {
+      "tag": "Why?",
+      "title": "Why Choose Our Trucking Services?",
+      "items": {
+        "0": {
+          "title": "1. Factory to Port Pickup",
+          "desc": "We collect goods directly from your suppliers and deliver to our warehouse or port of export, saving you time and coordination effort."
+        },
+        "1": {
+          "title": "2. Last-Mile Delivery",
+          "desc": "From destination ports to distribution centers, retailers, or end-users — we handle final delivery with speed and care."
+        },
+        "2": {
+          "title": "3. Container Drayage & CFS Handling",
+          "desc": "We manage full container (FCL) pickup/drop-off, or CFS (LCL) delivery to warehouses for deconsolidation."
+        },
+        "3": {
+          "title": "4. Flexible Vehicle Options",
+          "desc": "From small vans to 20/40ft container trucks — we arrange transport based on cargo volume, weight, and delivery conditions."
+        },
+        "4": {
+          "title": "5. Timely & Tracked",
+          "desc": "Our fleet and partners provide GPS-enabled tracking and on-time delivery commitments, even in high-demand seasons."
+        }
+      }
+    },
+    "Cards": {
+      "left": {
+        "title": "Common Use Cases",
+        "items": {
+          "0": "Pickup from multiple suppliers for buyer's consolidation",
+          "1": "Inland delivery from port to warehouse or fulfillment center",
+          "2": "Drayage to/from CFS, ICD, or bonded warehouses",
+          "3": "Transloading between modes: sea, air, road"
+        }
+      },
+      "middle": {
+        "title": "Types of Cargo We Handle",
+        "items": {
+          "0": "Furniture & Home Decor",
+          "1": "Garments & Fashion Goods",
+          "2": "Electronics & Components",
+          "3": "Food & Beverages (dry cargo)",
+          "4": "Machinery & Industrial Equipment",
+          "5": "Retail & E-commerce Merchandise"
+        }
+      },
+      "right": {
+        "title": "Supporting Services",
+        "items": {
+          "0": "Lift-on/Lift-off handling",
+          "1": "Driver coordination & appointment scheduling",
+          "2": "Packaging, palletizing, and wrapping (on request)",
+          "3": "Return logistics for empty containers or returns"
+        }
+      }
+    },
+    "Cta": {
+      "tag": "Trucking Distribution",
+      "title": "From factory to port. From port to your customer.",
+      "desc": "We manage inland moves with speed and reliability.",
+      "button": "Get a Free Quote"
+    }
+  },
+  "Warehousing": {
+    "Hero": {
+      "title": "Warehousing",
+      "desc": "At Superman Logistics, our warehouses receive, store, sort, and stuff your cargo — ensuring it's export-ready, secure, and consolidated with care."
+    },
+    "SubNav": {
+      "masterConsolidation": "Master Consolidation",
+      "airFreight": "Air Freight",
+      "seaFreight": "Sea Freight",
+      "inlandTrucking": "Inland Trucking",
+      "warehousing": "Warehousing",
+      "customBrokerage": "Custom Brokerage"
+    },
+    "Accordion": {
+      "tag": "Why?",
+      "title": "Why Choose Superman Warehousing?",
+      "items": {
+        "0": {
+          "title": "1. Multi-Supplier Cargo Handling",
+          "desc": "Receive and store goods from multiple vendors under one shipment plan — ideal for buyer's consolidation."
+        },
+        "1": {
+          "title": "2. Short-Term & Cross-Dock Storage",
+          "desc": "Flexible space for cargo holding before shipment, with cross-docking available for urgent outbound schedules."
+        },
+        "2": {
+          "title": "3. Professional Stuffing & Loading",
+          "desc": "Our team ensures containers are stuffed based on cargo weight, volume, and fragility to prevent damage and maximize space."
+        },
+        "3": {
+          "title": "4. Inventory Tracking & Visibility",
+          "desc": "We log every item received and loaded, giving you full transparency and control before export."
+        },
+        "4": {
+          "title": "5. Value-Added Services",
+          "desc": "Optional labeling, barcoding, palletizing, repacking, shrink-wrapping, and product inspection — available on request."
+        }
+      }
+    },
+    "Cards": {
+      "left": {
+        "title": "Who Is It For?",
+        "items": {
+          "0": "Importers consolidating cargo from 2-10 suppliers",
+          "1": "Exporters needing prep space before shipment",
+          "2": "E-commerce sellers staging SKUs",
+          "3": "Traders handling seasonal or high-mix cargo"
+        }
+      },
+      "middle": {
+        "title": "Types of Cargo We Handle",
+        "items": {
+          "0": "Furniture & Home Decor",
+          "1": "Garments & Fashion Goods",
+          "2": "Electronics & Components",
+          "3": "Food & Beverages (dry cargo)",
+          "4": "Machinery & Industrial Equipment",
+          "5": "Retail & E-commerce Merchandise"
+        }
+      },
+      "right": {
+        "title": "Supporting Services",
+        "items": {
+          "0": "Container stuffing (FCL & LCL)",
+          "1": "CFS handling and transloading",
+          "2": "Quality control & cargo inspection",
+          "3": "Custom packaging & labeling",
+          "4": "Temperature-controlled options (on request)"
+        }
+      }
+    },
+    "Cta": {
+      "tag": "Warehousing",
+      "title": "Need secure storage before departure?",
+      "desc": "We receive, store, label, and stuff — ready when you are.",
+      "button": "Get a Free Quote"
+    }
+  },
+  "CustomBrokerage": {
+    "Hero": {
+      "title": "Custom Brokerage"
+    },
+    "SubNav": {
+      "masterConsolidation": "Master Consolidation",
+      "airFreight": "Air Freight",
+      "seaFreight": "Sea Freight",
+      "inlandTrucking": "Inland Trucking",
+      "warehousing": "Warehousing",
+      "customBrokerage": "Custom Brokerage"
+    },
+    "Intro": {
+      "title": "Custom Brokerage:",
+      "desc": "Customs declaration matters most to clients in Vietnam; and it does in other countries likewise. Our trustworthy and devoted professionals with knowledge and decades of local experience, especially commitment to integrity, ascertain to consult and get your shipment released as soon as possible. It takes around 6 to 8 working hours from landing for air freight and 2 working days for ocean freight from vessel unloading, provided that sufficient information is given accurately and promptly.<br/><br/>Moreover, our team is able to suggest customers quickly and exactly in declaration, truthfully, properly while leveraging the State incentive policies, for safeguarding importer and exporter interests and relief to customs officials.<br/><br/>On EDI platform and digitalized connectivity, we make sure your merchandise is released fast and smoothly.",
+      "points": {
+        "0": "Tariff consultancy",
+        "1": "Procedure consultancy",
+        "2": "Customs inspection",
+        "3": "Licenses and approvals",
+        "4": "CO registration",
+        "5": "Tax refund"
+      }
+    },
+    "Accordion": {
+      "tag": "Why?",
+      "title": "Why Choose Superman for Customs?",
+      "items": {
+        "0": {
+          "title": "1. Licensed Brokers & In-House Experts",
+          "desc": "Our team consists of certified customs brokers with deep knowledge of local and international regulations, ensuring strict compliance and avoiding costly penalties."
+        },
+        "1": {
+          "title": "2. End-to-End Documentation Support",
+          "desc": "From commercial invoices to complex certificates of origin, we manage all required paperwork, allowing you to focus on your core business without administrative burdens."
+        },
+        "2": {
+          "title": "3. Faster Clearance",
+          "desc": "Through priority processing systems (like VNACCS) and our strong relationships with port authorities, we expedite your cargo clearance to minimize delays."
+        },
+        "3": {
+          "title": "4. Multi-Country Compliance",
+          "desc": "We handle customs requirements across diverse global markets, seamlessly adapting to changing tariffs, quotas, and trade agreements in North America, Europe, and Asia."
+        },
+        "4": {
+          "title": "5. One Partner for Everything",
+          "desc": "Integrate your customs clearance with our freight forwarding and warehousing services for a unified, frictionless supply chain solution from origin to destination."
+        }
+      }
+    },
+    "Cards": {
+      "left": {
+        "title": "Who Is It For?",
+        "items": {
+          "0": "Exporters unsure about required documents",
+          "1": "Importers needing DDP/DDU clearance",
+          "2": "E-commerce brands shipping to multiple countries",
+          "3": "Businesses dealing with controlled or regulated goods"
+        }
+      },
+      "middle": {
+        "title": "Coverage & Capabilities",
+        "items": {
+          "0": "Export documentation (Asia origins: Vietnam, China, Thailand, Indonesia)",
+          "1": "Import clearance (USA, Canada, EU, UAE, Australia, others)",
+          "2": "CO & C/O Form E, D, AK, etc.",
+          "3": "Electronic customs submission (VNACCS, China E-port, etc.)",
+          "4": "HS code consultancy & tax forecasting",
+          "5": "Dangerous goods (DG) and restricted item handling"
+        }
+      },
+      "right": {
+        "title": "Value-Added Services",
+        "items": {
+          "0": "Certificate of Origin & legalization",
+          "1": "Fumigation & phytosanitary certificates",
+          "2": "Insurance & cargo value declaration",
+          "3": "Audit support & document archiving",
+          "4": "Pre-shipment inspection coordination"
+        }
+      }
+    },
+    "Cta": {
+      "tag": "Custom Brokerage",
+      "title": "Don’t let documents delay your delivery.",
+      "desc": "Let our experts handle customs from origin to destination.",
+      "button": "Get a Free Quote"
+    }
+  }
+}

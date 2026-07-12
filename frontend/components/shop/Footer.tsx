@@ -1,90 +1,89 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function ShopFooter() {
   return (
-    <footer className="bg-stone-900 text-stone-300 pt-16 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* About */}
-          <div>
-            <img src="/logo_anvat.png" alt="KhôVặt" className="h-20 w-auto object-contain mb-4" />
+    <footer className="bg-stone-900 text-stone-300 pt-16 pb-8 border-t border-stone-800">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Brand & About */}
+          <div className="lg:col-span-1">
+            <div className="text-2xl font-black tracking-tighter text-white uppercase mb-6">
+              Superman<span className="text-[#e62c26]">.</span>
+            </div>
             <p className="text-stone-400 mb-6 leading-relaxed text-sm">
-              Chuyên cung cấp đồ ăn vặt chất lượng: khô bò, khô gà, mực rim, trái cây sấy, đậu các loại, hạt dinh dưỡng. Nguyên liệu sạch, không chất bảo quản.
+              Superman has experience in handling the formalities and documentation required for your imports and exports. We work with all international station to guarantee that your load will safely reach without any delays.
             </p>
             <div className="flex space-x-3">
-              <a href="#" className="h-10 w-10 bg-stone-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-stone-400">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="h-10 w-10 bg-stone-800 rounded-full flex items-center justify-center hover:bg-[#e62c26] hover:text-white transition-colors text-stone-400">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               </a>
-              <a href="#" className="h-10 w-10 bg-stone-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-stone-400">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
-              </a>
-              <a href="#" className="h-10 w-10 bg-stone-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-stone-400">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.83a8.18 8.18 0 0 0 4.79 1.53V6.88a4.85 4.85 0 0 1-1.02-.19z" /></svg>
+              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="h-10 w-10 bg-stone-800 rounded-full flex items-center justify-center hover:bg-[#e62c26] hover:text-white transition-colors text-stone-400">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
               </a>
             </div>
           </div>
 
-          {/* Products */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Sản phẩm</h3>
+            <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wider text-sm">Our Services</h3>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/san-pham" className="text-stone-400 hover:text-primary transition-colors">Tất cả sản phẩm</Link></li>
-              <li><Link href="/san-pham?category=kho-bo" className="text-stone-400 hover:text-primary transition-colors">Khô Bò</Link></li>
-              <li><Link href="/san-pham?category=kho-ga" className="text-stone-400 hover:text-primary transition-colors">Khô Gà</Link></li>
-              <li><Link href="/san-pham?category=combo" className="text-stone-400 hover:text-primary transition-colors">Combo Tiết Kiệm</Link></li>
-              <li><Link href="/blog" className="text-stone-400 hover:text-primary transition-colors">Tin tức & Công thức</Link></li>
+              <li><Link href="/services/master-consolidation" className="text-stone-400 hover:text-[#ff3f39] transition-colors">Master Consolidation</Link></li>
+              <li><Link href="/services/air-freight" className="text-stone-400 hover:text-[#ff3f39] transition-colors">Air Freight</Link></li>
+              <li><Link href="/services/sea-freight" className="text-stone-400 hover:text-[#ff3f39] transition-colors">Sea Freight</Link></li>
+              <li><Link href="/services/inland-trucking" className="text-stone-400 hover:text-[#ff3f39] transition-colors">Inland Trucking</Link></li>
+              <li><Link href="/services/warehousing" className="text-stone-400 hover:text-[#ff3f39] transition-colors">Warehousing</Link></li>
+              <li><Link href="/services/custom-brokerage" className="text-stone-400 hover:text-[#ff3f39] transition-colors">Custom Brokerage</Link></li>
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Ho Chi Minh Office */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Hỗ trợ</h3>
-            <ul className="space-y-3 text-sm">
-              <li><Link href="/ve-chung-toi" className="text-stone-400 hover:text-primary transition-colors">Về chúng tôi</Link></li>
-              <li><Link href="/lien-he" className="text-stone-400 hover:text-primary transition-colors">Liên hệ</Link></li>
-              <li><Link href="/faq" className="text-stone-400 hover:text-primary transition-colors">Câu hỏi thường gặp</Link></li>
-              <li><Link href="/yeu-thich" className="text-stone-400 hover:text-primary transition-colors">Sản phẩm yêu thích</Link></li>
-              <li><Link href="/tai-khoan" className="text-stone-400 hover:text-primary transition-colors">Tài khoản của tôi</Link></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Liên hệ</h3>
+            <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wider text-sm">Ho Chi Minh Office</h3>
             <ul className="space-y-4 text-sm">
-              <li className="flex items-start">
-                <MapPin className="h-5 w-5 mr-3 text-primary shrink-0 mt-0.5" />
-                <span className="text-stone-400">123 Đường Nông Sản, Quận 1, TP. Hồ Chí Minh</span>
+              <li className="flex items-start group">
+                <MapPin className="h-5 w-5 mr-3 text-[#e62c26] shrink-0 mt-0.5" />
+                <span className="text-stone-400 group-hover:text-white transition-colors">Ho Chi Minh, Vietnam</span>
               </li>
-              <li className="flex items-center">
-                <Phone className="h-5 w-5 mr-3 text-primary shrink-0" />
-                <a href="tel:0123456789" className="text-stone-400 hover:text-primary transition-colors">0123 456 789</a>
+              <li className="flex items-center group">
+                <Phone className="h-5 w-5 mr-3 text-[#e62c26] shrink-0" />
+                <a href="tel:(+84)2836207585" className="text-stone-400 group-hover:text-white transition-colors">(+84) 28 3620 7585 / 587</a>
               </li>
-              <li className="flex items-center">
-                <Mail className="h-5 w-5 mr-3 text-primary shrink-0" />
-                <a href="mailto:contact@nongsanshop.vn" className="text-stone-400 hover:text-primary transition-colors">contact@nongsanshop.vn</a>
+              <li className="flex items-center group">
+                <Mail className="h-5 w-5 mr-3 text-[#e62c26] shrink-0" />
+                <a href="mailto:info@spmt.com.vn" className="text-stone-400 group-hover:text-white transition-colors">info@spmt.com.vn</a>
               </li>
             </ul>
-            <div className="mt-4 p-3 bg-stone-800 rounded-xl text-xs text-stone-500">
-              <div className="font-semibold mb-1 text-stone-400">Giờ làm việc:</div>
-              <div>Thứ 2 - Thứ 7: 8:00 - 20:00</div>
-              <div>Chủ nhật: 9:00 - 17:00</div>
-            </div>
+          </div>
+
+          {/* Hai Phong Office */}
+          <div>
+            <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wider text-sm">Hai Phong Office</h3>
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-start group">
+                <MapPin className="h-5 w-5 mr-3 text-[#e62c26] shrink-0 mt-0.5" />
+                <span className="text-stone-400 group-hover:text-white transition-colors">Hai Phong, Vietnam</span>
+              </li>
+              <li className="flex items-center group">
+                <Phone className="h-5 w-5 mr-3 text-[#e62c26] shrink-0" />
+                <a href="tel:(+84)919863179" className="text-stone-400 group-hover:text-white transition-colors">(+84) 919 86 31 79</a>
+              </li>
+              <li className="flex items-center group">
+                <Mail className="h-5 w-5 mr-3 text-[#e62c26] shrink-0" />
+                <a href="mailto:info@spmt.com.vn" className="text-stone-400 group-hover:text-white transition-colors">info@spmt.com.vn</a>
+              </li>
+            </ul>
           </div>
         </div>
 
         {/* Bottom */}
         <div className="border-t border-stone-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-stone-500 text-sm">
-            &copy; {new Date().getFullYear()} KhôVặt. Tất cả quyền được bảo lưu.
+          <p className="text-stone-500 text-sm font-medium">
+            &copy; {new Date().getFullYear()} Superman Transport. All Rights Reserved.
           </p>
-          <div className="flex items-center gap-2 text-xs text-stone-500">
-            <span>COD</span>
-            <span>•</span>
-            <span>Chuyển khoản</span>
-            <span>•</span>
-            <span>Giao toàn quốc</span>
+          <div className="flex items-center gap-4 text-xs font-medium text-stone-500 uppercase tracking-wider">
+            <Link href="/privacy-policy" className="hover:text-[#ff3f39] transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-[#ff3f39] transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

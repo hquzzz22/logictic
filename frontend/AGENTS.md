@@ -1,11 +1,11 @@
-# Dự án KhôVặt - Ghi nhớ cho AI Agent
+# Dự án Superman Transport - Ghi nhớ cho AI Agent
 
 ## Thông tin chung
-- **Thương hiệu:** KhôVặt
+- **Thương hiệu:** Superman Transport
 - **Loại hình:** Website bán đồ ăn vặt (khô bò, khô gà, mực rim, trái cây sấy, đậu hạt, bánh snack)
 - **Mô hình bán hàng:** KHÔNG bán online trực tiếp trên web. Hướng khách liên hệ qua Zalo / Điện thoại / Messenger để đặt hàng.
 - **Logo:** `/public/logo_anvat.png` (header, admin) + `/public/logo_zalo.png` (icon Zalo)
-- **Path dự án:** `C:\Users\Administrator\Desktop\nongsanshop`
+- **Path dự án:** `c:\Users\Administrator\Desktop\logictic`
 - **Font:** Inter (Vietnamese subset)
 - **Màu chủ đạo:** Cam đất `#d97706` (primary), xanh lá `#166534` (secondary)
 
@@ -18,7 +18,7 @@
 - **Footer:** nền `bg-stone-900`
 
 ## Đăng nhập Admin
-- Email: `admin@khovatchat.vn`
+- Email: `admin@spmt.com.vn`
 - Password: `admin123`
 - URL: `http://localhost:3000/admin/dashboard`
 

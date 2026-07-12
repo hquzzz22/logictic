@@ -306,7 +306,7 @@ function BlockContextMenu({ block, index, totalBlocks, onConvert, onMove, onRemo
           {blockTypes.filter(bt => bt.type === block.type).map(bt => {
             const Icon = bt.icon;
             return (
-              <div key={bt.type} className="flex items-center gap-2.5 px-2 py-2 rounded-lg bg-blue-50 text-blue-700">
+              <div key={bt.type} className="flex items-center gap-2.5 px-2 py-2 rounded-lg bg-[#fff0ef] text-brand-700">
                 <Icon className="h-4 w-4" />
                 <span className="font-medium">{bt.label}</span>
               </div>
@@ -487,7 +487,7 @@ function BlockRenderer({ block, onChange }: { block: Block; onChange: (u: Partia
           value={block.content}
           onChange={(e) => onChange({ content: e.target.value })}
           placeholder="Nhập đoạn văn..."
-          className="w-full px-3 py-2 border border-transparent hover:border-border focus:border-primary/30 rounded-lg text-sm focus:outline-none resize-none min-h-[44px] leading-relaxed bg-transparent focus:bg-blue-50/30 transition-all"
+          className="w-full px-3 py-2 border border-transparent hover:border-border focus:border-primary/30 rounded-lg text-sm focus:outline-none resize-none min-h-[44px] leading-relaxed bg-transparent focus:bg-[#fff0ef]/30 transition-all"
           rows={2}
         />
       );
@@ -495,19 +495,19 @@ function BlockRenderer({ block, onChange }: { block: Block; onChange: (u: Partia
       return (
         <input type="text" value={block.content} onChange={(e) => onChange({ content: e.target.value })}
           placeholder="Heading 2..."
-          className="w-full px-3 py-2 border border-transparent hover:border-border focus:border-primary/30 rounded-lg text-2xl font-bold focus:outline-none bg-transparent focus:bg-blue-50/30 transition-all" />
+          className="w-full px-3 py-2 border border-transparent hover:border-border focus:border-primary/30 rounded-lg text-2xl font-bold focus:outline-none bg-transparent focus:bg-[#fff0ef]/30 transition-all" />
       );
     case 'heading3':
       return (
         <input type="text" value={block.content} onChange={(e) => onChange({ content: e.target.value })}
           placeholder="Heading 3..."
-          className="w-full px-3 py-2 border border-transparent hover:border-border focus:border-primary/30 rounded-lg text-xl font-bold focus:outline-none bg-transparent focus:bg-blue-50/30 transition-all" />
+          className="w-full px-3 py-2 border border-transparent hover:border-border focus:border-primary/30 rounded-lg text-xl font-bold focus:outline-none bg-transparent focus:bg-[#fff0ef]/30 transition-all" />
       );
     case 'heading4':
       return (
         <input type="text" value={block.content} onChange={(e) => onChange({ content: e.target.value })}
           placeholder="Heading 4..."
-          className="w-full px-3 py-2 border border-transparent hover:border-border focus:border-primary/30 rounded-lg text-lg font-semibold focus:outline-none bg-transparent focus:bg-blue-50/30 transition-all" />
+          className="w-full px-3 py-2 border border-transparent hover:border-border focus:border-primary/30 rounded-lg text-lg font-semibold focus:outline-none bg-transparent focus:bg-[#fff0ef]/30 transition-all" />
       );
     case 'image':
       return <ImageBlock block={block} onChange={onChange} />;
@@ -668,7 +668,7 @@ function ListBlock({ block, onChange, ordered }: { block: Block; onChange: (u: P
           <span className="text-sm text-muted-foreground w-5 text-right flex-shrink-0">{ordered ? `${i + 1}.` : '•'}</span>
           <input type="text" value={item} onChange={(e) => updateItem(i, e.target.value)} onKeyDown={(e) => handleKey(e, i)}
             placeholder="Nhập mục..."
-            className="flex-1 px-2 py-1.5 border border-transparent hover:border-border focus:border-primary/30 rounded-md text-sm focus:outline-none bg-transparent focus:bg-blue-50/30 transition-all" />
+            className="flex-1 px-2 py-1.5 border border-transparent hover:border-border focus:border-primary/30 rounded-md text-sm focus:outline-none bg-transparent focus:bg-[#fff0ef]/30 transition-all" />
           <button type="button" onClick={() => removeItem(i)}
             className="opacity-0 group-hover/item:opacity-100 text-muted-foreground/40 hover:text-red-500 transition-all">
             <XIcon className="h-3.5 w-3.5" />
@@ -699,7 +699,7 @@ function ChecklistBlock({ block, onChange }: { block: Block; onChange: (u: Parti
             className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary flex-shrink-0" />
           <input type="text" value={item.text} onChange={(e) => updateItem(i, { text: e.target.value })} onKeyDown={(e) => handleKey(e, i)}
             placeholder="Nhập mục..."
-            className={`flex-1 px-2 py-1.5 border border-transparent hover:border-border focus:border-primary/30 rounded-md text-sm focus:outline-none bg-transparent focus:bg-blue-50/30 transition-all ${item.checked ? 'line-through text-muted-foreground' : ''}`} />
+            className={`flex-1 px-2 py-1.5 border border-transparent hover:border-border focus:border-primary/30 rounded-md text-sm focus:outline-none bg-transparent focus:bg-[#fff0ef]/30 transition-all ${item.checked ? 'line-through text-muted-foreground' : ''}`} />
           <button type="button" onClick={() => removeItem(i)}
             className="opacity-0 group-hover/item:opacity-100 text-muted-foreground/40 hover:text-red-500 transition-all">
             <XIcon className="h-3.5 w-3.5" />

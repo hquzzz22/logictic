@@ -16,7 +16,7 @@ interface SettingsState {
 const defaultButtons: ContactButtons = {
   phone: { label: '0123 456 789', number: '0123456789', enabled: true },
   zalo: { label: 'Chat Zalo', id: 'https://zalo.me/0123456789', enabled: true },
-  messenger: { label: 'Messenger', id: 'https://m.me/nongsanshop', enabled: true },
+  messenger: { label: 'Messenger', id: 'https://m.me/spmt', enabled: true },
 };
 
 export const useSettingsStore = create<SettingsState>((set, get) => ({

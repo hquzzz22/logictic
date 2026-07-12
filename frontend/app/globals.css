@@ -1,16 +1,17 @@
+/* Font loaded via <link> tag in layout.tsx to avoid Turbopack recompilation */
 @import "tailwindcss";
 
 :root {
   --background: #fdfaf6; /* Màu nền hơi be nhẹ, thoáng */
   --foreground: #2d2a26; /* Màu chữ chính, không quá đen */
   
-  --primary: #d97706; /* Màu cam đất chủ đạo */
+  --primary: #2563eb; /* Blue 600 */
   --primary-foreground: #ffffff;
   
-  --secondary: #166534; /* Xanh lá cây đậm */
+  --secondary: #1e3a8a; /* Blue 900 */
   --secondary-foreground: #ffffff;
 
-  --accent: #f59e0b; /* Màu vàng cam nhấn */
+  --accent: #ef4444; /* Red 500 */
   --accent-foreground: #ffffff;
 
   --muted: #f3f4f6; /* Nền mờ */
@@ -20,6 +21,17 @@
 }
 
 @theme inline {
+  --color-brand-50: #fff0ef;
+  --color-brand-100: #ffe4e2;
+  --color-brand-200: #ffc9c6;
+  --color-brand-300: #ff9b96;
+  --color-brand-400: #ff6861;
+  --color-brand-500: #ff3f39;
+  --color-brand-600: #e62c26;
+  --color-brand-700: #bf1e18;
+  --color-brand-800: #991b16;
+  --color-brand-900: #7e1d19;
+  
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
@@ -32,7 +44,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   
-  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, monospace;
 
   --container-max-width: 80rem;
@@ -98,7 +110,7 @@ body {
 .ce-toolbar__plus:hover,
 .ce-toolbar__settings-btn:hover {
   background-color: #f3f4f6 !important;
-  color: #d97706 !important;
+  color: #2563eb !important;
 }
 .ce-inline-toolbar {
   border-radius: 10px !important;
@@ -108,7 +120,7 @@ body {
   border-radius: 10px !important;
 }
 .cdx-quote__text {
-  border-left: 4px solid #d97706;
+  border-left: 4px solid #2563eb;
   padding-left: 16px;
   font-style: italic;
   color: #374151;
@@ -124,9 +136,9 @@ body {
   overflow: hidden;
 }
 
-/* ===== Smooth scroll toàn trang ===== */
+/* ===== Smooth scroll chỉ cho anchor links ===== */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 /* ===== Hover lift effect cho cards ===== */
@@ -151,8 +163,8 @@ html {
 
 /* ===== Soft pulse for CTA ===== */
 @keyframes soft-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.3); }
-  50% { box-shadow: 0 0 0 12px rgba(217, 119, 6, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.3); }
+  50% { box-shadow: 0 0 0 12px rgba(37, 99, 235, 0); }
 }
 .pulse-cta {
   animation: soft-pulse 3s infinite;
@@ -169,4 +181,32 @@ html {
 }
 .banner-title-glow {
   animation: title-glow 3s ease-in-out infinite;
+}
+
+/* ===== Marquee animation (moved from inline dangerouslySetInnerHTML) ===== */
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ===== Fade-in animation ===== */
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== Bounce gentle for floating button ===== */
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
 }

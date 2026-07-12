@@ -12,7 +12,7 @@ interface PageBannerProps {
 
 export default function PageBanner({ title, subtitle, breadcrumb, tags }: PageBannerProps) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-amber-700">
+    <section className="relative overflow-hidden bg-gradient-to-br from-brand-700 via-brand-800 to-stone-900">
       {/* Decorative circles */}
       <div className="absolute top-[-80px] left-[-80px] w-[250px] h-[250px] rounded-full border-[30px] border-white/10 pointer-events-none" />
       <div className="absolute top-[-40px] right-[-60px] w-[200px] h-[200px] rounded-full border-[25px] border-white/10 pointer-events-none" />
@@ -25,15 +25,15 @@ export default function PageBanner({ title, subtitle, breadcrumb, tags }: PageBa
         {breadcrumb && (
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-white/15 backdrop-blur-sm text-white/90 text-sm rounded-full hover:bg-white/25 transition-colors mb-6"
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-white/15 backdrop-blur-sm text-white/90 text-sm font-bold uppercase tracking-wider rounded-full hover:bg-white/25 transition-colors mb-6"
           >
-            <ArrowLeft className="h-3.5 w-3.5" />
+            <ArrowLeft className="h-4 w-4" />
             {breadcrumb}
           </Link>
         )}
 
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 tracking-tight banner-title-glow">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4 tracking-tighter banner-title-glow">
           {title.split('\n').map((line, i) => (
             <span key={i}>
               {i > 0 && <br />}
@@ -44,18 +44,18 @@ export default function PageBanner({ title, subtitle, breadcrumb, tags }: PageBa
 
         {/* Subtitle */}
         {subtitle && (
-          <p className="text-white/80 max-w-xl mx-auto text-base md:text-lg leading-relaxed mb-6">
+          <p className="text-[#ffe4e2] max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-6 font-light">
             {subtitle}
           </p>
         )}
 
         {/* Tags */}
         {tags && tags.length > 0 && (
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
             {tags.map((tag, i) => (
               <span
                 key={i}
-                className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/15 backdrop-blur-sm text-white text-sm font-medium rounded-full hover:bg-white/25 transition-colors cursor-default"
+                className="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-bold uppercase tracking-wider rounded-lg hover:bg-white/20 transition-colors cursor-default shadow-lg"
               >
                 {tag.emoji && <span>{tag.emoji}</span>}
                 {tag.label}
@@ -65,7 +65,7 @@ export default function PageBanner({ title, subtitle, breadcrumb, tags }: PageBa
         )}
       </div>
 
-      {/* Wave bottom — đường cong mềm mại */}
+      {/* Wave bottom */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg
           viewBox="0 0 1440 120"
@@ -80,7 +80,7 @@ export default function PageBanner({ title, subtitle, breadcrumb, tags }: PageBa
           />
           <path
             d="M0 120V100C180 65 360 45 540 50C720 55 900 80 1080 85C1200 88 1320 78 1440 70V120H0Z"
-            fill="white"
+            fill="#fdfaf6"
           />
         </svg>
       </div>

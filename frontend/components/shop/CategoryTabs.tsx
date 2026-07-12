@@ -16,22 +16,30 @@ interface CategoryTabsProps {
 export default function CategoryTabs({ categories }: CategoryTabsProps) {
   const [activeId, setActiveId] = useState<string>('');
   const [menuOpen, setMenuOpen] = useState(false);
+  const [headerHeight, setHeaderHeight] = useState(140);
   const isClickScrolling = useRef(false);
+  const hasInteracted = useRef(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const tabsContainerRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll tab active vào viewport khi activeId thay đổi
+  // Auto-scroll tab active vào giữa container — CHỈ scroll ngang trong container,
+  // KHÔNG dùng scrollIntoView (vì nó kéo cả page dọc).
+  // Chỉ chạy khi user đã tương tác (click tab hoặc đã scroll trang) để tránh kéo trang khi mới load.
   useEffect(() => {
-    if (!activeId || !tabsContainerRef.current) return;
-    const activeBtn = tabsContainerRef.current.querySelector(`[data-cat-id="${activeId}"]`) as HTMLElement;
-    if (activeBtn) {
-      activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
+    if (!activeId || !tabsContainerRef.current || !hasInteracted.current) return;
+    const container = tabsContainerRef.current;
+    const activeBtn = container.querySelector(`[data-cat-id="${activeId}"]`) as HTMLElement | null;
+    if (!activeBtn) return;
+    const containerRect = container.getBoundingClientRect();
+    const btnRect = activeBtn.getBoundingClientRect();
+    const offset = btnRect.left - containerRect.left - containerRect.width / 2 + btnRect.width / 2;
+    container.scrollBy({ left: offset, behavior: 'smooth' });
   }, [activeId]);
 
   // Scroll spy — theo dõi section nào đang trong viewport
   useEffect(() => {
     const handleScroll = () => {
+      if (!hasInteracted.current) hasInteracted.current = true;
       if (isClickScrolling.current) return;
 
       const sections = categories
@@ -47,7 +55,7 @@ export default function CategoryTabs({ categories }: CategoryTabsProps) {
       else if (sections.length > 0) setActiveId(sections[0].id);
     };
 
-    handleScroll();
+    // KHÔNG gọi handleScroll ngay khi mount để tránh setActiveId → trigger scrollIntoView lần đầu
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [categories]);
@@ -61,23 +69,6 @@ export default function CategoryTabs({ categories }: CategoryTabsProps) {
     document.addEventListener('mousedown', handler);
     return () => document.removeEventListener('mousedown', handler);
   }, [menuOpen]);
-
-  const scrollToCategory = (slug: string, id: string) => {
-    isClickScrolling.current = true;
-    setActiveId(id);
-    setMenuOpen(false);
-    const el = document.getElementById(`cat-${slug}`);
-    if (el) {
-      const offset = 180;
-      const top = el.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-    setTimeout(() => { isClickScrolling.current = false; }, 800);
-  };
-
-  if (categories.length === 0) return null;
-
-  const [headerHeight, setHeaderHeight] = useState(140);
 
   // Đo chiều cao header thật để sticky tabs khít
   useEffect(() => {
@@ -93,6 +84,22 @@ export default function CategoryTabs({ categories }: CategoryTabsProps) {
       window.removeEventListener('resize', measure);
     };
   }, []);
+
+  const scrollToCategory = (slug: string, id: string) => {
+    hasInteracted.current = true;
+    isClickScrolling.current = true;
+    setActiveId(id);
+    setMenuOpen(false);
+    const el = document.getElementById(`cat-${slug}`);
+    if (el) {
+      const offset = 180;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+    setTimeout(() => { isClickScrolling.current = false; }, 800);
+  };
+
+  if (categories.length === 0) return null;
 
   return (
     <div
