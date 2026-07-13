@@ -9,12 +9,30 @@ const shipmentSchema = new mongoose.Schema({
     uppercase: true,
   },
   shipper: {
-    type: String,
-    required: true,
+    name: { type: String, required: true },
+    phone: { type: String, default: '' },
+    address: { type: String, default: '' }
   },
   consignee: {
+    name: { type: String, required: true },
+    phone: { type: String, default: '' },
+    address: { type: String, default: '' }
+  },
+  packages: {
     type: String,
-    required: true,
+    default: ''
+  },
+  weight: {
+    type: String,
+    default: ''
+  },
+  goodsDescription: {
+    type: String,
+    default: ''
+  },
+  totalAmount: {
+    type: String,
+    default: ''
   },
   origin: {
     type: String,

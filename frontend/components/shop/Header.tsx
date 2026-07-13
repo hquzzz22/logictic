@@ -124,9 +124,7 @@ export default function ShopHeader() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 flex-shrink-0 group">
-              <div className="text-2xl font-black tracking-tighter text-stone-900 uppercase">
-                Superman<span className="text-[#e62c26]">.</span>
-              </div>
+              <img src="/logo.png" alt="Superman Transport" className="h-8 md:h-10 object-contain" />
             </Link>
 
             {/* Desktop Navigation */}

@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 import { Save, Phone, MessageCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import api from '@/lib/api';
+import { getImageUrl } from '@/lib/utils';
+import ImageUploader from '@/components/admin/ImageUploader';
 
 interface ContactButtons {
-  phone: { label: string; number: string; enabled: boolean };
-  zalo: { label: string; id: string; enabled: boolean };
-  messenger: { label: string; id: string; enabled: boolean };
+  phone: { label: string; number: string; enabled: boolean; icon?: string };
+  zalo: { label: string; id: string; enabled: boolean; icon?: string };
+  messenger: { label: string; id: string; enabled: boolean; icon?: string };
 }
 
 const defaultButtons: ContactButtons = {
@@ -46,7 +48,7 @@ export default function AdminSettings() {
   }
 
   return (
-    <div className="space-y-6 max-w-2xl">
+    <div className="space-y-6 max-w-2xl pb-12">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Cài đặt liên hệ</h1>
@@ -68,18 +70,33 @@ export default function AdminSettings() {
         <p className="text-sm text-muted-foreground mb-2">Liên hệ đặt hàng qua:</p>
         <div className="grid grid-cols-3 gap-2">
           {buttons.phone.enabled && (
-            <div className="bg-green-600 text-white font-bold h-11 rounded-full flex items-center justify-center gap-1.5 text-xs">
-              <Phone className="h-4 w-4" /> {buttons.phone.label}
+            <div className="bg-green-600 text-white font-bold h-11 rounded-full flex items-center justify-center gap-2 text-xs">
+              {buttons.phone.icon ? (
+                <img src={getImageUrl(buttons.phone.icon)} alt="Phone" className="h-5 w-5 object-contain" />
+              ) : (
+                <Phone className="h-4 w-4" />
+              )}
+              {buttons.phone.label}
             </div>
           )}
           {buttons.zalo.enabled && (
-            <div className="bg-[#e62c26] text-white font-bold h-11 rounded-full flex items-center justify-center gap-1.5 text-xs">
-              <img src="/logo_zalo.png" alt="Zalo" className="h-5 w-5 object-contain" /> {buttons.zalo.label}
+            <div className="bg-[#e62c26] text-white font-bold h-11 rounded-full flex items-center justify-center gap-2 text-xs">
+              {buttons.zalo.icon ? (
+                <img src={getImageUrl(buttons.zalo.icon)} alt="Zalo" className="h-5 w-5 object-contain" />
+              ) : (
+                <div className="h-4 w-4 font-black">Z</div>
+              )}
+              {buttons.zalo.label}
             </div>
           )}
           {buttons.messenger.enabled && (
-            <div className="bg-gradient-to-r from-[#0695FF] via-[#A334FA] to-[#FF6968] text-white font-bold h-11 rounded-full flex items-center justify-center gap-1.5 text-xs">
-              <MessageCircle className="h-4 w-4" /> {buttons.messenger.label}
+            <div className="bg-gradient-to-r from-[#0695FF] via-[#A334FA] to-[#FF6968] text-white font-bold h-11 rounded-full flex items-center justify-center gap-2 text-xs">
+              {buttons.messenger.icon ? (
+                <img src={getImageUrl(buttons.messenger.icon)} alt="Messenger" className="h-5 w-5 object-contain" />
+              ) : (
+                <MessageCircle className="h-4 w-4" />
+              )}
+              {buttons.messenger.label}
             </div>
           )}
         </div>
@@ -98,7 +115,7 @@ export default function AdminSettings() {
             <span className="text-sm text-muted-foreground">Hiển thị</span>
           </label>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 mb-4">
           <div>
             <label className="block text-sm font-medium text-foreground mb-1">Số điện thoại</label>
             <input type="text" value={buttons.phone.number} onChange={(e) => setButtons({ ...buttons, phone: { ...buttons.phone, number: e.target.value } })}
@@ -110,13 +127,21 @@ export default function AdminSettings() {
               className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="0123 456 789" />
           </div>
         </div>
+        <div>
+          <label className="block text-sm font-medium text-foreground mb-2">Icon tuỳ chỉnh (tùy chọn)</label>
+          <ImageUploader 
+            value={buttons.phone.icon} 
+            onChange={(url) => setButtons({ ...buttons, phone: { ...buttons.phone, icon: url } })}
+            label="Tải lên icon Số điện thoại"
+          />
+        </div>
       </div>
 
       {/* Zalo config */}
       <div className="bg-white border border-border rounded-2xl p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-bold text-foreground flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#ffe4e2] rounded-lg flex items-center justify-center"><img src="/logo_zalo.png" alt="" className="h-5 w-5 object-contain" /></div>
+            <div className="w-8 h-8 bg-[#ffe4e2] rounded-lg flex items-center justify-center font-bold text-[#e62c26]">Z</div>
             Zalo
           </h3>
           <label className="flex items-center gap-2 cursor-pointer">
@@ -125,7 +150,7 @@ export default function AdminSettings() {
             <span className="text-sm text-muted-foreground">Hiển thị</span>
           </label>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 mb-4">
           <div>
             <label className="block text-sm font-medium text-foreground mb-1">Link Zalo (dán link đầy đủ)</label>
             <input type="text" value={buttons.zalo.id} onChange={(e) => setButtons({ ...buttons, zalo: { ...buttons.zalo, id: e.target.value } })}
@@ -136,6 +161,14 @@ export default function AdminSettings() {
             <input type="text" value={buttons.zalo.label} onChange={(e) => setButtons({ ...buttons, zalo: { ...buttons.zalo, label: e.target.value } })}
               className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Chat Zalo" />
           </div>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-foreground mb-2">Icon tuỳ chỉnh (tùy chọn)</label>
+          <ImageUploader 
+            value={buttons.zalo.icon} 
+            onChange={(url) => setButtons({ ...buttons, zalo: { ...buttons.zalo, icon: url } })}
+            label="Tải lên icon Zalo"
+          />
         </div>
       </div>
 
@@ -152,7 +185,7 @@ export default function AdminSettings() {
             <span className="text-sm text-muted-foreground">Hiển thị</span>
           </label>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 mb-4">
           <div>
             <label className="block text-sm font-medium text-foreground mb-1">Link Messenger (dán link đầy đủ)</label>
             <input type="text" value={buttons.messenger.id} onChange={(e) => setButtons({ ...buttons, messenger: { ...buttons.messenger, id: e.target.value } })}
@@ -160,9 +193,17 @@ export default function AdminSettings() {
           </div>
           <div>
             <label className="block text-sm font-medium text-foreground mb-1">Text hiển thị trên nút</label>
-            <input type="text" value={buttons.messenger.id} onChange={(e) => setButtons({ ...buttons, messenger: { ...buttons.messenger, id: e.target.value } })}
-              className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="https://m.me/spmt" />
+            <input type="text" value={buttons.messenger.label} onChange={(e) => setButtons({ ...buttons, messenger: { ...buttons.messenger, label: e.target.value } })}
+              className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Messenger" />
           </div>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-foreground mb-2">Icon tuỳ chỉnh (tùy chọn)</label>
+          <ImageUploader 
+            value={buttons.messenger.icon} 
+            onChange={(url) => setButtons({ ...buttons, messenger: { ...buttons.messenger, icon: url } })}
+            label="Tải lên icon Messenger"
+          />
         </div>
       </div>
     </div>

@@ -49,7 +49,7 @@ export default function ContactPage() {
         </div>
         <div className="container mx-auto px-6 relative z-10 text-center">
           <AnimateOnScroll animation="fade-up">
-            <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter">
+            <h1 className="text-6xl md:text-8xl font-black text-white">
               {t('Hero.title')}
             </h1>
           </AnimateOnScroll>

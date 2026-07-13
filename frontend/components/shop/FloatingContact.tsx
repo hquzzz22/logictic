@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Phone, X } from 'lucide-react';
 import { useSettingsStore } from '@/store/settingsStore';
+import { getImageUrl } from '@/lib/utils';
 
 export default function FloatingContact() {
   const [expanded, setExpanded] = useState(false);
@@ -29,9 +30,15 @@ export default function FloatingContact() {
             href={`tel:${phone?.number || '0123456789'}`}
             className="flex items-center gap-3 bg-white rounded-full shadow-lg border border-border pl-4 pr-5 py-2.5 hover:shadow-xl transition-all group"
           >
-            <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-              <Phone className="h-5 w-5 text-white" />
-            </div>
+            {phone?.icon ? (
+              <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden bg-stone-50">
+                <img src={getImageUrl(phone.icon)} alt="Phone" className="w-full h-full object-contain" />
+              </div>
+            ) : (
+              <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <Phone className="h-5 w-5 text-white" />
+              </div>
+            )}
             <div>
               <div className="text-sm font-bold text-foreground">Gọi ngay</div>
               <div className="text-xs text-muted-foreground">{phone?.label || '0123 456 789'}</div>
@@ -45,9 +52,15 @@ export default function FloatingContact() {
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-white rounded-full shadow-lg border border-border pl-4 pr-5 py-2.5 hover:shadow-xl transition-all group"
           >
-            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
-              <img src="/logo_zalo.png" alt="Zalo" className="w-full h-full object-contain" />
-            </div>
+            {zalo?.icon ? (
+              <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden bg-stone-50">
+                <img src={getImageUrl(zalo.icon)} alt="Zalo" className="w-full h-full object-contain" />
+              </div>
+            ) : (
+              <div className="w-10 h-10 bg-[#e62c26] rounded-full flex items-center justify-center flex-shrink-0 font-bold text-white text-lg">
+                Z
+              </div>
+            )}
             <div>
               <div className="text-sm font-bold text-foreground">Chat Zalo</div>
               <div className="text-xs text-muted-foreground">Phản hồi nhanh</div>
@@ -61,11 +74,17 @@ export default function FloatingContact() {
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-white rounded-full shadow-lg border border-border pl-4 pr-5 py-2.5 hover:shadow-xl transition-all group"
           >
-            <div className="w-10 h-10 bg-gradient-to-r from-[#0695FF] via-[#A334FA] to-[#FF6968] rounded-full flex items-center justify-center flex-shrink-0">
-              <svg className="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.906 1.453 5.497 3.733 7.188v3.569l3.405-1.869A11.28 11.28 0 0012 20.486c5.523 0 10-4.145 10-9.243S17.523 2 12 2zm1.07 12.451l-2.55-2.717-4.98 2.717 5.478-5.814 2.613 2.717 4.916-2.717-5.477 5.814z"/>
-              </svg>
-            </div>
+            {messenger?.icon ? (
+              <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden bg-stone-50">
+                <img src={getImageUrl(messenger.icon)} alt="Messenger" className="w-full h-full object-contain" />
+              </div>
+            ) : (
+              <div className="w-10 h-10 bg-gradient-to-r from-[#0695FF] via-[#A334FA] to-[#FF6968] rounded-full flex items-center justify-center flex-shrink-0">
+                <svg className="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.906 1.453 5.497 3.733 7.188v3.569l3.405-1.869A11.28 11.28 0 0012 20.486c5.523 0 10-4.145 10-9.243S17.523 2 12 2zm1.07 12.451l-2.55-2.717-4.98 2.717 5.478-5.814 2.613 2.717 4.916-2.717-5.477 5.814z"/>
+                </svg>
+              </div>
+            )}
             <div>
               <div className="text-sm font-bold text-foreground">Messenger</div>
               <div className="text-xs text-muted-foreground">Chat Facebook</div>
@@ -77,10 +96,10 @@ export default function FloatingContact() {
       {/* Main floating button */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className={`w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all hover:scale-110 ${
+        className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${
           expanded
-            ? 'bg-gray-700 text-white rotate-0'
-            : 'bg-primary text-white animate-bounce-gentle'
+            ? 'bg-stone-800 text-white shadow-xl rotate-0'
+            : 'bg-[#ff3f39] text-white shadow-lg shadow-[#ff3f39]/40 animate-bounce-gentle'
         }`}
         title="Liên hệ đặt hàng"
       >

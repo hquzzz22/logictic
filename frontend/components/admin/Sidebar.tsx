@@ -40,9 +40,7 @@ export default function AdminSidebar() {
     <aside className="w-64 bg-white border-r min-h-screen flex flex-col fixed left-0 top-0 bottom-0 z-30">
       <div className="h-16 flex items-center justify-center border-b px-4">
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-          <div className="text-xl font-black tracking-tighter text-stone-900 uppercase">
-            Superman<span className="text-[#e62c26]">.</span>
-          </div>
+          <img src="/logo.png" alt="Superman Transport" className="h-8 object-contain" />
           <span className="block text-xs font-normal text-muted-foreground ml-2 bg-stone-100 px-2 py-0.5 rounded-full">Admin</span>
         </Link>
       </div>

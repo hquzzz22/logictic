@@ -17,5 +17,6 @@ router.route('/:id')
   .delete(protect, shipmentController.deleteShipment);
 
 router.post('/:id/timeline', protect, shipmentController.addTimelineEvent);
+router.delete('/:id/timeline/:eventId', protect, shipmentController.deleteTimelineEvent);
 
 module.exports = router;

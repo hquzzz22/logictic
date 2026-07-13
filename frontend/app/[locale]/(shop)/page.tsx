@@ -6,6 +6,7 @@ import { ArrowRight, Package, Anchor, Plane, Truck, Building, ShieldCheck, Box, 
 import { useTranslations } from 'next-intl';
 import AnimateOnScroll from '@/components/shop/AnimateOnScroll';
 import TrackingResultModal from '@/components/shop/TrackingResultModal';
+import AnimatedCounter from '@/components/shop/AnimatedCounter';
 
 export default function Home() {
   const t = useTranslations('Homepage');
@@ -81,9 +82,9 @@ export default function Home() {
             </AnimateOnScroll>
             
             <AnimateOnScroll animation="fade-up" delay={200}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 tracking-tighter drop-shadow-2xl">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 drop-shadow-2xl">
                 {slides[currentSlide].title} <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6861] to-[#e62c26]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6861] to-[#e62c26] py-2">
                   {slides[currentSlide].highlight}.
                 </span>
               </h1>
@@ -174,7 +175,9 @@ export default function Home() {
             ].map((stat, i) => (
               <AnimateOnScroll key={i} animation="fade-up" delay={i * 100}>
                 <div className="px-4">
-                  <h3 className="text-4xl md:text-5xl font-black text-stone-900 mb-2 drop-shadow-sm">{stat.num}</h3>
+                  <h3 className="text-4xl md:text-5xl font-black text-stone-900 mb-2 drop-shadow-sm">
+                    <AnimatedCounter value={stat.num} />
+                  </h3>
                   <p className="text-sm font-bold text-[#e62c26] uppercase tracking-widest">{stat.label}</p>
                 </div>
               </AnimateOnScroll>
@@ -641,7 +644,7 @@ export default function Home() {
           <span className="inline-block py-1.5 px-4 rounded-full bg-white/20 backdrop-blur-md text-white font-bold text-xs tracking-[0.2em] uppercase mb-6 border border-white/30">
             {t('PremiumCta.tag')}
           </span>
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-8 max-w-4xl mx-auto leading-tight tracking-tighter drop-shadow-lg">
+          <h2 className="text-4xl md:text-6xl font-black text-white mb-8 max-w-4xl mx-auto leading-tight drop-shadow-lg">
             {t('PremiumCta.title')}
           </h2>
           <p className="text-[#ffe4e2] max-w-2xl mx-auto mb-12 text-xl font-light">

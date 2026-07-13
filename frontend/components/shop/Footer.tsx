@@ -8,8 +8,8 @@ export default function ShopFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand & About */}
           <div className="lg:col-span-1">
-            <div className="text-2xl font-black tracking-tighter text-white uppercase mb-6">
-              Superman<span className="text-[#e62c26]">.</span>
+            <div className="mb-6">
+              <img src="/logo.png" alt="Superman Transport" className="h-8 md:h-10 object-contain filter brightness-0 invert" />
             </div>
             <p className="text-stone-400 mb-6 leading-relaxed text-sm">
               Superman has experience in handling the formalities and documentation required for your imports and exports. We work with all international station to guarantee that your load will safely reach without any delays.

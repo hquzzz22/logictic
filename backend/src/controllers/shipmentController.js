@@ -38,7 +38,7 @@ exports.getShipmentById = async (req, res) => {
 
 exports.createShipment = async (req, res) => {
   try {
-    const { trackingNumber, shipper, consignee, origin, destination, status, timeline } = req.body;
+    const { trackingNumber, shipper, consignee, packages, weight, goodsDescription, totalAmount, origin, destination, status, timeline } = req.body;
     
     const existing = await Shipment.findOne({ trackingNumber: trackingNumber.toUpperCase() });
     if (existing) {
@@ -49,6 +49,10 @@ exports.createShipment = async (req, res) => {
       trackingNumber,
       shipper,
       consignee,
+      packages,
+      weight,
+      goodsDescription,
+      totalAmount,
       origin,
       destination,
       status,
@@ -64,13 +68,36 @@ exports.createShipment = async (req, res) => {
 
 exports.updateShipment = async (req, res) => {
   try {
-    const shipment = await Shipment.findByIdAndUpdate(
-      req.params.id,
-      { $set: req.body },
-      { new: true, runValidators: true }
-    );
-    if (!shipment) return res.status(404).json({ message: 'Không tìm thấy vận đơn' });
-    res.json(shipment);
+    const existingShipment = await Shipment.findById(req.params.id);
+    if (!existingShipment) return res.status(404).json({ message: 'Không tìm thấy vận đơn' });
+
+    // Check if status is being updated and has changed
+    const newStatus = req.body.status;
+    if (newStatus && newStatus !== existingShipment.status) {
+      let description = '';
+      switch (newStatus) {
+        case 'Pending': description = 'Đơn hàng đang chờ xử lý'; break;
+        case 'In Transit': description = 'Đơn hàng đang trong quá trình vận chuyển'; break;
+        case 'Customs Clearance': description = 'Đơn hàng đang làm thủ tục hải quan'; break;
+        case 'Arrived': description = 'Đơn hàng đã đến điểm trung chuyển'; break;
+        case 'Delivered': description = 'Giao hàng thành công'; break;
+        default: description = `Trạng thái được cập nhật thành: ${newStatus}`;
+      }
+      
+      existingShipment.timeline.push({
+        description,
+        timestamp: Date.now()
+      });
+    }
+
+    // Don't overwrite the timeline array completely if it's sent in the body unless intended
+    // For this implementation, we usually just update basic fields from the UI form
+    if (req.body.timeline) delete req.body.timeline;
+
+    Object.assign(existingShipment, req.body);
+    await existingShipment.save();
+
+    res.json(existingShipment);
   } catch (error) {
     res.status(500).json({ message: 'Lỗi khi cập nhật vận đơn', error: error.message });
   }
@@ -99,5 +126,21 @@ exports.addTimelineEvent = async (req, res) => {
     res.json(shipment);
   } catch (error) {
     res.status(500).json({ message: 'Lỗi khi thêm sự kiện', error: error.message });
+  }
+};
+
+exports.deleteTimelineEvent = async (req, res) => {
+  try {
+    const { id, eventId } = req.params;
+    const shipment = await Shipment.findById(id);
+    
+    if (!shipment) return res.status(404).json({ message: 'Không tìm thấy vận đơn' });
+    
+    shipment.timeline = shipment.timeline.filter(event => event._id.toString() !== eventId);
+    await shipment.save();
+    
+    res.json(shipment);
+  } catch (error) {
+    res.status(500).json({ message: 'Lỗi khi xóa sự kiện', error: error.message });
   }
 };

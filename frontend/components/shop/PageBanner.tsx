@@ -33,7 +33,7 @@ export default function PageBanner({ title, subtitle, breadcrumb, tags }: PageBa
         )}
 
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4 tracking-tighter banner-title-glow">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4 banner-title-glow">
           {title.split('\n').map((line, i) => (
             <span key={i}>
               {i > 0 && <br />}

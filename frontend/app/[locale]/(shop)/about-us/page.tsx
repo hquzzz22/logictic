@@ -5,6 +5,8 @@ import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Package, Globe, Truck, CheckCircle2, ArrowRight } from 'lucide-react';
 import AnimateOnScroll from '@/components/shop/AnimateOnScroll';
+import AnimatedCounter from '@/components/shop/AnimatedCounter';
+import AnimatedProgressBar from '@/components/shop/AnimatedProgressBar';
 
 export default function AboutUs() {
   const t = useTranslations('AboutUs');
@@ -31,7 +33,7 @@ export default function AboutUs() {
         </div>
         <div className="container mx-auto px-6 relative z-10 text-center">
           <AnimateOnScroll animation="fade-up">
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter">
+            <h1 className="text-5xl md:text-7xl font-black text-white mb-6">
               {t('Hero.title')}
             </h1>
             <div className="w-24 h-1.5 bg-[#ff3f39] mx-auto mb-8"></div>
@@ -86,7 +88,9 @@ export default function AboutUs() {
                   <div className="h-32 mb-6 group-hover:scale-110 transition-transform flex items-center justify-center">
                     <img src={stat.image} alt={stat.title} className="max-h-full max-w-[200px] object-contain drop-shadow-xl" />
                   </div>
-                  <h3 className="text-5xl font-black text-white mb-2">{stat.num}</h3>
+                  <h3 className="text-5xl font-black text-white mb-2">
+                    <AnimatedCounter value={stat.num} />
+                  </h3>
                   <p className="text-lg font-bold text-[#ff9b96] mb-4">{stat.title}</p>
                   <p className="text-stone-400 text-sm leading-relaxed">{stat.desc}</p>
                 </div>
@@ -115,7 +119,7 @@ export default function AboutUs() {
               <AnimateOnScroll animation="fade-left">
                 <div className="absolute inset-0 bg-[#ff3f39] rounded-3xl transform translate-x-4 translate-y-4"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" 
+                  src="/vision.png" 
                   alt="Vision" 
                   className="relative z-10 w-full h-[400px] object-cover rounded-3xl shadow-2xl"
                 />
@@ -138,7 +142,7 @@ export default function AboutUs() {
               <AnimateOnScroll animation="fade-right">
                 <div className="absolute inset-0 bg-stone-900 rounded-3xl transform -translate-x-4 translate-y-4"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" 
+                  src="/MISSION.png" 
                   alt="Mission" 
                   className="relative z-10 w-full h-[400px] object-cover rounded-3xl shadow-2xl"
                 />
@@ -178,7 +182,7 @@ export default function AboutUs() {
               <AnimateOnScroll animation="fade-left">
                 <div className="absolute inset-0 bg-stone-100 rounded-3xl transform translate-x-4 translate-y-4"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop" 
+                  src="/core.png" 
                   alt="Core Values" 
                   className="relative z-10 w-full h-[400px] object-cover rounded-3xl shadow-xl"
                 />
@@ -207,13 +211,12 @@ export default function AboutUs() {
                     <div key={i}>
                       <div className="flex justify-between items-center mb-3">
                         <span className="text-sm font-black uppercase tracking-wider text-stone-900">{t(`Progress.items.${i}.label`)}</span>
-                        <span className="text-sm font-black text-[#ff3f39]">{t(`Progress.items.${i}.value`)}</span>
+                        <span className="text-sm font-black text-[#ff3f39]">
+                          <AnimatedCounter value={t(`Progress.items.${i}.value`)} />
+                        </span>
                       </div>
                       <div className="h-3 w-full bg-stone-200 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-[#ff3f39] rounded-full" 
-                          style={{ width: t(`Progress.items.${i}.value`) }}
-                        ></div>
+                        <AnimatedProgressBar targetWidth={t(`Progress.items.${i}.value`)} />
                       </div>
                     </div>
                   ))}
