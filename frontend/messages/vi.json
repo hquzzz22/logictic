@@ -801,5 +801,41 @@
       "desc": "Hãy để các chuyên gia của chúng tôi xử lý thủ tục hải quan từ đầu đến cuối.",
       "button": "Nhận Báo Giá Miễn Phí"
     }
+  },
+  "ServicesPage": {
+    "Hero": {
+      "title": "Dịch Vụ Của Chúng Tôi",
+      "subtitle": "Giải Pháp Logistics Toàn Diện Cho Doanh Nghiệp Bạn",
+      "breadcrumb": "Dịch Vụ"
+    },
+    "Intro": {
+      "tag": "TỔNG QUAN",
+      "title": "Chúng Tôi Cung Cấp Những Gì?",
+      "desc": "Khám phá các dịch vụ vận tải và logistics hàng đầu của Superman Transport. Từ gom hàng lẻ (LCL) đến vận tải hàng không, đường biển và thủ tục hải quan, chúng tôi đều có giải pháp tối ưu để nâng tầm chuỗi cung ứng của bạn."
+    },
+    "Features": {
+      "tag": "ĐIỂM NỔI BẬT",
+      "title": "Tại sao hàng ngàn doanh nghiệp tin chọn chúng tôi?",
+      "items": {
+        "0": {
+          "title": "Mạng Lưới Toàn Cầu",
+          "desc": "Kết nối hơn 100 quốc gia và vùng lãnh thổ với hệ thống đối tác uy tín, đảm bảo hàng hóa thông suốt."
+        },
+        "1": {
+          "title": "Giải Pháp Tối Ưu",
+          "desc": "Quy trình được cá nhân hóa giúp tiết kiệm chi phí, giảm thiểu thời gian lưu kho và vận chuyển."
+        },
+        "2": {
+          "title": "Kiểm Soát 24/7",
+          "desc": "Hệ thống tra cứu thời gian thực giúp bạn luôn nắm rõ lộ trình và trạng thái lô hàng mọi lúc mọi nơi."
+        }
+      }
+    },
+    "Cta": {
+      "tag": "HÀNH ĐỘNG",
+      "title": "Sẵn Sàng Để Tối Ưu Hóa Logistics Của Bạn?",
+      "desc": "Đội ngũ chuyên gia của chúng tôi luôn trực tuyến để thiết kế giải pháp và cung cấp báo giá chi tiết trong vòng 24 giờ.",
+      "button": "Liên Hệ Báo Giá Ngay"
+    }
   }
 }

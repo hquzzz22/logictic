@@ -801,5 +801,41 @@
       "desc": "Let our experts handle customs from origin to destination.",
       "button": "Get a Free Quote"
     }
+  },
+  "ServicesPage": {
+    "Hero": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive Logistics Solutions for Your Business",
+      "breadcrumb": "Services"
+    },
+    "Intro": {
+      "tag": "OVERVIEW",
+      "title": "What Do We Provide?",
+      "desc": "Explore Superman Transport's top-tier freight and logistics services. From Master Consolidation (LCL) to Air Freight, Sea Freight, and Custom Brokerage, we have optimal solutions to elevate your supply chain."
+    },
+    "Features": {
+      "tag": "HIGHLIGHTS",
+      "title": "Why do thousands of businesses trust us?",
+      "items": {
+        "0": {
+          "title": "Global Network",
+          "desc": "Connecting over 100 countries and territories with a reliable partner system, ensuring seamless cargo flow."
+        },
+        "1": {
+          "title": "Optimized Solutions",
+          "desc": "Personalized processes help save costs, minimizing warehousing and transit times."
+        },
+        "2": {
+          "title": "24/7 Control",
+          "desc": "Real-time tracking system helps you stay informed of your shipment's route and status anywhere, anytime."
+        }
+      }
+    },
+    "Cta": {
+      "tag": "TAKE ACTION",
+      "title": "Ready to Optimize Your Logistics?",
+      "desc": "Our team of experts is always online to design a solution and provide a detailed quote within 24 hours.",
+      "button": "Get a Quote Now"
+    }
   }
 }

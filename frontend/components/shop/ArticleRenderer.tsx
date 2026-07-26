@@ -41,7 +41,7 @@ export default function ArticleRenderer({ content }: { content: string }) {
               />
             );
           case 'header':
-            const Tag = `h${block.data.level || 2}` as keyof JSX.IntrinsicElements;
+            const Tag = `h${block.data.level || 2}` as any;
             return (
               <Tag
                 key={block.id}
