@@ -1,6 +1,8 @@
 // @ts-nocheck
 'use client';
 
+import { getImageUrl } from '@/lib/utils';
+
 import { useEffect, useRef } from 'react';
 import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/header';
@@ -26,29 +28,24 @@ interface EditorJSComponentProps {
   onChange?: (data: Record<string, unknown>) => void;
   token?: string;
   initialData?: Record<string, unknown>;
+  holderId?: string;
+  editorInstance?: (editor: any) => void;
 }
 
-export default function EditorJSComponent({ onChange, token, initialData }: EditorJSComponentProps) {
-  const editorRef = useRef<EditorJS | null>(null);
-  const isReady = useRef(false);
+export default function EditorJSComponent({ onChange, token, initialData, holderId = 'editorjs-holder', editorInstance }: EditorJSComponentProps) {
+  const holderRef = useRef<HTMLDivElement>(null);
+  const editorRef = useRef<any>(null);
 
   useEffect(() => {
-    // Nếu đã có editor instance → không tạo thêm
-    if (isReady.current || editorRef.current) return;
-    isReady.current = true;
-
-    // Đảm bảo holder tồn tại và trống
-    const holder = document.getElementById('editorjs-holder');
-    if (!holder) return;
-    holder.innerHTML = ''; // clear nếu có gì thừa
+    if (!holderRef.current || editorRef.current) return;
 
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
     const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
     const editor = new EditorJS({
-      holder: 'editorjs-holder',
+      holder: holderRef.current, // Dùng trực tiếp DOM node reference thay vì string ID để tránh đụng độ React Strict Mode
       placeholder: "Nhấn Tab hoặc '/' để chọn loại nội dung...",
-      autofocus: true,
+      autofocus: false,
       data: (initialData as any) || undefined,
       i18n: {
         messages: {
@@ -107,8 +104,9 @@ export default function EditorJSComponent({ onChange, token, initialData }: Edit
                     headers: authHeader,
                     body: formData,
                   });
+                  if (!res.ok) throw new Error('Upload failed');
                   const data = await res.json();
-                  return { success: 1, file: { url: data.url } };
+                  return { success: 1, file: { url: getImageUrl(data.url) } };
                 } catch {
                   return { success: 0 };
                 }
@@ -152,75 +150,27 @@ export default function EditorJSComponent({ onChange, token, initialData }: Edit
         try {
           const outputData = await api.saver.save();
           onChange(outputData as Record<string, unknown>);
-        } catch {}
+        } catch (e) {
+          console.error("EditorJS save error:", e);
+        }
       },
     });
 
     editorRef.current = editor;
-
-    // ── Word/Web Paste Handler ──
-    const handlePaste = async (e: ClipboardEvent) => {
-      const html = e.clipboardData?.getData('text/html') || '';
-      if (!html || !html.includes('<')) return;
-
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      const children = Array.from(doc.body.children);
-
-      const blocks: Array<{ type: string; data: Record<string, unknown> }> = [];
-
-      children.forEach((el) => {
-        const tag = el.tagName.toLowerCase();
-        const cls = el.className || '';
-        const style = (el as HTMLElement).style?.cssText || '';
-
-        let level = 0;
-        if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(tag)) {
-          level = parseInt(tag[1]);
-        } else {
-          const msoMatch =
-            cls.match(/MsoHeading(\d)/i) ||
-            style.match(/mso-style-name:\s*heading\s*(\d)/i);
-          if (msoMatch) level = parseInt(msoMatch[1]);
-        }
-
-        const text = el.innerHTML?.trim();
-        if (!text || text === '&nbsp;') return;
-
-        if (level > 0) {
-          const clampedLevel = Math.max(2, Math.min(4, level));
-          blocks.push({ type: 'header', data: { text, level: clampedLevel } });
-        } else if (['ul', 'ol'].includes(tag)) {
-          const items = Array.from(el.querySelectorAll('li')).map((li) => li.innerHTML.trim());
-          if (items.length) {
-            blocks.push({ type: 'list', data: { style: tag === 'ol' ? 'ordered' : 'unordered', items } });
-          }
-        } else {
-          blocks.push({ type: 'paragraph', data: { text } });
-        }
-      });
-
-      if (blocks.length === 0) return;
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      await editor.isReady;
-      for (const block of blocks) {
-        editor.blocks.insert(block.type, block.data);
-      }
-    };
-
-    // Dùng lại biến holder đã khai báo ở trên (không khai báo lại)
-    holder.addEventListener('paste', handlePaste as EventListener, true);
+    if (editorInstance) {
+      editorInstance(editor);
+    }
 
     return () => {
-      holder.removeEventListener('paste', handlePaste as EventListener, true);
       if (editorRef.current && typeof editorRef.current.destroy === 'function') {
-        try { editorRef.current.destroy(); } catch {}
+        const editorToDestroy = editorRef.current;
+        editorRef.current = null; // Detach immediately to prevent second mount from seeing it
+        editorToDestroy.isReady
+          .then(() => {
+            try { editorToDestroy.destroy(); } catch {}
+          })
+          .catch(() => {});
       }
-      editorRef.current = null;
-      isReady.current = false;
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -240,7 +190,7 @@ export default function EditorJSComponent({ onChange, token, initialData }: Edit
         <span>💻 Code</span>
         <span>💬 Trích dẫn</span>
       </div>
-      <div id="editorjs-holder" className="prose prose-slate max-w-none" />
+      <div id={holderId} ref={holderRef} className="prose prose-slate max-w-none" />
     </div>
   );
 }

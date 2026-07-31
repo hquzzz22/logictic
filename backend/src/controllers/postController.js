@@ -1,5 +1,18 @@
 const Post = require('../models/Post');
 
+// Helper: normalize bilingual field — handles both old string format and new {en, vi} format
+function normalizeBilingual(value) {
+  if (!value) return { en: '', vi: '' };
+  if (typeof value === 'string') return { en: value, vi: '' };
+  return { en: value.en || '', vi: value.vi || '' };
+}
+
+// Helper: check if at least one language has content
+function hasBilingualContent(field) {
+  const norm = normalizeBilingual(field);
+  return !!(norm.en.trim() || norm.vi.trim());
+}
+
 // @desc    Get all published posts
 // @route   GET /api/posts
 // @access  Public
@@ -75,11 +88,25 @@ const getPostById = async (req, res, next) => {
 // @access  Private/Admin
 const createPost = async (req, res, next) => {
   try {
-    const { title, slug, content, image, isPublished, category, tags } = req.body;
+    const { title, slug, content, description, image, sidebarBanners, isPublished, category, tags } = req.body;
 
-    if (!title || !slug || !content) {
+    const normalizedTitle = normalizeBilingual(title);
+    const normalizedContent = normalizeBilingual(content);
+    const normalizedDesc = normalizeBilingual(description);
+
+    if (!hasBilingualContent(title)) {
       res.status(400);
-      throw new Error('Vui lòng điền đầy đủ tiêu đề, slug và nội dung');
+      throw new Error('Vui lòng nhập tiêu đề bài viết (ít nhất 1 ngôn ngữ)');
+    }
+
+    if (!slug) {
+      res.status(400);
+      throw new Error('Vui lòng nhập slug');
+    }
+
+    if (!hasBilingualContent(content)) {
+      res.status(400);
+      throw new Error('Nội dung bài viết không được để trống (ít nhất 1 ngôn ngữ)');
     }
 
     const postExists = await Post.findOne({ slug });
@@ -89,10 +116,12 @@ const createPost = async (req, res, next) => {
     }
 
     const post = new Post({
-      title,
+      title: normalizedTitle,
       slug,
-      content,
+      content: normalizedContent,
+      description: normalizedDesc,
       image: image || '',
+      sidebarBanners: Array.isArray(sidebarBanners) ? sidebarBanners : [],
       category: category || undefined,
       tags: tags || [],
       author: req.user._id,
@@ -112,7 +141,7 @@ const createPost = async (req, res, next) => {
 // @access  Private/Admin
 const updatePost = async (req, res, next) => {
   try {
-    const { title, slug, content, image, isPublished, category, tags } = req.body;
+    const { title, slug, content, description, image, sidebarBanners, isPublished, category, tags } = req.body;
     const post = await Post.findById(req.params.id);
 
     if (post) {
@@ -124,13 +153,15 @@ const updatePost = async (req, res, next) => {
         }
       }
 
-      post.title = title !== undefined ? title : post.title;
-      post.slug = slug !== undefined ? slug : post.slug;
-      post.content = content !== undefined ? content : post.content;
-      post.image = image !== undefined ? image : post.image;
-      post.isPublished = isPublished !== undefined ? isPublished : post.isPublished;
-      post.category = category !== undefined ? (category || undefined) : post.category;
-      post.tags = tags !== undefined ? tags : post.tags;
+      if (title !== undefined) post.title = normalizeBilingual(title);
+      if (slug !== undefined) post.slug = slug;
+      if (content !== undefined) post.content = normalizeBilingual(content);
+      if (description !== undefined) post.description = normalizeBilingual(description);
+      if (image !== undefined) post.image = image;
+      if (sidebarBanners !== undefined) post.sidebarBanners = Array.isArray(sidebarBanners) ? sidebarBanners : [];
+      if (isPublished !== undefined) post.isPublished = isPublished;
+      if (category !== undefined) post.category = category || undefined;
+      if (tags !== undefined) post.tags = tags;
 
       const updatedPost = await post.save();
       const populated = await updatedPost.populate(['author', 'category']);

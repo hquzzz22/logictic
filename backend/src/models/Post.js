@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
   title: {
-    type: String,
-    required: true,
+    en: { type: String, default: '' },
+    vi: { type: String, default: '' },
   },
   slug: {
     type: String,
@@ -11,9 +11,17 @@ const postSchema = new mongoose.Schema({
     unique: true,
   },
   content: {
-    type: String,
-    required: true,
+    en: { type: String, default: '' },
+    vi: { type: String, default: '' },
   },
+  description: {
+    en: { type: String, default: '' },
+    vi: { type: String, default: '' },
+  },
+  sidebarBanners: [{
+    image: { type: String, default: '' },
+    url: { type: String, default: '' }
+  }],
   image: {
     type: String,
   },

@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const postCategorySchema = new mongoose.Schema({
   name: {
-    type: String,
-    required: true,
+    en: { type: String, default: '' },
+    vi: { type: String, default: '' },
   },
   slug: {
     type: String,
@@ -11,8 +11,8 @@ const postCategorySchema = new mongoose.Schema({
     unique: true,
   },
   description: {
-    type: String,
-    default: '',
+    en: { type: String, default: '' },
+    vi: { type: String, default: '' },
   },
 }, {
   timestamps: true,

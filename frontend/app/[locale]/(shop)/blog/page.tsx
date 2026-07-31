@@ -1,20 +1,30 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { ArrowRight, Calendar, User, ImageIcon, TrendingUp, Lightbulb, Newspaper } from 'lucide-react';
+import { useTranslations, useLocale } from 'next-intl';
 import api from '@/lib/api';
 import { getImageUrl } from '@/lib/utils';
 import AnimateOnScroll from '@/components/shop/AnimateOnScroll';
 
 interface Post {
   _id: string;
-  title: string;
+  title: { en: string; vi: string } | string;
   slug: string;
-  content: string;
+  content: { en: string; vi: string } | string;
   image: string;
   createdAt: string;
   author?: { name: string };
+}
+
+// Helper: get localized value with fallback
+function getLocalized(field: { en: string; vi: string } | string, locale: string): string {
+  if (typeof field === 'string') return field;
+  const primary = field[locale as 'en' | 'vi'] || '';
+  if (primary) return primary;
+  // Fallback to other language
+  return locale === 'en' ? (field.vi || '') : (field.en || '');
 }
 
 function extractText(contentStr: string) {
@@ -38,6 +48,8 @@ function extractText(contentStr: string) {
 export default function BlogPage() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
+  const locale = useLocale();
+  const t = useTranslations('BlogPage');
 
   useEffect(() => {
     api.get('/posts')
@@ -47,9 +59,9 @@ export default function BlogPage() {
   }, []);
 
   const tags = [
-    { label: 'Market Trends', icon: TrendingUp },
-    { label: 'Logistics Insights', icon: Lightbulb },
-    { label: 'Company News', icon: Newspaper },
+    { label: t('tags.0'), icon: TrendingUp },
+    { label: t('tags.1'), icon: Lightbulb },
+    { label: t('tags.2'), icon: Newspaper },
   ];
 
   return (
@@ -65,13 +77,13 @@ export default function BlogPage() {
         <div className="container mx-auto px-6 relative z-10 text-center flex flex-col h-full justify-center pt-20">
           <AnimateOnScroll animation="fade-up" className="max-w-4xl mx-auto">
             <span className="inline-block bg-[#ff3f39] text-white font-bold px-4 py-1.5 text-xs mb-6 uppercase tracking-widest shadow-sm">
-              Our Blog
+              {t('Hero.tag')}
             </span>
             <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8">
-              Industry News & Insights
+              {t('Hero.title')}
             </h1>
             <p className="text-lg md:text-xl text-white/80 font-medium leading-relaxed mb-12 max-w-3xl mx-auto">
-              Discover the latest updates, market trends, and expert insights from Superman Transport to keep your supply chain ahead.
+              {t('Hero.desc')}
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -111,66 +123,71 @@ export default function BlogPage() {
           ) : posts.length === 0 ? (
             <div className="text-center py-32 bg-white rounded-xl shadow-sm border border-stone-100">
               <Newspaper className="h-16 w-16 text-stone-200 mx-auto mb-6" />
-              <h3 className="text-2xl font-bold text-stone-900 mb-2">No Articles Yet</h3>
-              <p className="text-stone-500 font-medium">Please check back later for the latest news and insights.</p>
+              <h3 className="text-2xl font-bold text-stone-900 mb-2">{t('empty.title')}</h3>
+              <p className="text-stone-500 font-medium">{t('empty.desc')}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-              {posts.map((post, index) => (
-                <AnimateOnScroll key={post._id} animation="fade-up" delay={index * 100}>
-                  <article className="group bg-white rounded-xl overflow-hidden border border-stone-100 shadow-sm hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
-                    <Link href={`/blog/${post.slug}`} className="block relative h-64 bg-stone-50 overflow-hidden">
-                      {post.image ? (
-                        <img
-                          src={getImageUrl(post.image)}
-                          alt={post.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center bg-stone-50">
-                          <ImageIcon className="h-12 w-12 text-stone-200" />
-                        </div>
-                      )}
-                      
-                      {/* Hover Overlay */}
-                      <div className="absolute inset-0 bg-stone-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </Link>
-                    
-                    <div className="p-8 flex flex-col flex-grow">
-                      <div className="flex items-center gap-4 text-xs font-bold text-stone-400 uppercase tracking-wider mb-4">
-                        <span className="flex items-center gap-1.5">
-                          <Calendar className="h-3.5 w-3.5 text-[#ff3f39]" />
-                          {new Date(post.createdAt).toLocaleDateString('vi-VN')}
-                        </span>
-                        {post.author && (
-                          <span className="flex items-center gap-1.5">
-                            <User className="h-3.5 w-3.5 text-[#ff3f39]" />
-                            {post.author.name}
-                          </span>
+              {posts.map((post, index) => {
+                const title = getLocalized(post.title, locale);
+                const content = getLocalized(post.content, locale);
+                
+                return (
+                  <AnimateOnScroll key={post._id} animation="fade-up" delay={index * 100}>
+                    <article className="group bg-white rounded-xl overflow-hidden border border-stone-100 shadow-sm hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
+                      <Link href={`/blog/${post.slug}`} className="block relative h-64 bg-stone-50 overflow-hidden">
+                        {post.image ? (
+                          <img
+                            src={getImageUrl(post.image)}
+                            alt={title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex items-center justify-center bg-stone-50">
+                            <ImageIcon className="h-12 w-12 text-stone-200" />
+                          </div>
                         )}
+                        
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-stone-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      </Link>
+                      
+                      <div className="p-8 flex flex-col flex-grow">
+                        <div className="flex items-center gap-4 text-xs font-bold text-stone-400 uppercase tracking-wider mb-4">
+                          <span className="flex items-center gap-1.5">
+                            <Calendar className="h-3.5 w-3.5 text-[#ff3f39]" />
+                            {new Date(post.createdAt).toLocaleDateString(locale === 'vi' ? 'vi-VN' : 'en-US')}
+                          </span>
+                          {post.author && (
+                            <span className="flex items-center gap-1.5">
+                              <User className="h-3.5 w-3.5 text-[#ff3f39]" />
+                              {post.author.name}
+                            </span>
+                          )}
+                        </div>
+                        
+                        <Link href={`/blog/${post.slug}`}>
+                          <h2 className="text-xl font-bold text-stone-900 mb-4 group-hover:text-[#ff3f39] transition-colors line-clamp-2 leading-snug">
+                            {title}
+                          </h2>
+                        </Link>
+                        
+                        <p className="text-stone-500 text-sm font-medium leading-relaxed line-clamp-3 mb-8 flex-grow">
+                          {extractText(content)}...
+                        </p>
+                        
+                        <Link
+                          href={`/blog/${post.slug}`}
+                          className="inline-flex items-center text-sm text-stone-900 font-bold uppercase tracking-widest group-hover:text-[#ff3f39] transition-colors mt-auto"
+                        >
+                          {t('readMore')}
+                          <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                        </Link>
                       </div>
-                      
-                      <Link href={`/blog/${post.slug}`}>
-                        <h2 className="text-xl font-bold text-stone-900 mb-4 group-hover:text-[#ff3f39] transition-colors line-clamp-2 leading-snug">
-                          {post.title}
-                        </h2>
-                      </Link>
-                      
-                      <p className="text-stone-500 text-sm font-medium leading-relaxed line-clamp-3 mb-8 flex-grow">
-                        {extractText(post.content)}...
-                      </p>
-                      
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="inline-flex items-center text-sm text-stone-900 font-bold uppercase tracking-widest group-hover:text-[#ff3f39] transition-colors mt-auto"
-                      >
-                        Read More 
-                        <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
-                  </article>
-                </AnimateOnScroll>
-              ))}
+                    </article>
+                  </AnimateOnScroll>
+                );
+              })}
             </div>
           )}
 

@@ -1,9 +1,16 @@
 const PostCategory = require('../models/PostCategory');
 
+// Helper: normalize bilingual field
+function normalizeBilingual(value) {
+  if (!value) return { en: '', vi: '' };
+  if (typeof value === 'string') return { en: value, vi: '' };
+  return { en: value.en || '', vi: value.vi || '' };
+}
+
 // GET /api/post-categories
 const getPostCategories = async (req, res, next) => {
   try {
-    const categories = await PostCategory.find({}).sort({ name: 1 });
+    const categories = await PostCategory.find({}).sort({ createdAt: -1 });
     res.json(categories);
   } catch (error) { next(error); }
 };
@@ -12,12 +19,25 @@ const getPostCategories = async (req, res, next) => {
 const createPostCategory = async (req, res, next) => {
   try {
     const { name, slug, description } = req.body;
-    if (!name || !slug) { res.status(400); throw new Error('Vui lòng nhập tên và slug'); }
+    const normalizedName = normalizeBilingual(name);
+
+    if (!normalizedName.en && !normalizedName.vi) {
+      res.status(400);
+      throw new Error('Vui lòng nhập tên danh mục (ít nhất 1 ngôn ngữ)');
+    }
+    if (!slug) {
+      res.status(400);
+      throw new Error('Vui lòng nhập slug');
+    }
 
     const exists = await PostCategory.findOne({ slug });
     if (exists) { res.status(400); throw new Error('Slug đã tồn tại'); }
 
-    const cat = await PostCategory.create({ name, slug, description: description || '' });
+    const cat = await PostCategory.create({
+      name: normalizedName,
+      slug,
+      description: normalizeBilingual(description),
+    });
     res.status(201).json(cat);
   } catch (error) { next(error); }
 };
@@ -34,9 +54,9 @@ const updatePostCategory = async (req, res, next) => {
       if (exists) { res.status(400); throw new Error('Slug đã tồn tại'); }
     }
 
-    cat.name = name !== undefined ? name : cat.name;
-    cat.slug = slug !== undefined ? slug : cat.slug;
-    cat.description = description !== undefined ? description : cat.description;
+    if (name !== undefined) cat.name = normalizeBilingual(name);
+    if (slug !== undefined) cat.slug = slug;
+    if (description !== undefined) cat.description = normalizeBilingual(description);
 
     const updated = await cat.save();
     res.json(updated);

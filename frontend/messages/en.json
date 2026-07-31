@@ -837,5 +837,25 @@
       "desc": "Our team of experts is always online to design a solution and provide a detailed quote within 24 hours.",
       "button": "Get a Quote Now"
     }
+  },
+  "BlogPage": {
+    "Hero": {
+      "tag": "Our Blog",
+      "title": "Industry News & Insights",
+      "desc": "Discover the latest updates, market trends, and expert insights from Superman Transport to keep your supply chain ahead."
+    },
+    "tags": {
+      "0": "Market Trends",
+      "1": "Logistics Insights",
+      "2": "Company News"
+    },
+    "empty": {
+      "title": "No Articles Yet",
+      "desc": "Please check back later for the latest news and insights."
+    },
+    "readMore": "Read More",
+    "backToBlog": "Back to Blog",
+    "viewAll": "View all articles",
+    "tableOfContents": "Table of Contents"
   }
 }

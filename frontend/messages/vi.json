@@ -837,5 +837,25 @@
       "desc": "Đội ngũ chuyên gia của chúng tôi luôn trực tuyến để thiết kế giải pháp và cung cấp báo giá chi tiết trong vòng 24 giờ.",
       "button": "Liên Hệ Báo Giá Ngay"
     }
+  },
+  "BlogPage": {
+    "Hero": {
+      "tag": "Blog",
+      "title": "Tin Tức & Thông Tin Ngành",
+      "desc": "Cập nhật xu hướng thị trường, tin tức mới nhất và chia sẻ chuyên sâu từ Superman Transport để chuỗi cung ứng của bạn luôn dẫn đầu."
+    },
+    "tags": {
+      "0": "Xu Hướng Thị Trường",
+      "1": "Kiến Thức Logistics",
+      "2": "Tin Công Ty"
+    },
+    "empty": {
+      "title": "Chưa Có Bài Viết",
+      "desc": "Vui lòng quay lại sau để xem tin tức và thông tin mới nhất."
+    },
+    "readMore": "Đọc Thêm",
+    "backToBlog": "Quay lại Blog",
+    "viewAll": "Xem tất cả bài viết",
+    "tableOfContents": "Mục lục bài viết"
   }
 }

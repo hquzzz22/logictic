@@ -8,13 +8,33 @@ import api from '@/lib/api';
 
 interface Post {
   _id: string;
-  title: string;
+  title: { en: string; vi: string } | string;
   slug: string;
-  content: string;
+  content: { en: string; vi: string } | string;
   image: string;
   isPublished: boolean;
   createdAt: string;
   author?: { name: string };
+}
+
+// Helper: get display title from bilingual or legacy string format
+function getTitle(post: Post): string {
+  if (typeof post.title === 'string') return post.title;
+  return post.title?.en || post.title?.vi || '(Chưa có tiêu đề)';
+}
+
+// Helper: check which languages have content
+function getLangBadges(post: Post): { en: boolean; vi: boolean } {
+  const title = typeof post.title === 'string'
+    ? { en: post.title, vi: '' }
+    : post.title || { en: '', vi: '' };
+  const content = typeof post.content === 'string'
+    ? { en: post.content, vi: '' }
+    : post.content || { en: '', vi: '' };
+  return {
+    en: !!(title.en && content.en),
+    vi: !!(title.vi && content.vi),
+  };
 }
 
 export default function AdminPosts() {
@@ -81,7 +101,7 @@ export default function AdminPosts() {
               <thead className="bg-muted/50">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Tiêu đề</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Slug</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Ngôn ngữ</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Trạng thái</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Ngày tạo</th>
                   <th className="px-6 py-3 text-right text-xs font-medium text-muted-foreground uppercase">Thao tác</th>
@@ -95,41 +115,55 @@ export default function AdminPosts() {
                     </td>
                   </tr>
                 ) : (
-                  posts.map((post) => (
-                    <tr key={post._id} className="hover:bg-muted/20 transition-colors">
-                      <td className="px-6 py-4 text-sm font-medium text-foreground max-w-xs truncate">{post.title}</td>
-                      <td className="px-6 py-4 text-sm font-mono text-muted-foreground">{post.slug}</td>
-                      <td className="px-6 py-4">
-                        <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${post.isPublished ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
-                          {post.isPublished ? 'Đã xuất bản' : 'Bản nháp'}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-muted-foreground">
-                        {new Date(post.createdAt).toLocaleDateString('vi-VN')}
-                      </td>
-                      <td className="px-6 py-4 text-right space-x-1">
-                        <button
-                          onClick={() => handleTogglePublish(post)}
-                          className={`inline-flex items-center px-2 py-1.5 text-xs font-medium rounded-md transition-colors ${post.isPublished ? 'text-gray-600 bg-gray-50 hover:bg-gray-100' : 'text-green-600 bg-green-50 hover:bg-green-100'}`}
-                          title={post.isPublished ? 'Ẩn bài viết' : 'Xuất bản'}
-                        >
-                          {post.isPublished ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
-                        </button>
-                        <Link
-                          href={`/admin/posts/edit/${post._id}`}
-                          className="inline-flex items-center px-2 py-1.5 text-xs font-medium text-[#e62c26] bg-[#fff0ef] rounded-md hover:bg-[#ffe4e2] transition-colors"
-                        >
-                          <Edit className="h-3.5 w-3.5" />
-                        </Link>
-                        <button
-                          onClick={() => handleDelete(post._id, post.title)}
-                          className="inline-flex items-center px-2 py-1.5 text-xs font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100 transition-colors"
-                        >
-                          <Trash2 className="h-3.5 w-3.5" />
-                        </button>
-                      </td>
-                    </tr>
-                  ))
+                  posts.map((post) => {
+                    const badges = getLangBadges(post);
+                    return (
+                      <tr key={post._id} className="hover:bg-muted/20 transition-colors">
+                        <td className="px-6 py-4 text-sm font-medium text-foreground max-w-xs truncate">
+                          {getTitle(post)}
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="flex items-center gap-1.5">
+                            <span className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold rounded-full ${badges.en ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-400'}`}>
+                              🇺🇸 EN
+                            </span>
+                            <span className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold rounded-full ${badges.vi ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-400'}`}>
+                              🇻🇳 VI
+                            </span>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${post.isPublished ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
+                            {post.isPublished ? 'Đã xuất bản' : 'Bản nháp'}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 text-sm text-muted-foreground">
+                          {new Date(post.createdAt).toLocaleDateString('vi-VN')}
+                        </td>
+                        <td className="px-6 py-4 text-right space-x-1">
+                          <button
+                            onClick={() => handleTogglePublish(post)}
+                            className={`inline-flex items-center px-2 py-1.5 text-xs font-medium rounded-md transition-colors ${post.isPublished ? 'text-gray-600 bg-gray-50 hover:bg-gray-100' : 'text-green-600 bg-green-50 hover:bg-green-100'}`}
+                            title={post.isPublished ? 'Ẩn bài viết' : 'Xuất bản'}
+                          >
+                            {post.isPublished ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
+                          </button>
+                          <Link
+                            href={`/admin/posts/edit/${post._id}`}
+                            className="inline-flex items-center px-2 py-1.5 text-xs font-medium text-[#e62c26] bg-[#fff0ef] rounded-md hover:bg-[#ffe4e2] transition-colors"
+                          >
+                            <Edit className="h-3.5 w-3.5" />
+                          </Link>
+                          <button
+                            onClick={() => handleDelete(post._id, getTitle(post))}
+                            className="inline-flex items-center px-2 py-1.5 text-xs font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100 transition-colors"
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })
                 )}
               </tbody>
             </table>

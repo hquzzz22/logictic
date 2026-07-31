@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { slugify } from '@/lib/slugify';
 interface Block {
   id: string;
   type: string;
@@ -40,15 +40,21 @@ export default function ArticleRenderer({ content }: { content: string }) {
                 dangerouslySetInnerHTML={{ __html: block.data.text }}
               />
             );
-          case 'header':
+          case 'header': {
             const Tag = `h${block.data.level || 2}` as any;
+            const rawText = block.data.text || "";
+            const textOnly = rawText.replace(/<[^>]*>?/gm, "").trim();
+            // Create ID using slugify
+            const id = textOnly ? (slugify(textOnly) || `heading-${block.id}`) : `heading-${block.id}`;
             return (
               <Tag
                 key={block.id}
-                className="font-bold text-stone-900 mt-8 mb-4"
-                dangerouslySetInnerHTML={{ __html: block.data.text }}
+                id={id}
+                className="font-bold text-stone-900 mt-10 mb-4 scroll-mt-24"
+                dangerouslySetInnerHTML={{ __html: rawText }}
               />
             );
+          }
           case 'list':
             const ListTag = block.data.style === 'ordered' ? 'ol' : 'ul';
             return (

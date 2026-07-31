@@ -2,9 +2,9 @@ import { create } from 'zustand';
 import api from '@/lib/api';
 
 interface ContactButtons {
-  phone: { label: string; number: string; enabled: boolean };
-  zalo: { label: string; id: string; enabled: boolean };
-  messenger: { label: string; id: string; enabled: boolean };
+  phone: { label: string; number: string; enabled: boolean; icon?: string };
+  zalo: { label: string; id: string; enabled: boolean; icon?: string };
+  messenger: { label: string; id: string; enabled: boolean; icon?: string };
 }
 
 interface SettingsState {
