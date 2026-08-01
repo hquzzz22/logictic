@@ -23,6 +23,8 @@ export interface CompanyInfo {
   phone: string;
   email: string;
   address: string;
+  logo?: string;
+  favicon?: string;
 }
 
 const defaultCompanyInfo: CompanyInfo = {
