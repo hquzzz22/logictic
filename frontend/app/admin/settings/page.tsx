@@ -19,23 +19,42 @@ const defaultButtons: ContactButtons = {
   messenger: { label: 'Messenger', id: 'https://m.me/spmt', enabled: true },
 };
 
+export interface CompanyInfo {
+  phone: string;
+  email: string;
+  address: string;
+}
+
+const defaultCompanyInfo: CompanyInfo = {
+  phone: '(+84) 28 3620 7585',
+  email: 'info@spmt.com.vn',
+  address: 'Ho Chi Minh City, Vietnam',
+};
+
 export default function AdminSettings() {
   const [buttons, setButtons] = useState<ContactButtons>(defaultButtons);
+  const [companyInfo, setCompanyInfo] = useState<CompanyInfo>(defaultCompanyInfo);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    api.get('/settings/contactButtons')
-      .then(({ data }) => { if (data) setButtons(data); })
-      .catch(() => {})
-      .finally(() => setLoading(false));
+    Promise.all([
+      api.get('/settings/contactButtons').catch(() => ({ data: null })),
+      api.get('/settings/companyInfo').catch(() => ({ data: null })),
+    ]).then(([btns, info]) => {
+      if (btns.data) setButtons(btns.data);
+      if (info.data) setCompanyInfo(info.data);
+    }).finally(() => setLoading(false));
   }, []);
 
   const handleSave = async () => {
     setSaving(true);
     try {
-      await api.put('/settings/contactButtons', { value: buttons });
-      toast.success('Đã lưu cài đặt liên hệ!');
+      await Promise.all([
+        api.put('/settings/contactButtons', { value: buttons }),
+        api.put('/settings/companyInfo', { value: companyInfo })
+      ]);
+      toast.success('Đã lưu cài đặt!');
     } catch {
       toast.error('Có lỗi xảy ra');
     } finally {
@@ -64,8 +83,52 @@ export default function AdminSettings() {
         </button>
       </div>
 
-      {/* Preview */}
+      {/* Thông tin Công ty */}
+      <div className="bg-white border border-border rounded-2xl p-6">
+        <h3 className="font-bold text-foreground flex items-center gap-2 mb-4">
+          <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center"><Phone className="h-4 w-4 text-blue-600" /></div>
+          Thông tin liên hệ chung
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-1">Số điện thoại (Header/Footer)</label>
+            <input type="text" value={companyInfo.phone} onChange={(e) => setCompanyInfo({ ...companyInfo, phone: e.target.value })}
+              className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="(+84) 28 3620 7585" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-1">Email</label>
+            <input type="text" value={companyInfo.email} onChange={(e) => setCompanyInfo({ ...companyInfo, email: e.target.value })}
+              className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="info@spmt.com.vn" />
+          </div>
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-foreground mb-1">Địa chỉ</label>
+            <input type="text" value={companyInfo.address} onChange={(e) => setCompanyInfo({ ...companyInfo, address: e.target.value })}
+              className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Ho Chi Minh City, Vietnam" />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-stone-100">
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-2">Logo Website</label>
+            <ImageUploader 
+              value={companyInfo.logo || ''} 
+              onChange={(url) => setCompanyInfo({ ...companyInfo, logo: url })}
+              label="Tải lên Logo"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-2">Favicon (Biểu tượng tab)</label>
+            <ImageUploader 
+              value={companyInfo.favicon || ''} 
+              onChange={(url) => setCompanyInfo({ ...companyInfo, favicon: url })}
+              label="Tải lên Favicon (Vuông)"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Preview Contact Buttons */}
       <div className="bg-muted/30 border border-border rounded-2xl p-6">
+        <h3 className="font-bold text-foreground mb-4">Nút chat tương tác nhanh</h3>
         <p className="text-sm font-medium text-muted-foreground mb-3">Xem trước:</p>
         <p className="text-sm text-muted-foreground mb-2">Liên hệ đặt hàng qua:</p>
         <div className="grid grid-cols-3 gap-2">

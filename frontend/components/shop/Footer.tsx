@@ -1,7 +1,22 @@
+'use client';
+
 import { Link } from '@/i18n/routing';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { useSettingsStore } from '@/store/settingsStore';
+import { useEffect, useState } from 'react';
+import { getImageUrl } from '@/lib/utils';
 
 export default function ShopFooter() {
+  const { companyInfo, fetchSettings } = useSettingsStore();
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+    fetchSettings();
+  }, [fetchSettings]);
+
+  if (!hydrated) return <footer className="bg-stone-900 text-stone-300 pt-16 pb-8 border-t border-stone-800"><div className="container mx-auto px-6 h-64"></div></footer>;
+
   return (
     <footer className="bg-stone-900 text-stone-300 pt-16 pb-8 border-t border-stone-800">
       <div className="container mx-auto px-6">
@@ -9,7 +24,7 @@ export default function ShopFooter() {
           {/* Brand & About */}
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <img src="/logo.png" alt="Superman Transport" className="h-8 md:h-10 object-contain filter brightness-0 invert" />
+              <img src={companyInfo?.logo ? getImageUrl(companyInfo.logo) : "/logo.png"} alt="Superman Transport" className="h-8 md:h-10 object-contain filter brightness-0 invert" />
             </div>
             <p className="text-stone-400 mb-6 leading-relaxed text-sm">
               Superman has experience in handling the formalities and documentation required for your imports and exports. We work with all international station to guarantee that your load will safely reach without any delays.
@@ -37,21 +52,21 @@ export default function ShopFooter() {
             </ul>
           </div>
 
-          {/* Ho Chi Minh Office */}
+          {/* Main Office */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wider text-sm">Ho Chi Minh Office</h3>
+            <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wider text-sm">Main Office</h3>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start group">
                 <MapPin className="h-5 w-5 mr-3 text-[#e62c26] shrink-0 mt-0.5" />
-                <span className="text-stone-400 group-hover:text-white transition-colors">Ho Chi Minh, Vietnam</span>
+                <span className="text-stone-400 group-hover:text-white transition-colors">{companyInfo?.address || 'Vietnam'}</span>
               </li>
               <li className="flex items-center group">
                 <Phone className="h-5 w-5 mr-3 text-[#e62c26] shrink-0" />
-                <a href="tel:(+84)2836207585" className="text-stone-400 group-hover:text-white transition-colors">(+84) 28 3620 7585 / 587</a>
+                <a href={`tel:${companyInfo?.phone?.replace(/[^0-9+]/g, '')}`} className="text-stone-400 group-hover:text-white transition-colors">{companyInfo?.phone || '(+84) 28 3620 7585'}</a>
               </li>
               <li className="flex items-center group">
                 <Mail className="h-5 w-5 mr-3 text-[#e62c26] shrink-0" />
-                <a href="mailto:info@spmt.com.vn" className="text-stone-400 group-hover:text-white transition-colors">info@spmt.com.vn</a>
+                <a href={`mailto:${companyInfo?.email || 'info@spmt.com.vn'}`} className="text-stone-400 group-hover:text-white transition-colors">{companyInfo?.email || 'info@spmt.com.vn'}</a>
               </li>
             </ul>
           </div>

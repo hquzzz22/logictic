@@ -2,6 +2,7 @@ import AdminGuard from '@/components/admin/AdminGuard';
 import AdminSidebar from '@/components/admin/Sidebar';
 import AdminHeader from '@/components/admin/Header';
 import { Toaster } from "sonner";
+import DynamicFavicon from '@/components/DynamicFavicon';
 import "../globals.css";
 
 export const metadata = {
@@ -21,6 +22,7 @@ export default function AdminLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-screen bg-muted/30 font-sans" suppressHydrationWarning>
+        <DynamicFavicon />
         <AdminGuard>
           <div className="min-h-screen">
             <AdminSidebar />

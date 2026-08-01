@@ -5,6 +5,8 @@ import { usePathname, useRouter, Link } from '@/i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
 import { Menu, X, Phone, Mail, ChevronDown, LogIn, UserCircle } from 'lucide-react';
 import { useUserStore } from '@/store/userStore';
+import { useSettingsStore } from '@/store/settingsStore';
+import { getImageUrl } from '@/lib/utils';
 
 export default function ShopHeader() {
   const pathname = usePathname();
@@ -17,6 +19,7 @@ export default function ShopHeader() {
   const [hydrated, setHydrated] = useState(false);
   const userInfo = useUserStore((state) => state.userInfo);
   const logout = useUserStore((state) => state.logout);
+  const { companyInfo, fetchSettings } = useSettingsStore();
 
   const handleLogout = () => {
     logout();
@@ -29,10 +32,11 @@ export default function ShopHeader() {
 
   useEffect(() => {
     setHydrated(true);
+    fetchSettings();
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [fetchSettings]);
 
   const navLinks = [
     { href: '/', label: t('home') },
@@ -62,13 +66,13 @@ export default function ShopHeader() {
       <div className="bg-stone-900 text-stone-300 text-xs py-2 hidden md:block border-b border-white/10 relative z-50">
         <div className="container mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-6">
-            <a href="tel:(+84)2836207585" className="flex items-center gap-2 hover:text-white transition-colors">
+            <a href={`tel:${companyInfo?.phone?.replace(/[^0-9+]/g, '')}`} className="flex items-center gap-2 hover:text-white transition-colors">
               <Phone className="h-3 w-3 text-[#ff3f39]" />
-              <span>(+84) 28 3620 7585</span>
+              <span>{companyInfo?.phone || '(+84) 28 3620 7585'}</span>
             </a>
-            <a href="mailto:info@spmt.com.vn" className="flex items-center gap-2 hover:text-white transition-colors">
+            <a href={`mailto:${companyInfo?.email || 'info@spmt.com.vn'}`} className="flex items-center gap-2 hover:text-white transition-colors">
               <Mail className="h-3 w-3 text-[#ff3f39]" />
-              <span>info@spmt.com.vn</span>
+              <span>{companyInfo?.email || 'info@spmt.com.vn'}</span>
             </a>
           </div>
           <div className="flex items-center gap-4 font-medium uppercase tracking-wider">
@@ -124,7 +128,7 @@ export default function ShopHeader() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 flex-shrink-0 group">
-              <img src="/logo.png" alt="Superman Transport" className="h-8 md:h-10 object-contain" />
+              <img src={companyInfo?.logo ? getImageUrl(companyInfo.logo) : "/logo.png"} alt="Superman Transport" className="h-8 md:h-10 object-contain" />
             </Link>
 
             {/* Desktop Navigation */}

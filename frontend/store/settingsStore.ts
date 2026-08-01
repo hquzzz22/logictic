@@ -7,8 +7,17 @@ interface ContactButtons {
   messenger: { label: string; id: string; enabled: boolean; icon?: string };
 }
 
+export interface CompanyInfo {
+  phone: string;
+  email: string;
+  address: string;
+  logo?: string;
+  favicon?: string;
+}
+
 interface SettingsState {
   contactButtons: ContactButtons | null;
+  companyInfo: CompanyInfo | null;
   loaded: boolean;
   fetchSettings: () => Promise<void>;
 }
@@ -19,16 +28,34 @@ const defaultButtons: ContactButtons = {
   messenger: { label: 'Messenger', id: 'https://m.me/spmt', enabled: true },
 };
 
+const defaultCompanyInfo: CompanyInfo = {
+  phone: '(+84) 28 3620 7585',
+  email: 'info@spmt.com.vn',
+  address: 'Ho Chi Minh City, Vietnam',
+};
+
 export const useSettingsStore = create<SettingsState>((set, get) => ({
   contactButtons: null,
+  companyInfo: null,
   loaded: false,
   fetchSettings: async () => {
     if (get().loaded) return;
     try {
-      const { data } = await api.get('/settings/contactButtons');
-      set({ contactButtons: data || defaultButtons, loaded: true });
+      const [btnsRes, infoRes] = await Promise.all([
+        api.get('/settings/contactButtons').catch(() => ({ data: null })),
+        api.get('/settings/companyInfo').catch(() => ({ data: null })),
+      ]);
+      set({ 
+        contactButtons: btnsRes.data || defaultButtons,
+        companyInfo: infoRes.data || defaultCompanyInfo,
+        loaded: true 
+      });
     } catch {
-      set({ contactButtons: defaultButtons, loaded: true });
+      set({ 
+        contactButtons: defaultButtons, 
+        companyInfo: defaultCompanyInfo,
+        loaded: true 
+      });
     }
   },
 }));
