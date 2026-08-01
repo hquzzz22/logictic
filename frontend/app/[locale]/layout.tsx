@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     ? "Superman Transport giúp bạn vận chuyển thông minh hơn với các dịch vụ chuyên nghiệp — bao gồm đường hàng không, đường biển, kho bãi, đường bộ, hải quan & gom hàng toàn cầu."
     : "Superman Transport helps you move smarter with expert freight services — including air, sea, warehousing, trucking, customs clearance & global consolidation.";
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_URL || process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   return {
     metadataBase: new URL(baseUrl),

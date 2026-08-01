@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const description = getLocalized(post.description, locale) || title;
   const imageUrl = post.image ? getImageUrl(post.image) : '/placeholder.jpg';
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_URL || process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   return {
     title,
@@ -93,7 +93,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
   } catch (e) {}
 
   // JSON-LD Schema
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_URL || process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const schemaOrgJSONLD = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
