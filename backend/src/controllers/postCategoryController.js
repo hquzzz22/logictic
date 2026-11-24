@@ -10,7 +10,7 @@ function normalizeBilingual(value) {
 // GET /api/post-categories
 const getPostCategories = async (req, res, next) => {
   try {
-    const categories = await PostCategory.find({}).sort({ createdAt: -1 });
+    const categories = await PostCategory.find({}).sort({ createdAt: 1 });
     res.json(categories);
   } catch (error) { next(error); }
 };

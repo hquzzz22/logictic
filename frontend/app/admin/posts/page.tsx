@@ -12,9 +12,16 @@ interface Post {
   slug: string;
   content: { en: string; vi: string } | string;
   image: string;
+  category?: { _id: string; name: { en: string; vi: string } | string; slug: string };
   isPublished: boolean;
   createdAt: string;
   author?: { name: string };
+}
+
+function getCategoryLabel(cat?: Post['category']): string {
+  if (!cat) return '—';
+  if (typeof cat.name === 'string') return cat.name;
+  return cat.name?.vi || cat.name?.en || '—';
 }
 
 // Helper: get display title from bilingual or legacy string format
@@ -101,6 +108,7 @@ export default function AdminPosts() {
               <thead className="bg-muted/50">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Tiêu đề</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Danh mục</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Ngôn ngữ</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Trạng thái</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Ngày tạo</th>
@@ -110,7 +118,7 @@ export default function AdminPosts() {
               <tbody className="bg-white divide-y divide-border">
                 {posts.length === 0 ? (
                   <tr>
-                    <td colSpan={5} className="px-6 py-12 text-center text-muted-foreground">
+                    <td colSpan={6} className="px-6 py-12 text-center text-muted-foreground">
                       Chưa có bài viết nào
                     </td>
                   </tr>
@@ -121,6 +129,11 @@ export default function AdminPosts() {
                       <tr key={post._id} className="hover:bg-muted/20 transition-colors">
                         <td className="px-6 py-4 text-sm font-medium text-foreground max-w-xs truncate">
                           {getTitle(post)}
+                        </td>
+                        <td className="px-6 py-4 text-xs">
+                          <span className="inline-flex px-2.5 py-1 font-medium rounded-full bg-stone-100 text-stone-700">
+                            {getCategoryLabel(post.category)}
+                          </span>
                         </td>
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-1.5">

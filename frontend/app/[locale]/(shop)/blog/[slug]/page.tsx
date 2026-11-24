@@ -135,6 +135,15 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
         <div className="flex flex-col lg:flex-row gap-12">
           <div className="lg:w-2/3">
             <article>
+              {post.category && (
+                <Link
+                  href={`/blog?category=${post.category.slug}`}
+                  className="inline-block bg-[#ff3f39]/10 text-[#ff3f39] font-bold text-xs uppercase tracking-wider px-3 py-1.5 rounded-md mb-4 hover:bg-[#ff3f39] hover:text-white transition-colors"
+                >
+                  {getLocalized(post.category.name, locale)}
+                </Link>
+              )}
+
               <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
                 {title}
               </h1>

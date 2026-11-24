@@ -41,32 +41,43 @@ export default function ArticleRenderer({ content }: { content: string }) {
               />
             );
           case 'header': {
-            const Tag = `h${block.data.level || 2}` as any;
+            const level = Number(block.data.level) || 2;
+            const Tag = `h${level}` as any;
             const rawText = block.data.text || "";
             const textOnly = rawText.replace(/<[^>]*>?/gm, "").trim();
             // Create ID using slugify
             const id = textOnly ? (slugify(textOnly) || `heading-${block.id}`) : `heading-${block.id}`;
+            const sizeClass =
+              level === 2
+                ? "text-2xl md:text-[1.65rem] mt-10 mb-4"
+                : level === 3
+                ? "text-xl mt-7 mb-3"
+                : "text-lg mt-6 mb-2";
             return (
               <Tag
                 key={block.id}
                 id={id}
-                className="font-bold text-stone-900 mt-10 mb-4 scroll-mt-24"
+                className={`font-bold text-stone-900 scroll-mt-24 leading-snug ${sizeClass}`}
                 dangerouslySetInnerHTML={{ __html: rawText }}
               />
             );
           }
-          case 'list':
-            const ListTag = block.data.style === 'ordered' ? 'ol' : 'ul';
+          case 'list': {
+            const isOrdered = block.data.style === 'ordered';
+            const ListTag = isOrdered ? 'ol' : 'ul';
             return (
-              <ListTag key={block.id} className="pl-6 mb-4 text-muted-foreground list-inside">
+              <ListTag
+                key={block.id}
+                className={`pl-6 mb-5 space-y-2 text-muted-foreground ${isOrdered ? 'list-decimal' : 'list-disc'}`}
+              >
                 {block.data.items.map((item: any, i: number) => {
                   const htmlContent = typeof item === 'string' ? item : (item.content || '');
                   const subItems = typeof item === 'object' && Array.isArray(item.items) && item.items.length > 0 ? item.items : null;
                   return (
-                    <li key={i} className="mb-2">
+                    <li key={i} className="leading-relaxed">
                       <span dangerouslySetInnerHTML={{ __html: htmlContent }} />
                       {subItems && (
-                        <ListTag className="pl-6 mt-2 list-inside">
+                        <ListTag className={`pl-6 mt-2 space-y-1.5 ${isOrdered ? 'list-decimal' : 'list-disc'}`}>
                           {subItems.map((subItem: any, j: number) => {
                             const subHtml = typeof subItem === 'string' ? subItem : (subItem.content || '');
                             return <li key={j} dangerouslySetInnerHTML={{ __html: subHtml }} />;
@@ -78,6 +89,7 @@ export default function ArticleRenderer({ content }: { content: string }) {
                 })}
               </ListTag>
             );
+          }
           case 'image':
             return (
               <figure key={block.id} className="my-8">

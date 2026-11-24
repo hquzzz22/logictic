@@ -22,7 +22,10 @@ const getPosts = async (req, res, next) => {
     if (req.query.category) {
       const PostCategory = require('../models/PostCategory');
       const cat = await PostCategory.findOne({ slug: req.query.category });
-      if (cat) filter.category = cat._id;
+      if (!cat) {
+        return res.json([]);
+      }
+      filter.category = cat._id;
     }
     const posts = await Post.find(filter)
       .populate('author', 'name')
@@ -54,7 +57,9 @@ const getAdminPosts = async (req, res, next) => {
 // @access  Public
 const getPostBySlug = async (req, res, next) => {
   try {
-    const post = await Post.findOne({ slug: req.params.slug }).populate('author', 'name');
+    const post = await Post.findOne({ slug: req.params.slug })
+      .populate('author', 'name')
+      .populate('category', 'name slug');
     if (post) {
       res.json(post);
     } else {
